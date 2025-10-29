@@ -1,0 +1,482 @@
+% TODO: search for CHECK marker
+% Guidelines: https://www.nature.com/nature/for-authors/formatting-guide
+% CHECK All figures referenced and referenced in order?
+% CHECK Contributions should be double-spaced and written in English (spellings as in the Oxford English Dictionary).
+% CHECK update all reported numbers and data in the text s.th. they match the figures; update numbers in tables
+
+% Abbreviations, particularly those that are not standard, should also be kept to a minimum.
+
+\documentclass[
+  final,
+  10pt,
+  a4paper,
+  english,
+]{article}
+\setlength{\parskip}{6pt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[
+  a4paper,
+  top=25mm,
+  left=13.5mm,
+  right=13.5mm,
+  bottom=25mm,
+]{geometry}
+\usepackage{supertabular}
+\usepackage{multirow}
+\usepackage{sidecap}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage[table,x11names]{xcolor}
+\usepackage{lmodern}
+\usepackage{subcaption}
+% \usepackage{subfig}
+\usepackage{fix-cm}
+\usepackage[list=no]{caption}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[mathlines]{lineno}
+\usepackage{changepage}
+% \usepackage{floatrow}
+\usepackage{helvet}
+\usepackage{xfrac}
+\usepackage{mathpazo}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{sfmath}
+\usepackage{csquotes}
+\usepackage[
+  tracking=true,
+  expansion=true,
+  protrusion=true,
+  nopatch=footnote,
+  babel,
+]{microtype}
+\usepackage{lineno}
+
+
+\newcommand{\todo}[1]{{\color{red!80!black} TODO {\itshape\color{orange!70!black} #1}}}
+
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
+\newcommand{\argmin}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{min}}\;}
+
+\newcommand{\numcountries}{132}
+
+\usepackage{enumitem}
+\newlist{tabitemize}{itemize}{1}
+\setlist[tabitemize]{label=\textbullet,nosep,after=\strut,align=parleft,leftmargin=*,}
+
+\usepackage{textcomp}
+
+\usepackage[
+backend=biber,
+%style=numeric-comp,
+% style=nature,
+style=authoryear,
+sorting=none,
+]{biblatex}
+\addbibresource{lib.bib}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, arrows.meta, calc, positioning, quotes, shapes, decorations.pathreplacing}
+\usepackage{placeins}
+\usepackage{comment}
+
+\frenchspacing
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+\raggedbottom
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+\crefformat{figure}{#2Fig.~#1#3}
+\crefformat{supfigure}{#2Supplementary Fig.~#1#3}
+\Crefformat{supfigure}{#2Supplementary Figure~#1#3}
+\crefmultiformat{supfigure}{Supplementary Figs.~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangeformat{supfigure}{Supplementary Figs. #3#1#4--#5#2#6}{}{}{}
+\crefformat{suptable}{#2Supplementary Tbl.~#1#3}
+\Crefformat{suptable}{#2Supplementary Table~#1#3}
+\crefmultiformat{suptable}{Supplementary Tbls. ~#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangeformat{suptable}{Supplementary Tbls. #3#1#4--#5#2#6}{}{}{}
+
+\usepackage{nameref}
+
+% \floatsetup[figure]{capbesideposition={top,right},capbesidesep=quad,facing=yes}
+
+\graphicspath{{./graphics/}}
+\DeclareRobustCommand{\ie}{i.\,e.~}
+\DeclareRobustCommand{\eg}{e.\,g.~}
+
+\captionsetup{labelfont=bf}
+
+
+% CHECK Titles do not exceed two lines in print. This equates to 75 characters (including spaces). Titles do not normally include numbers, acronyms, abbreviations or punctuation. They should include sufficient detail for indexing purposes but be general enough for readers outside the field to appreciate what the paper is about.
+
+
+\newcommand{\articletitle}{Economic Benefits of Hydrometeorological Forecasts in Cambodia---Technical Background Paper}
+% TODO: check title length
+
+\hypersetup{colorlinks=true}
+\hypersetup{linkcolor=red!50!black}
+\hypersetup{urlcolor=blue!50!black}
+\hypersetup{citecolor=green!50!black}
+\hypersetup{pdftitle={\articletitle}}
+\hypersetup{pdfsubject={}}
+\hypersetup{pdfkeywords={}{}{}}
+
+
+
+\newcounter{lastbib}
+
+
+\usepackage{setspace}
+\setstretch{1.4}
+\captionsetup{font={stretch=1.4}}
+% \linespread{1.14} % only after review
+\linespread{1.4}
+% \linenumbers
+
+
+\begin{document}
+\begin{refsection}
+
+\newgeometry{textwidth=183mm}
+
+\begin{center}
+  {
+    \Large
+    \noindent
+    \articletitle
+  }
+  \vspace{1em}
+  
+  {
+    \noindent
+    R.~Middelanis\textsuperscript{a},
+    B.~A.~Jafino\textsuperscript{a},
+    M.~Sidibe\textsuperscript{a},
+    P.~Avner\textsuperscript{a}\\
+  }
+  \vspace{0.5em}
+
+  {
+    \small
+    \noindent
+   \textsuperscript{a}The World Bank\\
+  }
+  \vspace{0.5em}
+  
+\end{center}
+
+
+
+% \begin{abstract}
+%   \noindent
+%   \todo{The abstract}
+% \end{abstract}
+
+
+% \restoregeometry
+% \clearpage
+
+
+\section{Introduction}
+Cambodia aims to develop into a high-income country by 2050 from its current
+status of a lower-middle income country as per the World Bank's country income
+classification and the country. Climate change poses challenges to this
+development path, both through gradual changes in temperature and precipitation
+patterns as well as through an increase in the frequency and intensity of
+extreme weather events such as floods and droughts. These extreme weather events
+can have significant negative impacts on various sectors of the economy. 
+Historically, floods have been the most
+frequent and damaging disasters in Cambodia \parencite{undrr2019disaster_risk_cambodia}. 
+The agriculture sector accounts for 17\% of Cambodia's GDP 
+\parencite{wb2025agri_gdp_cambodia}, and is particularly vulnerable to changing 
+precipitation patterns and temperature \parencite{wbadb2021climate_risk_cambodia}.
+The country's electricity generation relies heavily on hydropower,
+which accounted for 35\% of generated electricity in 2023 \parencite{iea2023energy_mix_cambodia}.
+With altered rainfall and extreme weather events, streamflow patterns can be expected
+to change, affecting the country's electricity supply.
+
+Better weather forecasts can help mitigate these negative impacts by providing
+timely information to farmers, energy producers, and policymakers. Accurate
+forecasts can help farmers make informed decisions about planting and harvesting
+crops \parencite{an-vo_framework_2021}, while energy producers can use forecasts
+to optimize their operations \parencite{koh_evaluating_2024}. They also enable
+timely early warnings that allow for proactive measures to protect
+infrastructure and communities, effectively reducing their impact on the economy
+and society \parencite{middelanis2025warning}. Here we use the World Bank's
+macro-economic model \textit{MFMod} \parencite{burns_world_2019} to estimate the
+economic benefits of improved hydrometeorological forecasts in Cambodia. We
+focus on three impact channels: (i) disaster risk reduction, focusing on reduced
+damage from floods, (ii) improved agricultural productivity, and (iii) optimized
+hydropower generation. This technical background paper describes the data and
+methods used in the analysis, presents the results, and discusses their
+implications for Cambodia's development path.
+
+
+\FloatBarrier
+\section{Scenarios}
+\label{sec:scenarios}
+
+We simulate the economic development of Cambodia under optimistic and pessimistic
+climate projections (\cref{fig:temp_projections_khm}). We use a 10-y running average of the 10th and 90th
+percentiles of temperature projections from the SSP1-2.6 and SSP5-8.5 CMIP6
+ensembles, respectively, which we obtain from the World Bank's Climate Change
+Knowledge Portal \parencite{worldbank2025climate_temp_cambodia}. For the definition 
+of impact channel variables in the simulations, we use the temperature change under 
+both scenarios relative to the 2020 base year. Under the optimistic projection, 
+the temperature in Cambodia increases by about 0.53\degree~C between 2020 and 2050, and 
+by about 1.61\degree~C under the pessimistic projection.
+Under both climate scenarios, we consider three forecast scenarios:
+\begin{itemize}
+  \item \textbf{No forecasts}: This control scenario models the development of
+    Cambodia in the absence of hydrometeorological forecasts. It is used to
+    quantify the benefits of forecasts by comparing it to the other two forecast
+    scenarios.
+  \item \textbf{Current forecast skill}: This scenario represents the current
+    forecast skill and its benefits for Cambodia. 
+  \item \textbf{Perfect forecast skill}: This scenario models an investment into
+  hydrometeorological observations and institutional capacity to improve forecasts
+  and early warning systems. The investment is spread over a 10-year period from
+  2031 to 2040, after which the improved forecast skill and associated benefits 
+  are maintained until 2050.
+\end{itemize}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=5in]{./figures/temperature_projections_KHM.pdf}
+  \caption{\textbf{Temperature projections for Cambodia.} Projections are shown
+    for the SSP1-2.6 and SSP5-8.5 scenarios. Optimistic and pessimistic
+    scenarios for the simulation period from 2020 to 2050 are given by the 10-y
+    running averages of the 10th and 90th percentiles of the respective CMIP6
+    ensemble. Adapted from \cite{worldbank2025climate_temp_cambodia}.}
+  \label{fig:temp_projections_khm}
+\end{figure}
+
+In the following sections, we define variables for each impact channel under the
+different climate and forecast scenarios for the simulation period from 2020 to
+2050. These variables are used as inputs to the \textit{MFMod} model to simulate
+Cambodia's economic development under the different scenarios.
+
+
+\section{Disaster Risk Reduction}
+\label{sec:drr}
+
+Flood damages are expected to increase in Cambodia due to climate change and can
+reach up to 2.97\% annual average loss of national capital by 2050 under a
+pessimistic climate scenario, and up to 1.01\% under an optimistic
+scenario\footnote{For these estimates, the optimistic and pessimistic climate
+scenarios are defined slightly differently from ours, and are based on the 20th
+and 80th percentiles of losses under the SSP1-2.6 and SSP5-8.5 CMIP6 ensembles,
+respectively.} from a current level of 0.93\% \parencite{worldbank2023ccdr}.
+These estimates of future damages account for population growth and adjusted
+land-use planning, but do not consider other adaptation measures such as early
+warning systems. Improved forecasts can help reduce flood damages by enabling
+early warnings and proactive measures to protect assets, infrastructure, and
+livelihoods. 
+
+We assume that projected flood damages under the two climate scenarios
+materialize proportionally to the temperature increase relative to 2020 in the
+absence of forecasts, which yields the "no forecasts" scenario. To define the
+asset damages under the "current forecast skill" and "perfect forecast skill"
+scenarios, we use values for Cambodia from \textcite{middelanis2025warning},
+who estimate that the current level of forecast skill, institutional capacity,
+and early warning coverage allow to reduce flood damages by 3.2\%. For the 
+"perfect forecast skill" scenario, we assume 100\% coverage, and
+that forecast quality and institutional capacity increase such that average warning
+lead times reach the level of high-income countries, which yields an
+estimated damage reduction of 6.5\%. The improvement to perfect forecast skill is
+assumed to take place linearly over the investment period from 2031 to 2040.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/drr_impact_channel_KHM.pdf}
+  \caption{\textbf{Disaster Risk Redution impact channel.} Projected annual
+  average flood damages as percentage of national capital stock under the
+  optimistic and pessimistic climate scenarios for the three forecast
+  scenarios.}
+  \label{fig:drr}
+\end{figure}
+
+
+\section{Agricultural Productivity}
+\label{sec:agriculture}
+Various studies have shown the value of weather forecasts for agricultural
+productivity. \cite{collins_evaluating_2024} simulate the value of weather
+forecasts for irrigation for 11 locations scheduling in 7 countries and find
+maize yields to increase by up to 11\% compared to a no-forecast scenario.
+Forecasts can also guide agronomic decisions such as optimal planting dates and
+fertilizer use. Simulations of forecast value for maize planting in Kenya
+\parencite{hansen_potential_2009} and a case study in Burkina Faso
+\parencite{tarchiani_access_2021} demonstrate that tailoring planting and input
+choices to weather forecasts can increase agricultural productivity.
+
+To quantify the benefits of weather forecasts for agricultural productivity in
+Cambodia, we use estimates from \cite{an-vo_framework_2021}, who simulate the
+value of improved forecasts on rice yields in the Vietnamese Mekong River Delta
+region under current and perfect forecasts. They use a price of \$220 per ton of
+rice and valuate current forecast skills at \$135\,ha\textsuperscript{-1} and
+perfect forecast skills at \$220\,ha\textsuperscript{-1}. Assuming a rice yield
+of 5.8 tons/ha \parencite{stuart2018farm}, the value of current forecasts
+translates to an increase in productivity of 10.34\%, and the value of perfect
+forecasts to an increase of 16.86\%. If costs, inputs, and prices remain
+constant, these productivity increases can be used as percentage increases
+of total factor productivity (TFP). We apply these productivity increases to
+the agriculture sector in Cambodia, which accounted for more than half of total
+agricultural output in the year 2023, according to estimates by the Food and
+Agriculture Organization \parencite{fao_faostat_2025}.
+
+In the absence of measures to improve agricultural productivity, climate change
+is expected to reduce output in the agricultural sector. We calibrate these "no
+forecast" baselines under the optimistic and pessimistic climate scenarios using
+estimated damage functions from \cite{roson2016estimation} who find decreases in
+agriculture multi-factor productivity of 2.53\% and 5.27\% under temperature increases
+of 1\degree~C and 2\degree~C, respectively, for Cambodia. 
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/agri_impact_channel_KHM.pdf}
+  \caption{\textbf{Agricultural Productivity impact channel.} Productivity
+  increases of the agriculture sector due to forecasts under the three forecast
+  scenarios.}
+  \label{fig:agriculture}
+\end{figure}
+
+
+\section{Hydropower Generation}
+\label{sec:hydropower}
+
+
+\section{Results}
+\label{sec:results}
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+
+\clearpage
+
+
+\printbibliography[heading=bibintoc]
+
+
+
+\FloatBarrier
+\clearpage
+\section*{Declarations}
+
+
+\subsection*{Data availability}
+\todo{Data availability}
+
+\subsection*{Code availability}
+\todo{Code availability}
+
+\subsection*{Acknowledgments}
+\todo{Acknowledgements}
+
+\subsection*{Author information}
+\todo{Author information}
+
+\subsection*{Competing interests}
+The authors declare that they have no competing interests.
+
+\subsection*{Additional information}
+Supplementary information is available for this paper.
+
+\clearpage
+\FloatBarrier
+
+\end{refsection}
+
+\begin{refsection}
+
+\setcounter{page}{1}
+\FloatBarrier
+\newpage
+\begin{center}
+  {
+    \Large
+    \noindent
+    Supplementary information for: \\ \vspace{1em}
+    \articletitle
+  }
+    
+
+  {
+    \noindent
+    \todo{author list}
+  }
+\end{center}
+
+
+\setcounter{figure}{0}
+\addto\captionsenglish{\renewcommand{\figurename}{Supplementary Figure}}
+\renewcommand{\figurename}{Supplementary Figure}
+\addto\captionsenglish{\renewcommand{\tablename}{Supplementary Table}}
+\renewcommand{\tablename}{Supplementary Table}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{S.\arabic{equation}}
+
+\setcounter{section}{0}
+
+
+
+
+\subsection*{Table of contents}
+
+\subsubsection*{A Methods supplement}
+\noindent
+\cref{sec:}: .
+\\[0.67em]
+
+\subsubsection*{B Supplementary figures}
+\noindent
+% \cref{supfig:supfigure_1}: \todo{Supfigure 1 title}.
+% \\[0.67em]
+
+\subsubsection*{C Supplementary tables}
+\noindent
+% \cref{suptab:suptable_1}: \todo{Suptable 1 title}.
+% \\[0.67em]
+
+
+\clearpage
+\FloatBarrier
+\renewcommand{\thesection}{A}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\section{Methods supplement}
+\label{si:methods}
+
+\clearpage
+\FloatBarrier
+\renewcommand{\thesection}{B}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\section{Supplementary figures}
+\label{si:figures}
+
+
+\clearpage
+\FloatBarrier
+\renewcommand{\thesection}{C}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\section{Supplementary tables}
+\label{si:tables}
+
+
+
+
+\clearpage
+
+\printbibliography[heading=subbibintoc]
+
+\end{refsection}
+
+
+\end{document}
