@@ -81,16 +81,17 @@ def calculate_drr_impact_channel(temperature_increases_path, implementation_year
     temperature_increases = pd.read_csv(temperature_increases_path, index_col='year')
 
     res = pd.DataFrame(index=temperature_increases.index)
-    res['SSP1-2.6 - no FC'] = (temperature_increases / temperature_increases.loc[2050])['SSP1-2.6'] * (optimistic_aal_2050 - current_aal) + current_aal
-    res['SSP5-8.5 - no FC'] = (temperature_increases / temperature_increases.loc[2050])['SSP5-8.5'] * (pessimistic_aal_2050 - current_aal) + current_aal
+    res['SSP1-2.6 - Control'] = (temperature_increases / temperature_increases.loc[2050])['SSP1-2.6'] * (optimistic_aal_2050 - current_aal) + current_aal
+    res['SSP5-8.5 - Control'] = (temperature_increases / temperature_increases.loc[2050])['SSP5-8.5'] * (pessimistic_aal_2050 - current_aal) + current_aal
 
-    res['SSP1-2.6 - current FC'] = res['SSP1-2.6 - no FC'] * (1 - current_ew_benefits)
-    res['SSP5-8.5 - current FC'] = res['SSP5-8.5 - no FC'] * (1 - current_ew_benefits)
+    res['SSP1-2.6 - Status quo'] = res['SSP1-2.6 - Control'] * (1 - current_ew_benefits)
+    res['SSP5-8.5 - Status quo'] = res['SSP5-8.5 - Control'] * (1 - current_ew_benefits)
 
-    implementation_level = pd.Series(np.clip((res.index - implementation_year) / implementation_duration, 0, 1), index=res.index, name='implementation_level')
-    res['SSP1-2.6 - perfect FC'] = res['SSP1-2.6 - no FC'] * (1 - (current_ew_benefits + implementation_level * (perfect_ew_benefits - current_ew_benefits)))
-    res['SSP5-8.5 - perfect FC'] = res['SSP5-8.5 - no FC'] * (1 - (current_ew_benefits + implementation_level * (perfect_ew_benefits - current_ew_benefits)))
+    implementation_level = pd.Series(np.clip((res.index - (implementation_year - 1)) / implementation_duration, 0, 1), index=res.index, name='implementation_level')
+    res['SSP1-2.6 - Improvement'] = res['SSP1-2.6 - Control'] * (1 - (current_ew_benefits + implementation_level * (perfect_ew_benefits - current_ew_benefits)))
+    res['SSP5-8.5 - Improvement'] = res['SSP5-8.5 - Control'] * (1 - (current_ew_benefits + implementation_level * (perfect_ew_benefits - current_ew_benefits)))
 
+    res = res[['SSP1-2.6 - Control', 'SSP1-2.6 - Status quo', 'SSP1-2.6 - Improvement', 'SSP5-8.5 - Control', 'SSP5-8.5 - Status quo', 'SSP5-8.5 - Improvement']]
     fig, ax = plt.subplots(figsize=(7, 3))
     for col in res.columns:
         ax.plot(res.index, res[col], label=col)
@@ -101,6 +102,7 @@ def calculate_drr_impact_channel(temperature_increases_path, implementation_year
     plt.tight_layout()
 
     res.columns = pd.MultiIndex.from_tuples([tuple(col.split(' - ')) for col in res.columns], names=['Climate scenario', 'Forecast scenario'])
+    res = res.sort_index(axis=1, level='Climate scenario', sort_remaining=False)
     if outpath:
         fig.savefig(os.path.join(outpath, 'drr_impact_channel_KHM.pdf'), dpi=300)
         res.to_csv(os.path.join(outpath, 'drr_impact_channel_KHM.csv'))
@@ -135,11 +137,13 @@ def calc_agri_impact_channel(temperature_increases_path, implementation_year=203
         temp_increase = temperature_increases[scenario]
         productivity_loss = temp_increase.map(lambda x: np.interp(x, list(productivity_loss_lookup.keys()), list(productivity_loss_lookup.values())))
 
-        res[f'{scenario} - no FC'] = productivity_loss / 100
-        res[f'{scenario} - current FC'] = (1 + res[f'{scenario} - no FC']) * (1 + productivity_increase_current_forecasts) - 1
-        implementation_level = pd.Series(np.clip((res.index - implementation_year) / implementation_duration, 0, 1), index=res.index, name='implementation_level')
-        res[f'{scenario} - perfect FC'] = (1 + res[f'{scenario} - no FC']) * (1 + productivity_increase_current_forecasts + implementation_level * (productivity_increase_perfect_forecasts - productivity_increase_current_forecasts)) - 1
+        res[f'{scenario} - Control'] = productivity_loss / 100
+        res[f'{scenario} - Status quo'] = (1 + res[f'{scenario} - Control']) * (1 + productivity_increase_current_forecasts) - 1
+        implementation_level = pd.Series(np.clip((res.index - (implementation_year - 1)) / implementation_duration, 0, 1), index=res.index, name='implementation_level')
+        res[f'{scenario} - Improvement'] = (1 + res[f'{scenario} - Control']) * (1 + productivity_increase_current_forecasts + implementation_level * (productivity_increase_perfect_forecasts - productivity_increase_current_forecasts)) - 1
     res *= 100  # convert to percentage
+    res = res[['SSP1-2.6 - Control', 'SSP1-2.6 - Status quo', 'SSP1-2.6 - Improvement', 'SSP5-8.5 - Control', 'SSP5-8.5 - Status quo', 'SSP5-8.5 - Improvement']]
+
     fig, ax = plt.subplots(figsize=(7, 3))
     for col in res.columns:
         ax.plot(res.index, res[col], label=col)
@@ -168,7 +172,7 @@ if __name__ == "__main__":
     temperature_change_path = os.path.join(temperature_outpath, 'temperature_change_to_2020.csv')
 
     drr_outpath = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/results/DRR/"
-    calculate_drr_impact_channel(temperature_change_path, implementation_year=2031, implementation_duration=10, outpath=drr_outpath)
+    calculate_drr_impact_channel(temperature_change_path, implementation_year=2020, implementation_duration=30, outpath=drr_outpath)
 
     agri_outpath = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/results/Agriculture/"
-    calc_agri_impact_channel(temperature_change_path, implementation_year=2031, implementation_duration=10, outpath=agri_outpath)
+    calc_agri_impact_channel(temperature_change_path, implementation_year=2020, implementation_duration=30, outpath=agri_outpath)
