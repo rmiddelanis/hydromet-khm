@@ -223,16 +223,21 @@ implications for Cambodia's development path.
 \section{Scenarios}
 \label{sec:scenarios}
 
-We simulate the economic development of Cambodia under optimistic and pessimistic
-climate projections (\cref{fig:temp_projections_khm}). We use a 10-y running average of the 10th and 90th
-percentiles of temperature projections from the SSP1-2.6 and SSP5-8.5 CMIP6
+We simulate the economic development of Cambodia under optimistic and
+pessimistic climate projections (\cref{fig:temp_projections_khm}). We use a 10-y
+running average of temperature projections from the SSP1-2.6 and SSP5-8.5 CMIP6
 ensembles, respectively, which we obtain from the World Bank's Climate Change
-Knowledge Portal \parencite{worldbank2025climate_temp_cambodia}. For the definition 
-of impact channel variables in the simulations, we use the temperature change under 
-both scenarios relative to the 2020 base year. Under the optimistic projection, 
-the temperature in Cambodia increases by about 0.53\degree~C between 2020 and 2050, and 
-by about 1.61\degree~C under the pessimistic projection.
-Under both climate scenarios, we consider three forecast scenarios:
+Knowledge Portal \parencite{worldbank2025climate_temp_cambodia}. For the
+definition of impact channel variables in the simulations, we use the
+temperature change under both scenarios relative to the 2020 base year. Under
+the optimistic projection, the temperature in Cambodia will increase by about
+0.6\degree~C between 2020 and 2050, and by about 1.2\degree~C under the
+pessimistic projection. {\color{red} Note: We could also use the lower and upper
+ensemble deciles for the two scenarios, which would yield increases of
+0.52\degree~C and 1.62\degree~C, respectively. This would align better with the
+DRR asset loss estimates where the 20th and 80th percentiles are used, and we can use any increases for the agriculture
+damage functions, but hydropower may be problematic.} Under both climate
+scenarios, we consider three forecast scenarios:
 \begin{itemize}
   \item \textbf{No forecasts}: This control scenario models the development of
     Cambodia in the absence of hydrometeorological forecasts. It is used to
@@ -253,8 +258,9 @@ Under both climate scenarios, we consider three forecast scenarios:
   \caption{\textbf{Temperature projections for Cambodia.} Projections are shown
     for the SSP1-2.6 and SSP5-8.5 scenarios. Optimistic and pessimistic
     scenarios for the simulation period from 2020 to 2050 are given by the 10-y
-    running averages of the 10th and 90th percentiles of the respective CMIP6
-    ensemble. Adapted from \cite{worldbank2025climate_temp_cambodia}.}
+    central running averages of the median CMIP6 projections for the SSP1-2.6
+    and SSP5-8.5 scenarios. Data obtained from
+    \cite{worldbank2025climate_temp_cambodia}.}
   \label{fig:temp_projections_khm}
 \end{figure}
 
@@ -262,6 +268,8 @@ In the following sections, we define variables for each impact channel under the
 different climate and forecast scenarios for the simulation period from 2020 to
 2050. These variables are used as inputs to the \textit{MFMod} model to simulate
 Cambodia's economic development under the different scenarios.
+
+\todo{costs}
 
 
 \section{Disaster Risk Reduction}
@@ -293,6 +301,15 @@ lead times reach the level of high-income countries, which yields an
 estimated damage reduction of 6.5\%. The improvement to perfect forecast skill is
 assumed to take place linearly over the investment period from 2031 to 2040.
 
+Annual average flood damages as percentage of national capital stock are shown
+for all three forecast scenarios under the two climate scenarios in
+\cref{tab:drr_impact_channel_KHM} and \cref{fig:drr_impact_channel_KHM} for the period from 2020 to 2050. 
+With current forecast skill, damages in the optimistic climate scenario are
+reduced from 1.01\% in 2050 to 0.98\%. With perfect forecast skill, damages
+decrease further to 0.95\% in 2050. Under the pessimistic climate scenario,
+damages in 2050 are reduced from 2.97\% to 2.88\% with current forecast skill,
+and to 2.78\% with perfect forecast skill.
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/drr_impact_channel_KHM.pdf}
@@ -300,7 +317,7 @@ assumed to take place linearly over the investment period from 2031 to 2040.
   average flood damages as percentage of national capital stock under the
   optimistic and pessimistic climate scenarios for the three forecast
   scenarios.}
-  \label{fig:drr}
+  \label{fig:drr_impact_channel_KHM}
 \end{figure}
 
 
@@ -338,26 +355,46 @@ estimated damage functions from \cite{roson2016estimation} who find decreases in
 agriculture multi-factor productivity of 2.53\% and 5.27\% under temperature increases
 of 1\degree~C and 2\degree~C, respectively, for Cambodia. 
 
+Annual agricultural productivity increases under the three forecast scenarios
+and the two climate scenarios are shown in \cref{tab:agri_impact_channel_KHM}
+and \cref{fig:agri_impact_channel_KHM} for the period from 2020 to 2050. In the
+absence of forecasts, agricultural productivity decreases by 1.52\% until 2050.
+This trend can be offset if current forecast skill is fully translated into
+productivity increases, leading to a 8.82\% higher productivity in 2050. With perfect
+forecast skill, productivity would increase by up to 15.34\% in 2050. Under the
+pessimistic climate scenario, productivity decreases by 3.64\% in 2050 in the
+"no forecasts" scenario, while it increases by 6.63\% and 13.15\% with current
+and perfect forecast skill, respectively.
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/agri_impact_channel_KHM.pdf}
   \caption{\textbf{Agricultural Productivity impact channel.} Productivity
   increases of the agriculture sector due to forecasts under the three forecast
   scenarios.}
-  \label{fig:agriculture}
+  \label{fig:agri_impact_channel_KHM}
 \end{figure}
 
 
 \section{Hydropower Generation}
 \label{sec:hydropower}
+\todo{Literature on Climate Change impacts on Hydropower in Cambodia}
 
 
 \section{Results}
 \label{sec:results}
+\todo{MFMod results on economic development}
 
+\noindent
+\todo{Potentially include MFMod results on job creation}
 
 \section{Discussion}
 \label{sec:discussion}
+\todo{The discussion}
+
+\input{tables/drr_impact_channel_KHM.tex}
+
+\input{tables/agri_impact_channel_KHM.tex}
 
 
 \clearpage
@@ -367,114 +404,113 @@ of 1\degree~C and 2\degree~C, respectively, for Cambodia.
 
 
 
-\FloatBarrier
-\clearpage
-\section*{Declarations}
+% \FloatBarrier
+% \clearpage
+% \section*{Declarations}
 
 
-\subsection*{Data availability}
-\todo{Data availability}
+% \subsection*{Data availability}
+% \todo{Data availability}
 
-\subsection*{Code availability}
-\todo{Code availability}
+% \subsection*{Code availability}
+% \todo{Code availability}
 
-\subsection*{Acknowledgments}
-\todo{Acknowledgements}
+% \subsection*{Acknowledgments}
+% \todo{Acknowledgements}
 
-\subsection*{Author information}
-\todo{Author information}
+% \subsection*{Author information}
+% \todo{Author information}
 
-\subsection*{Competing interests}
-The authors declare that they have no competing interests.
+% \subsection*{Competing interests}
+% The authors declare that they have no competing interests.
 
-\subsection*{Additional information}
-Supplementary information is available for this paper.
+% \subsection*{Additional information}
+% Supplementary information is available for this paper.
 
-\clearpage
-\FloatBarrier
+% \clearpage
+% \FloatBarrier
 
-\end{refsection}
+% \end{refsection}
 
-\begin{refsection}
+% \begin{refsection}
 
-\setcounter{page}{1}
-\FloatBarrier
-\newpage
-\begin{center}
-  {
-    \Large
-    \noindent
-    Supplementary information for: \\ \vspace{1em}
-    \articletitle
-  }
+% \setcounter{page}{1}
+% \FloatBarrier
+% \newpage
+% \begin{center}
+%   {
+%     \Large
+%     \noindent
+%     Supplementary information for: \\ \vspace{1em}
+%     \articletitle
+%   }
     
 
-  {
-    \noindent
-    \todo{author list}
-  }
-\end{center}
+%   {
+%     \noindent
+%     \todo{author list}
+%   }
+% \end{center}
 
 
-\setcounter{figure}{0}
-\addto\captionsenglish{\renewcommand{\figurename}{Supplementary Figure}}
-\renewcommand{\figurename}{Supplementary Figure}
-\addto\captionsenglish{\renewcommand{\tablename}{Supplementary Table}}
-\renewcommand{\tablename}{Supplementary Table}
-\setcounter{equation}{0}
-\renewcommand{\theequation}{S.\arabic{equation}}
+% \setcounter{figure}{0}
+% \addto\captionsenglish{\renewcommand{\figurename}{Supplementary Figure}}
+% \renewcommand{\figurename}{Supplementary Figure}
+% \addto\captionsenglish{\renewcommand{\tablename}{Supplementary Table}}
+% \renewcommand{\tablename}{Supplementary Table}
+% \setcounter{equation}{0}
+% \renewcommand{\theequation}{S.\arabic{equation}}
 
-\setcounter{section}{0}
-
-
+% \setcounter{section}{0}
 
 
-\subsection*{Table of contents}
 
-\subsubsection*{A Methods supplement}
-\noindent
-\cref{sec:}: .
-\\[0.67em]
 
-\subsubsection*{B Supplementary figures}
-\noindent
-% \cref{supfig:supfigure_1}: \todo{Supfigure 1 title}.
+% \subsection*{Table of contents}
+
+% \subsubsection*{A Methods supplement}
+% \noindent
+% \cref{sec:}: .
 % \\[0.67em]
 
-\subsubsection*{C Supplementary tables}
-\noindent
-% \cref{suptab:suptable_1}: \todo{Suptable 1 title}.
-% \\[0.67em]
+% \subsubsection*{B Supplementary figures}
+% \noindent
+% % \cref{supfig:supfigure_1}: \todo{Supfigure 1 title}.
+% % \\[0.67em]
+
+% \subsubsection*{C Supplementary tables}
+% \noindent
+% % \cref{suptab:suptable_1}: \todo{Suptable 1 title}.
+% % \\[0.67em]
 
 
-\clearpage
-\FloatBarrier
-\renewcommand{\thesection}{A}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-\section{Methods supplement}
-\label{si:methods}
-
-\clearpage
-\FloatBarrier
-\renewcommand{\thesection}{B}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-\section{Supplementary figures}
-\label{si:figures}
-
-
-\clearpage
-\FloatBarrier
-\renewcommand{\thesection}{C}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-\section{Supplementary tables}
-\label{si:tables}
+% \clearpage
+% \FloatBarrier
+% \renewcommand{\thesection}{A}
+% \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% \section{Methods supplement}
+% \label{si:methods}
+  
+% \clearpage
+% \FloatBarrier
+% \renewcommand{\thesection}{B}
+% \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% \section{Supplementary figures}
+% \label{si:figures}
 
 
+% \clearpage
+% \FloatBarrier
+% \renewcommand{\thesection}{C}
+% \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% \section{Supplementary tables}
+% \label{si:tables}
 
 
-\clearpage
 
-\printbibliography[heading=subbibintoc]
+% \clearpage
+
+% \printbibliography[heading=subbibintoc]
 
 \end{refsection}
 
