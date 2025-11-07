@@ -221,8 +221,8 @@ and society \parencite{middelanis2025warning}.
 Here we use the World Bank's macro-economic model \textit{MFMod}
 \parencite{burns_world_2019} to estimate the economic benefits of improved
 hydrometeorological forecasts in Cambodia. We focus on three impact channels:
-(i) disaster risk reduction for reduced flood damages, (ii)
-improved agricultural productivity, and (iii) optimized hydropower operation.
+(i) \textbf{disaster risk reduction for reduced flood damages}, (ii)
+\textbf{improved agricultural productivity}, and (iii) \textbf{optimized hydropower operation}.
 This technical background paper describes the data and methods used in the
 analysis, presents the results, and discusses their implications for Cambodia's
 development path.
@@ -233,21 +233,16 @@ development path.
 \label{sec:scenarios}
 
 We simulate the economic development of Cambodia under optimistic and
-pessimistic climate projections (\cref{fig:temp_projections_khm}). We use a 10-y
-running average of temperature projections from the SSP1-2.6 and SSP5-8.5 CMIP6
-ensembles, respectively, which we obtain from the World Bank's Climate Change
-Knowledge Portal \parencite{worldbank2025climate_temp_cambodia}. The impact
-channel variables used in the simulations are defined along the temperature
-change under both scenarios relative to the 2020 base year. Under the optimistic
-projection, the temperature in Cambodia will increase by about 0.6\degree~C
-between 2020 and 2050, and by about 1.2\degree~C under the pessimistic
-projection. {\color{red} Note: We could also use the lower and upper ensemble
-deciles for the two scenarios, which would yield increases of 0.52\degree~C and
-1.62\degree~C, respectively. This would align better with the DRR asset loss
-estimates where the 20th and 80th percentiles are used, and we can use any
-increases for the agriculture damage functions, but hydropower may be
-problematic.} Under both climate scenarios, we simulate three forecast
-scenarios:
+pessimistic climate projections (\cref{fig:temp_projections_khm}). We use an
+optimistic (pessimistic) scenario as the 10-y running average of temperature
+projections from the 10-th (90-th) percentile of the SSP1-2.6 (SSP5-8.5) CMIP6
+ensemble, which we obtain from the World Bank's Climate Change Knowledge Portal
+\parencite{worldbank2025climate_temp_cambodia}. The impact channel variables
+used in the simulations are defined along the temperature change under both
+scenarios relative to the 2020 base year. Under the optimistic projection, the
+temperature in Cambodia will increase by about 0.52\degree~C between 2020 and
+2050, and by about 1.62\degree~C under the pessimistic projection. Under both
+climate scenarios, we simulate three forecast scenarios:
 \begin{itemize}
   \item \textbf{Control (no forecasts)}: This control scenario models the development of
     Cambodia in the absence of hydrometeorological forecast benefits.
@@ -259,6 +254,10 @@ scenarios:
   and early warning systems. The investment requires continued investments until
   the year 2050.
 \end{itemize}
+We note that the forecast skill itself will also likely be affected by climate
+change, e.g. due to changes in weather patterns and increased uncertainty. In
+our simulations, we do not account for this effect and assume that forecast
+skill develops identically across both climate scenarios.
 
 \begin{figure}[htb]
   \centering
@@ -266,11 +265,10 @@ scenarios:
   \caption{\textbf{Temperature projections for Cambodia.} Projections are shown
     for the SSP1-2.6 and SSP5-8.5 scenarios. Optimistic and pessimistic
     scenarios for the simulation period from 2020 to 2050 are given by the 10-y
-    running central averages of the median CMIP6 projections for the SSP1-2.6
-    and SSP5-8.5 scenarios. Vertical bars indicate projected temperature
-    increases under the optimistic and pessimistic scenarios between the years
-    2020 and 2050. Data obtained from
-    \cite{worldbank2025climate_temp_cambodia}.}
+    running central averages of the respective 10-th and 90-th percentiles of
+    the CMIP6 ensemble. Vertical bars indicate projected temperature increases
+    under the optimistic and pessimistic scenarios between the years 2020 and
+    2050. Data obtained from \cite{worldbank2025climate_temp_cambodia}.}
   \label{fig:temp_projections_khm}
 \end{figure}
 
@@ -310,12 +308,12 @@ pessimistic climate scenario, and up to 1.01\% under an optimistic
 scenario\footnote{For these estimates, the optimistic and pessimistic climate
 scenarios are defined slightly differently from ours, and are based on the 20th
 and 80th percentiles of losses under the SSP1-2.6 and SSP5-8.5 CMIP6 ensembles,
-respectively.} from a current level of 0.93\% \parencite{worldbank2023ccdr}.
-These estimates of future damages account for population growth and adjusted
-land-use planning, but do not consider other adaptation measures such as early
-warning systems. Improved forecasts can help reduce flood damages by enabling
-early warnings and proactive measures to protect assets, infrastructure, and
-livelihoods. 
+respectively.} from a current level of 0.93\% \parencite{worldbank2023ccdr} (not
+accounting for early warning systems). These estimates of future damages account
+for population growth and adjusted land-use planning, but do not consider other
+adaptation measures such as early warning systems. Improved forecasts can help
+reduce flood damages by enabling early warnings and proactive measures to
+protect assets, infrastructure, and livelihoods. 
 
 We assume that projected flood damages under the two climate scenarios
 materialize proportionally to the temperature increase relative to 2020 in the
@@ -376,22 +374,35 @@ of total agricultural value added in the year 2023 according to estimates of the
 Food and Agriculture Organization \parencite{fao_faostat_2025}.
 
 In the absence of measures to improve agricultural productivity, climate change
-is expected to reduce output in the agricultural sector. We calibrate these control
-scenarios under the optimistic and pessimistic climate scenarios using
+is expected to reduce output in the agricultural sector. We calibrate these
+control scenarios under the optimistic and pessimistic climate scenarios using
 estimated damage functions from \cite{roson2016estimation} who find decreases in
-agriculture multi-factor productivity of 2.53\% and 5.27\% under temperature increases
-of 1\degree~C and 2\degree~C, respectively, for Cambodia. 
+agriculture multi-factor productivity of 2.53\%, 5.27\%, and 8.2\% under
+temperature increases of 1\degree~C, 2\degree~C, and 3\degree~C, respectively,
+for Cambodia. These estimates are in reference to a baseline period from 1980 to
+2004, and we first adjust them to reflect changes relative to the year 2020. For
+the adjustment, we assume a temperature increase of 0.725\degree~C between 1992
+and 2020 based on the 10-year rolling mean of the CMIP6 ensemble
+data.\footnote{The rolling mean for the SSP2-1.6 and SSP5-8.5 scenarios
+indicate temperature increases of 0.72\degree~C and 0.73\degree~C between 1992
+and 2020, respectively.} Then, the adjusted productivity change for a given temperature change
+$\Delta T$ after 2020 in \degree~C is given by:
+\begin{equation}
+  \Delta p^{>2020}\left(\Delta T\right) = \frac{1 + \Delta p^{>1992}\left(\Delta T + 0.725\right)}{1 + \Delta p^{>1992}\left(0.725\right)} - 1,
+\end{equation}
+where $\Delta p^{>1992}\left(\Delta T\right)$ is the productivity change
+relative to 1992, for which we linearly interpolate between data points from
+\cite{roson2016estimation}. 
 
 Annual agricultural productivity changes for all scenarios are shown in
 \cref{tab:agri_impact_channel_KHM} and \cref{fig:agri_impact_channel_KHM} for
 the period from 2020 to 2050. In the absence of forecasts, agricultural
-productivity decreases by 1.52\% until 2050. This decrease can be offset if
-current forecast skill is fully translated into productivity increases, leading
-to a 8.82\% higher productivity in 2050 compared to the control scenario. With
-perfect forecast skill, productivity would increase by up to 15.34\% in 2050.
-Under the pessimistic climate scenario, productivity decreases by 3.64\% in 2050
-in the control scenario, while it increases by 6.63\% and 13.15\% with
-current and perfect forecast skill, respectively.
+productivity decreases by 1.43\% in the optimistic, and 4.52\% in the
+pessimistic scenario until 2050. This decrease can be offset if current forecast
+skill is fully translated into productivity increases, leading to a 8.77\% and
+5.35\% higher productivity in 2050 compared to the control scenario,
+respectively. With perfect forecast skill, productivity would increase by up to
+15.19\% or 11.57\% in 2050.
 
 \begin{figure}[htb]
   \centering
@@ -407,6 +418,95 @@ current and perfect forecast skill, respectively.
 \label{sec:hydropower}
 \todo{Review pot. literature on Climate Change impacts on Hydropower in Cambodia}
 
+From Koh and Galelli (2024):
+\begin{itemize}
+  \item Coupled water energy model subject to reservoir inflow forecasts with
+  different levels of predictive performance
+  \item Evaluation metrics include available and dispatched hydropower, power
+  production costs, CO2 emissions, and transmission line congestion
+  \item As opposed to operating reservoir networks with static rule curves,
+  streamflow forecasts offer operators the ability to dynamically adapt to
+  anticipated inflow conditions
+  \item Inputs to the reservoir system model include reservoir specifications
+  (Table 1) and time series of observed inflow and inflow forecasts.
+  \item For the power system model, required data include the specifications of
+  the transmission lines and generators, as well as hourly time series of
+  electricity demand at each substation --> electricity demand is static
+  \item components of our computational framework are (a) a reservoir system
+  model, (b) a power system model, and (c) a reservoir re‐operation model:
+  \begin{itemize}
+    \item the \textbf{reservoir model} releases water according to its operating rules,
+    and the amount of available hydropower is communicated to the power system
+    model, which then dispatches (part of) the available hydropower depending on
+    the specific dynamics of the power grid. This approach of separately
+    modeling the water and power systems with a oneway information flow is known
+    as “softcoupling”
+    \item the \textbf{reservoir re‐operation model} explicitly accounts for the feedback
+    from the power to the water system. In particular, the re‐operation model
+    gathers information on the amount of hydropower dispatched into the grid
+    (aggregated over 24 hr) and calculates the corresponding amount of water
+    that should be released from the dams --> with this component, the reservoir 
+    and power system models are \textit{hard-coupled}
+    \item The \textbf{power system model} is PowNet, a production cost model
+    that solves a mixed integer linear program with the \textit{objective of
+    fulfilling the hourly electricity demand at minimum cost} (total production
+    cost comprises the fixed and variable operating costs, start‐up costs, fuel
+    prices and variable costs for the domestic thermal units, as well as import
+    costs for the import nodes). Outputs include hourly time series of operating
+    costs, CO2 emissions, generation mix, and transmission line usage
+  \end{itemize}
+  \item Experiments:
+  \begin{itemize}
+    \item with and without feedback (soft and hard coupling)
+    \item operation with forecasts seeks to maximize the hydropower generated by
+    each dam
+    \item different forecast skills:
+    \begin{itemize}
+      \item perfect forecasts
+      \item climatology (365 day average from inflow data)
+      \item each of 11 ensemble members and the ensemble mean
+      \end{itemize}
+  \end{itemize}
+  \item Results:
+  \begin{itemize}
+    \item \item 
+  \end{itemize}
+\end{itemize}
+
+Questions:
+\begin{itemize}
+  \item Are operating costs only for the hydropower or the entire electricity
+  system?
+  \item Contribution of forecast error to performance metrics seems generally
+  small despite strong correlation (Fig. 6) - "Figure 6 also suggests that the
+  forecast errors become insignificant beyond the first two performance metrics,
+  since the power system performance depends primarily on inflow and load"
+  \item Should we use the hard- or soft-coupled results?
+  \item Are any forecast-based operations actually in place at the moment (ie., 
+  is the "ensemble mean" or "climatology" forecast skill a good representation for 
+  a "status quo" scenario)?
+\end{itemize}
+
+Potential approaches:
+\begin{itemize}
+  \item use results from the hard-coupled model --> {\color{red}Only
+  soft-coupled tables are detailed by pre / post Monsoon}
+  \item Forecast scenarios:
+  \begin{itemize}
+    \item No forecasts
+    \item "Current forecasts": could use the lowest operation cost of the 
+    no forecasts / climatology / ensemble mean by each month (or pre-Monsoon, Monsoon, and post-Monsoon)
+    \item "Perfect forecasts": could use the lowest operation cost of the 
+    no forecasts / climatology / ensemble mean / perfect forecasts by each month
+  \end{itemize}
+  \item Variables / Performance metrics:
+  \begin{itemize}
+    \item Available / dispatched hydropower
+    \item Power production costs
+    \item Negative collelation between forecast error and costs could be used
+    to estimate cost savings from improved forecasts (Fig. 6)
+  \end{itemize}
+\end{itemize}
 
 \section{Results}
 \label{sec:results}
