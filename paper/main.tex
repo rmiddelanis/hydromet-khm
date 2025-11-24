@@ -154,20 +154,20 @@ sorting=none,
   }
   \vspace{1em}
   
-  {
-    \noindent
-    R.~Middelanis\textsuperscript{a},
-    B.~A.~Jafino\textsuperscript{a},
-    M.~Sidibe\textsuperscript{a},
-    P.~Avner\textsuperscript{a}\\
-  }
+  % {
+  %   \noindent
+  %   R.~Middelanis\textsuperscript{a},
+  %   B.~A.~Jafino\textsuperscript{a},
+  %   M.~Sidibe\textsuperscript{a},
+  %   P.~Avner\textsuperscript{a}\\
+  % }
   \vspace{0.5em}
 
-  {
-    \small
-    \noindent
-   \textsuperscript{a}The World Bank\\
-  }
+  % {
+  %   \small
+  %   \noindent
+  %  \textsuperscript{a}The World Bank\\
+  % }
   \vspace{0.5em}
   
 \end{center}
@@ -263,7 +263,7 @@ skill develops identically across both climate scenarios.
   \centering
   \includegraphics[width=5in]{./figures/temperature_projections_KHM.pdf}
   \caption{\textbf{Temperature projections for Cambodia.} Projections are shown
-    for the SSP1-2.6 and SSP5-8.5 scenarios. Optimistic and pessimistic
+    for the SSP1-2.6 and SSP5-8.5 (ensemble median and 10th/90th percentile). Optimistic and pessimistic
     scenarios for the simulation period from 2020 to 2050 are given by the 10-y
     running central averages of the respective 10-th and 90-th percentiles of
     the CMIP6 ensemble. Vertical bars indicate projected temperature increases
@@ -290,8 +290,8 @@ simulations, we assume that the initially higher investment allowed Cambodia to 
 the current forecast level comparable to other countries in the region, and that
 continued investments of USD~1~million per year (net present value) are necessary to further improve
 Cambodia's hydrometeorological forecasts and early warning capacity to follow
-the "perfect forecast skill" path. {\color{red}This corresponds to investments
-equal to 0.02\% of Cambodia's 2024 GDP of USD~46.3~billion.}
+the "perfect forecast skill" path. This corresponds to investments
+equal to 0.02\% of Cambodia's 2024 GDP of USD~46.3~billion.
 
 In the following sections, we define variables for each impact channel under the
 different climate and forecast scenarios for the simulation period from 2020 to
@@ -416,6 +416,146 @@ respectively. With perfect forecast skill, productivity would increase by up to
 
 \section{Hydropower Generation}
 \label{sec:hydropower}
+Cambodia's electricity generation relies heavily on hydropower, which accounted
+for 35\% of generated electricity in 2023
+\parencite{iea2023energy_mix_cambodia}. Hydropower reservoirs and dams are
+currently operated on rule curves, setting target water levels that reservoirs should
+reach at specific times throughout the calendar year. Recent simulations by 
+\cite{koh_evaluating_2024} suggest that forecast-based operations could reduce electricity
+generation costs and thus increase the country's potential for economic development. 
+Using the study's simulation output, we estimate the cost reduction potential that could
+be realized through switching from purely rule-based operations to forecast-informed 
+operations. As forecast-informed operations are currently not applied in Cambodia, 
+the control and status quo scenarios are identical. As \cite{koh_evaluating_2024}
+found that forecast benefits vary beetween seasons, we calculate the potential benefits
+of using forecasts as the mean cost reduction that can be obtained when choosing the cost-optimal
+operation mode for each month throughout the year as
+\begin{equation}
+  \frac{1}{|Y|}\sum_{y\in Y} \left(1 - \frac{\sum_{m=1}^{12} \min{\left(\mathcal{C}_{m,y}^{RB}, \mathcal{C}_{m,y}^{FE}, \mathcal{C}_{m,y}^{PF}\right)}}{\sum_{m=1}^{12} \mathcal{C}_{m,y}^{RB}}\right) \cdot 100,
+\end{equation}
+where $Y$ are the simulated years from 2000 to 2018, and
+$\mathcal{C}_{m,y}^{RB}$, $\mathcal{C}_{m,y}^{FE}$, and $\mathcal{C}_{m,y}^{PF}$ are the
+system operating costs during the $m$-th month in year $y$ under rule-based operations (RB) 
+or forecast-based operations using the ensemble mean of forecasts (FC) or perfect forecasts (PF).
+The above yields a potential average cost reduction of 9.1\% per year. 
+
+As the climate continues to warm, precipitation patterns in Cambodia and the
+region will change. Projections suggest overall wetter years under both the
+SSP1-2.6 and SSP5-8.5 scenarios \parencite{wb2025ckp}. Accordingly, most studies
+predict overall increases in river discharge
+\parencite{inseeyong2025evaluation,ly2023integrated,hoang2016mekong}, but the
+expected change is subject to large uncertainty \parencite{oeurng2019assessing}
+due to substantial internal variability. Projected changes are seasonally heterogeneos
+and river discharge will likely increase in the wet season, and decrease in the dry season
+\parencite{inseeyong2025evaluation,horton2022cambodian,li2021assessment}. 
+
+These changes in seasonal discharge patterns will likely affect the potential
+for cost reduction as calculated above. To obtain estimates for cost reduction
+benefits under climate change, we combine the results from
+\cite{koh_evaluating_2024} with results from \cite{wang2024historical} who
+investigated projected discharge for the Mekong River basin at various gauge
+stations, including Stung Treng station in Cambodia. We map projected
+end-of-century discharge changes for this station under RCP2.6 and RCP8.5 to our
+optimistic and pessimistic climate scenarios, respectively. Then, we calculate
+the expected average seasonal discharge $\overline{q_s^{sc}}$ under scenario
+conditions (optimistic or pessimistic) as
+% \begin{equation}
+%   \overline{q_s^{sc}} = \frac{1}{|M_s|} \sum_{m\in M_s} \left(\frac{1 + \Delta q_m^{sc}}{|Y|}\sum_{y\in Y} q_{m,y}\right),
+% \end{equation}
+\begin{equation}
+  \overline{q_s^{sc}} = \frac{1}{|Y| |M_s|} \sum_{y\in Y} \sum_{m\in M_s} \left(1 + \Delta q_m^{sc}\right) q_{m,y},
+\end{equation}
+where $q_{m, y}$ is the observed discharge during month $m$ in year $y$ used by
+\cite{koh_evaluating_2024}, $\Delta q_m^{sc}$ is the projected change in monthly
+mean discharge under scenario condition in percent as per
+\cite{wang2024historical}, and $M_s$ is the set of months that fall into season
+$s\in S$, where months Feb--Apr are mapped to the Pre-Monsoon season, months May--Oct
+are mapped to the Monsoon season, and Nov--Jan are mapped to the Post-Monsoon
+season. 
+
+To estimate how cost reduction benefits may change under climate scenario conditions, 
+we find the subset $Y^{sc}\subseteq Y$ that is closest to the expected future climate
+in terms of seasonal mean discharge. Specifically, we select the subset of years that minimizes the 
+root mean squared error between its seasonal mean discharge $\left\{{\overline{q_s^{Y'}}}\right\}_{s\in S}$ and the expected seasonal mean discharge
+under climate scenario conditions $\left\{{\overline{q_s^{sc}}}\right\}_{s\in S}$:
+\begin{equation}
+  Y^{sc} = \argmin{Y'\subseteq Y} \sqrt{\frac{1}{|S|}\sum_{s \in S}\left(\overline{q_s^{sc}} - \overline{q_s^{Y'}}\right)^2}
+\end{equation}
+with 
+\begin{equation}
+  \overline{q_s^{Y'}} = \frac{1}{|Y'| |M_s|} \sum_{y\in Y'} \sum_{m\in M_s} q_{m,y}.
+\end{equation}
+
+The selected years for both cliamte scenarios are shown in
+\cref{fig:hydropower_year_selection}. As forecast benefit, we use the mean cost
+reduction across selected years, which yields potential benefits of 9.9\% and
+9.0\% in the optimistic and pessimistic scenarios, respectively. As the
+projections from \cite{wang2024historical} are for the future period between
+2070 to 2099, we assume that these benefits can be achieved by 2085 and scale
+them to the year 2050 with the projected temperature under optimistic and
+pessimistic scenarios. 
+
+Finally, we assume that the fraction of potential cost reduction that is
+realized in the improvement scenario grows linearly over time until 100\% of the
+potential are reached in 2050. The results are shown in
+\cref{fig:hydropower_impact_channel_KHM} and
+\cref{tab:hydropower_impact_channel_KHM}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=6in]{./figures/hydropower_cc_year_selection_Pre-monsoon+Monsoon+Post-monsoon.pdf}
+  \caption{\textbf{Selection of year subset for hydropower climate change projections.}
+  Potential annual cost reduction over seasonal discharge deviation from full
+  sample mean for all simulated years in \cite{koh_evaluating_2024}. Dashed
+  lines show expected seasonal discharge changes under future climate as
+  indicated by results of \cite{wang2024historical}. Circles indicate years that
+  are selected to yield mean discharge closest to projections. Markers indicate
+  mean deviation and cost reduction for full, optimistic, and pessimistic
+  sample. Solid line shows linear fit across the full sample with 95\%
+  confidence interval and denoted R2 value.}
+  \label{fig:hydropower_year_selection}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/hydropower_impact_channel_KHM.pdf}
+  \caption{\textbf{Hydropower impact channel.} Electricity generation cost redution
+  due to forecasts under the three forecast scenarios.}
+  \label{fig:hydropower_impact_channel_KHM}
+\end{figure}
+
+
+\FloatBarrier
+
+% Several studies \parencite{ly2023integrated,piman2014managing} also highlight
+% that future discharge changes strongly depend on hydropower operations and
+% development.
+
+\iffalse
+Approach for the hyropower channel: 
+\begin{itemize}
+  \item Use results from Koh and Galelli (2024) on the value of streamflow
+  forecasts for hydropower operation in Cambodia
+  \item Use operation cost savings as percentage of total generation costs
+  as hook to MFMod
+  \item Climate Change scenarios: 
+  \begin{itemize}
+    \item Koh and Galelli data is available for 19 years
+    \item Check if there is a trend signal over those years already
+    \item Preferred option: match specific years to what we would expect under
+    different climate change scenarios
+    \item Inseeyong et al. (2025) report expected changes in discharge for the
+    Mun river during wet and dry season under SSP8-5.8 and SSP2-4.5, use these
+    changes as optimistic and pessimistc scenarios
+    \item Find those years where the relative discharge difference to the
+    long-term mean matches best the expected changes under the two climate
+    scenarios; i.e., we divide season discharge by the long-term mean discharge for each season
+    \item Use the nearaest years (or average over a close years) as what we would expect
+    under the two climate scenarios
+  \end{itemize}
+\end{itemize}
+
+
 \todo{Review pot. literature on Climate Change impacts on Hydropower in Cambodia}
 
 From Koh and Galelli (2024):
@@ -507,6 +647,7 @@ Potential approaches:
     to estimate cost savings from improved forecasts (Fig. 6)
   \end{itemize}
 \end{itemize}
+\fi
 
 \section{Results}
 \label{sec:results}
@@ -522,6 +663,8 @@ Potential approaches:
 \input{tables/drr_impact_channel_KHM.tex}
 
 \input{tables/agri_impact_channel_KHM.tex}
+
+\input{tables/hydropower_impact_channel_KHM.tex}
 
 
 \clearpage
