@@ -1,0 +1,489 @@
+﻿Fraction of Rice in Agriculture Sector: ,,,0.547610607,,,,,,,,,,
+,,,,,,,,,,,,,
+Domain Code,Domain,Area Code (M49),Area,Element Code,Element,Item Code (CPC),Item,Year Code,Year,Unit,Value,Flag,Flag Description
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2023,2023,1000 Int$,5044797,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2023,2023,1000 SLC,13283187407,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2023,2023,1000 USD,3276863,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2023,2023,1000 Int$,9212380,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2023,2023,1000 SLC,63488052225,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2023,2023,1000 SLC,46194278007,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2023,2023,1000 USD,15444762,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2023,2023,1000 USD,11393894,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2022,2022,1000 Int$,4545792,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2022,2022,1000 SLC,11969284529,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2022,2022,1000 USD,2952733,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2022,2022,1000 Int$,8623054,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2022,2022,1000 SLC,60254809051,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2022,2022,1000 SLC,44121452011,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2022,2022,1000 USD,14688994,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2022,2022,1000 USD,10882578,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2021,2021,1000 Int$,4773786,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2021,2021,1000 SLC,12569602223,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2021,2021,1000 USD,3100827,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2021,2021,1000 Int$,8717472,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2021,2021,1000 SLC,53621190562,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2021,2021,1000 SLC,43796561991,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2021,2021,1000 USD,13082415,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2021,2021,1000 USD,10802470,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2020,2020,1000 Int$,4276737,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2020,2020,1000 SLC,11260847867,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2020,2020,1000 USD,2777967,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2020,2020,1000 Int$,8186536,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2020,2020,1000 SLC,47177322586,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2020,2020,1000 SLC,40809020816,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2020,2020,1000 USD,11526954,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2020,2020,1000 USD,10065569,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2019,2019,1000 Int$,4257066,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2019,2019,1000 SLC,11209053733,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2019,2019,1000 USD,2765190,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2019,2019,1000 Int$,8062261,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2019,2019,1000 SLC,43153310664,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2019,2019,1000 SLC,40148373282,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2019,2019,1000 USD,10629250,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2019,2019,1000 USD,9902630,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2018,2018,1000 Int$,4259529,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2018,2018,1000 SLC,11215540871,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2018,2018,1000 USD,2766790,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2018,2018,1000 Int$,8104067,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2018,2018,1000 SLC,43725235320,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2018,2018,1000 SLC,41895248787,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2018,2018,1000 USD,10793245,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2018,2018,1000 USD,10333473,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2017,2017,1000 Int$,4113269,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2017,2017,1000 SLC,10830431407,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2017,2017,1000 USD,2671786,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2017,2017,1000 Int$,7877455,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2017,2017,1000 SLC,41268186749,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2017,2017,1000 SLC,40421103563,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2017,2017,1000 USD,10188217,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2017,2017,1000 USD,9969879,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2016,2016,1000 Int$,3891924,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2016,2016,1000 SLC,10247618688,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2016,2016,1000 USD,2528011,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2016,2016,1000 Int$,7473237,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2016,2016,1000 SLC,38290799003,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2016,2016,1000 SLC,38761806605,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2016,2016,1000 USD,9434265,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2016,2016,1000 USD,9560584,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2015,2015,1000 Int$,3650634,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2015,2015,1000 SLC,9612291042,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2015,2015,1000 USD,2371280,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2015,2015,1000 Int$,7022620,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2015,2015,1000 SLC,38015378333,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2015,2015,1000 SLC,38704767684,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2015,2015,1000 USD,9345554,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2015,2015,1000 USD,9546469,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2014,2014,1000 Int$,3646332,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2014,2014,1000 SLC,9600964293,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2014,2014,1000 USD,2368486,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2014,2014,1000 Int$,6852649,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2014,2014,1000 SLC,51517061220,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2014,2014,1000 SLC,50429720293,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2014,2014,1000 USD,12759644,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2014,2014,1000 USD,12438243,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2013,2013,1000 Int$,3672143,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2013,2013,1000 SLC,9668924787,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2013,2013,1000 USD,2385251,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2013,2013,1000 Int$,6325170,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2013,2013,1000 SLC,39096127132,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2013,2013,1000 SLC,38470288012,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2013,2013,1000 USD,9707897,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2013,2013,1000 USD,9488653,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2012,2012,1000 Int$,3633404,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2012,2012,1000 SLC,10052797080,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2012,2012,1000 SLC,9566922264,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2012,2012,1000 USD,2492635,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2012,2012,1000 USD,2360088,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2012,2012,1000 Int$,6215702,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2012,2012,1000 SLC,33120973854,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2012,2012,1000 SLC,32937733989,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2012,2012,1000 USD,8212490,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2012,2012,1000 USD,8124136,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2011,2011,1000 Int$,3433200,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2011,2011,1000 SLC,9560331000,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2011,2011,1000 SLC,9039775368,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2011,2011,1000 USD,2355632,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2011,2011,1000 USD,2230045,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2011,2011,1000 Int$,6011245,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2011,2011,1000 SLC,29164397599,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2011,2011,1000 SLC,30841418145,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2011,2011,1000 USD,7186004,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2011,2011,1000 USD,7607076,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2010,2010,1000 Int$,3224494,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2010,2010,1000 SLC,8426717040,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2010,2010,1000 SLC,8490242697,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2010,2010,1000 USD,2013593,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2010,2010,1000 USD,2094479,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2010,2010,1000 Int$,5250692,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2010,2010,1000 SLC,23121024245,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2010,2010,1000 SLC,26130093102,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2010,2010,1000 USD,5524847,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2010,2010,1000 USD,6445066,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2009,2009,1000 Int$,2966603,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2009,2009,1000 SLC,6743838430,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2009,2009,1000 SLC,7811204097,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2009,2009,1000 USD,1629209,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2009,2009,1000 USD,1926965,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2009,2009,1000 Int$,4881930,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2009,2009,1000 SLC,18992849416,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2009,2009,1000 SLC,24624886034,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2009,2009,1000 USD,4588384,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2009,2009,1000 USD,6073799,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2008,2008,1000 Int$,2806109,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2008,2008,1000 SLC,7211350365,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2008,2008,1000 SLC,7388616480,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2008,2008,1000 USD,1778750,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2008,2008,1000 USD,1822716,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2008,2008,1000 Int$,4658046,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2008,2008,1000 SLC,20296468874,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2008,2008,1000 SLC,24509671185,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2008,2008,1000 USD,5006323,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2008,2008,1000 USD,6045353,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2007,2007,1000 Int$,2630725,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2007,2007,1000 SLC,4843440000,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2007,2007,1000 SLC,6926821836,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2007,2007,1000 USD,1194093,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2007,2007,1000 USD,1708795,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2007,2007,1000 Int$,4264862,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2007,2007,1000 SLC,14876187159,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2007,2007,1000 SLC,21997742947,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2007,2007,1000 USD,3667548,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2007,2007,1000 USD,5425795,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2006,2006,1000 Int$,2449708,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2006,2006,1000 SLC,3507908880,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2006,2006,1000 SLC,6450195329,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2006,2006,1000 USD,854910,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2006,2006,1000 USD,1591215,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2006,2006,1000 Int$,4069169,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2006,2006,1000 SLC,12165728260,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2006,2006,1000 SLC,19505193066,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2006,2006,1000 USD,2964901,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2006,2006,1000 USD,4811018,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2005,2005,1000 Int$,2341021,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2005,2005,1000 SLC,3597706200,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2005,2005,1000 SLC,6164016780,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2005,2005,1000 USD,879097,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2005,2005,1000 USD,1520617,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2005,2005,1000 Int$,3746147,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2005,2005,1000 SLC,9074224788,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2005,2005,1000 SLC,17899205329,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2005,2005,1000 USD,2217282,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2005,2005,1000 USD,4414894,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2004,2004,1000 Int$,1630871,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2004,2004,1000 SLC,2235272224,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2004,2004,1000 SLC,4294159993,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2004,2004,1000 USD,556557,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2004,2004,1000 USD,1059337,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2004,2004,1000 Int$,2889311,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2004,2004,1000 SLC,6532417909,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2004,2004,1000 SLC,15149053114,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2004,2004,1000 USD,1626497,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2004,2004,1000 USD,3736514,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2003,2003,1000 Int$,1842312,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2003,2003,1000 SLC,1969180026,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2003,2003,1000 SLC,4850893387,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2003,2003,1000 USD,495599,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2003,2003,1000 USD,1196679,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2003,2003,1000 Int$,3044563,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2003,2003,1000 SLC,5658112381,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2003,2003,1000 SLC,15864564957,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2003,2003,1000 USD,1424022,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2003,2003,1000 USD,3913025,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2002,2002,1000 Int$,1494867,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2002,2002,1000 SLC,1796579230,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2002,2002,1000 SLC,3936054528,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2002,2002,1000 USD,459238,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2002,2002,1000 USD,970995,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2002,2002,1000 Int$,2567360,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2002,2002,1000 SLC,5343849602,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2002,2002,1000 SLC,14539038667,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2002,2002,1000 USD,1365986,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2002,2002,1000 USD,3586050,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2001,2001,1000 Int$,1603000,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2001,2001,1000 SLC,1688794592,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2001,2001,1000 SLC,4220775016,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2001,2001,1000 USD,431218,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2001,2001,1000 USD,1041234,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2001,2001,1000 Int$,2690097,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2001,2001,1000 SLC,4795842670,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2001,2001,1000 SLC,14189316501,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2001,2001,1000 USD,1224575,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2001,2001,1000 USD,3499816,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,2000,2000,1000 Int$,1574482,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,2000,2000,1000 SLC,1489654040,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,2000,2000,1000 SLC,4145684849,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,2000,2000,1000 USD,387855,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,2000,2000,1000 USD,1022709,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,2000,2000,1000 Int$,2664188,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,2000,2000,1000 SLC,4639168021,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,2000,2000,1000 SLC,14037531727,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,2000,2000,1000 USD,1207881,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,2000,2000,1000 USD,3462375,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1999,1999,1000 Int$,1580273,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1999,1999,1000 SLC,1697178000,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1999,1999,1000 SLC,4160932713,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1999,1999,1000 USD,445707,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1999,1999,1000 USD,1026471,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1999,1999,1000 Int$,2597796,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1999,1999,1000 SLC,5044919165,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1999,1999,1000 SLC,13758741154,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1999,1999,1000 USD,1324879,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1999,1999,1000 USD,3393614,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1998,1998,1000 Int$,1372604,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1998,1998,1000 SLC,2070823890,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1998,1998,1000 SLC,3614129788,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1998,1998,1000 USD,553043,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1998,1998,1000 USD,891579,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1998,1998,1000 Int$,2329774,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1998,1998,1000 SLC,5278083182,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1998,1998,1000 SLC,12451003159,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1998,1998,1000 USD,1409588,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1998,1998,1000 USD,3071049,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1997,1997,1000 Int$,1335470,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1997,1997,1000 SLC,1741607670,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1997,1997,1000 SLC,3516355232,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1997,1997,1000 USD,591127,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1997,1997,1000 USD,867458,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1997,1997,1000 Int$,2297258,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1997,1997,1000 SLC,5478918149,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1997,1997,1000 SLC,13227707069,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1997,1997,1000 USD,1859624,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1997,1997,1000 USD,3262600,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1996,1996,1000 Int$,1331201,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1996,1996,1000 SLC,1599880000,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1996,1996,1000 SLC,3505113948,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1996,1996,1000 USD,609691,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1996,1996,1000 USD,864685,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1996,1996,1000 Int$,2246406,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1996,1996,1000 SLC,4860534566,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1996,1996,1000 SLC,12479059647,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1996,1996,1000 USD,1852279,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1996,1996,1000 USD,3077963,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1995,1995,1000 Int$,1348330,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1995,1995,1000 SLC,1792856000,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1995,1995,1000 SLC,3550215003,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1995,1995,1000 USD,731529,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1995,1995,1000 USD,875811,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1995,1995,1000 Int$,2231322,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1995,1995,1000 SLC,5074968843,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1995,1995,1000 SLC,12659408999,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1995,1995,1000 USD,2070712,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1995,1995,1000 USD,3122447,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1994,1994,1000 Int$,869543,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1994,1994,1000 SLC,844930000,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1994,1994,1000 SLC,2289547845,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1994,1994,1000 USD,331963,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1994,1994,1000 USD,564814,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1994,1994,1000 Int$,1745342,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1994,1994,1000 SLC,3663061415,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1994,1994,1000 SLC,11686622877,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1994,1994,1000 USD,1439175,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1994,1994,1000 USD,2882450,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1993,1993,1000 Int$,932056,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1993,1993,1000 SLC,834172500,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1993,1993,1000 SLC,2454146101,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1993,1993,1000 USD,310217,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1993,1993,1000 USD,605419,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1993,1993,1000 Int$,1789680,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1993,1993,1000 SLC,3300624138,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1993,1993,1000 SLC,10790820024,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1993,1993,1000 USD,1227454,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1993,1993,1000 USD,2661522,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1992,1992,1000 Int$,868565,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),113,Rice,1992,1992,1000 SLC,244310000,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1992,1992,1000 SLC,2286973584,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),113,Rice,1992,1992,1000 USD,192889,A,Official figure
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1992,1992,1000 USD,564179,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1992,1992,1000 Int$,1733236,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1992,1992,1000 SLC,1112487269,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1992,1992,1000 SLC,10565933476,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1992,1992,1000 USD,878337,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1992,1992,1000 USD,2606047,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1991,1991,1000 Int$,938567,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1991,1991,1000 SLC,2471290680,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1991,1991,1000 USD,609649,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1991,1991,1000 Int$,1714836,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,56,Gross Production Value (current thousand SLC),F2051,Agriculture,1991,1991,1000 SLC,717904389,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1991,1991,1000 SLC,10031537632,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,57,Gross Production Value (current thousand US$),F2051,Agriculture,1991,1991,1000 USD,999403,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1991,1991,1000 USD,2474259,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1990,1990,1000 Int$,977674,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1990,1990,1000 SLC,2574261125,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1990,1990,1000 USD,635051,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1990,1990,1000 Int$,1714916,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1990,1990,1000 SLC,11656254415,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1990,1990,1000 USD,2874978,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1989,1989,1000 Int$,1044938,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1989,1989,1000 SLC,2751370291,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1989,1989,1000 USD,678742,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1989,1989,1000 Int$,1768954,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1989,1989,1000 SLC,11725777866,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1989,1989,1000 USD,2892135,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1988,1988,1000 Int$,977674,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1988,1988,1000 SLC,2574261125,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1988,1988,1000 USD,635051,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1988,1988,1000 Int$,1699453,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1988,1988,1000 SLC,9857974317,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1988,1988,1000 USD,2431461,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1987,1987,1000 Int$,709791,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1987,1987,1000 SLC,1868913577,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1987,1987,1000 USD,461047,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1987,1987,1000 Int$,1357556,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1987,1987,1000 SLC,8954496075,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1987,1987,1000 USD,2208591,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1986,1986,1000 Int$,818509,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1986,1986,1000 SLC,2155171414,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1986,1986,1000 USD,531665,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1986,1986,1000 Int$,1435394,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1986,1986,1000 SLC,8884935577,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1986,1986,1000 USD,2191454,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1985,1985,1000 Int$,708618,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1985,1985,1000 SLC,1865824464,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1985,1985,1000 USD,460285,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1985,1985,1000 Int$,1293262,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1985,1985,1000 SLC,8707469179,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1985,1985,1000 USD,2147666,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1984,1984,1000 Int$,492748,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1984,1984,1000 SLC,1297427607,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1984,1984,1000 USD,320066,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1984,1984,1000 Int$,1010614,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1984,1984,1000 SLC,7965440413,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1984,1984,1000 USD,1964625,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1983,1983,1000 Int$,797391,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1983,1983,1000 SLC,2099567374,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1983,1983,1000 USD,517948,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1983,1983,1000 Int$,1298628,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1983,1983,1000 SLC,10194712361,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1983,1983,1000 USD,2514486,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1982,1982,1000 Int$,762195,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1982,1982,1000 SLC,2006893973,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1982,1982,1000 USD,495086,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1982,1982,1000 Int$,1214293,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1982,1982,1000 SLC,8866932391,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1982,1982,1000 USD,2187005,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1981,1981,1000 Int$,582694,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1981,1981,1000 SLC,1534259631,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1981,1981,1000 USD,378490,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1981,1981,1000 Int$,972398,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1981,1981,1000 SLC,5003457799,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1981,1981,1000 USD,1234114,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1980,1980,1000 Int$,671466,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1980,1980,1000 SLC,1768002541,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1980,1980,1000 USD,436153,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1980,1980,1000 Int$,1012625,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1980,1980,1000 SLC,4650932783,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1980,1980,1000 USD,1147184,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1979,1979,1000 Int$,210395,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1979,1979,1000 SLC,553980994,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1979,1979,1000 USD,136663,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1979,1979,1000 Int$,569005,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1979,1979,1000 SLC,4744944826,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1979,1979,1000 USD,1170299,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1978,1978,1000 Int$,391070,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1978,1978,1000 SLC,1029704450,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1978,1978,1000 USD,254020,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1978,1978,1000 Int$,792298,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1978,1978,1000 SLC,6164724536,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1978,1978,1000 USD,1520493,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1977,1977,1000 Int$,391070,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1977,1977,1000 SLC,1029704450,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1977,1977,1000 USD,254020,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1977,1977,1000 Int$,848794,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1977,1977,1000 SLC,7073197530,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1977,1977,1000 USD,1744553,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1976,1976,1000 Int$,430176,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1976,1976,1000 SLC,1132674895,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1976,1976,1000 USD,279422,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1976,1976,1000 Int$,914155,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1976,1976,1000 SLC,7447008725,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1976,1976,1000 USD,1836753,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1975,1975,1000 Int$,422355,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1975,1975,1000 SLC,1112080806,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1975,1975,1000 USD,274342,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1975,1975,1000 Int$,915198,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1975,1975,1000 SLC,7773515598,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1975,1975,1000 USD,1917279,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1974,1974,1000 Int$,248329,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1974,1974,1000 SLC,653862326,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1974,1974,1000 USD,161303,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1974,1974,1000 Int$,796349,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1974,1974,1000 SLC,7615082110,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1974,1974,1000 USD,1878178,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1973,1973,1000 Int$,410623,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1973,1973,1000 SLC,1081189673,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1973,1973,1000 USD,266721,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1973,1973,1000 Int$,980148,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1973,1973,1000 SLC,8462240875,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1973,1973,1000 USD,2087141,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1972,1972,1000 Int$,753591,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1972,1972,1000 SLC,1984240475,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1972,1972,1000 USD,489497,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1972,1972,1000 Int$,1340565,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1972,1972,1000 SLC,9714763382,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1972,1972,1000 USD,2396108,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1971,1971,1000 Int$,1068402,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1971,1971,1000 SLC,2813152558,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1971,1971,1000 USD,693984,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1971,1971,1000 Int$,1681095,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1971,1971,1000 SLC,11178521778,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1971,1971,1000 USD,2757171,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1970,1970,1000 Int$,1491539,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1970,1970,1000 SLC,3927292773,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1970,1970,1000 USD,968834,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1970,1970,1000 Int$,2147770,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1970,1970,1000 SLC,16298075195,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1970,1970,1000 USD,4019892,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1969,1969,1000 Int$,978847,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1969,1969,1000 SLC,2577350239,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1969,1969,1000 USD,635813,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1969,1969,1000 Int$,1675206,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1969,1969,1000 SLC,13099888157,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1969,1969,1000 USD,3231030,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1968,1968,1000 Int$,1271367,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1968,1968,1000 SLC,3347569167,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1968,1968,1000 USD,825820,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1968,1968,1000 Int$,1958432,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1968,1968,1000 SLC,14303940903,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1968,1968,1000 USD,3528038,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1967,1967,1000 Int$,960858,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1967,1967,1000 SLC,2529983834,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1967,1967,1000 USD,624128,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1967,1967,1000 Int$,1624723,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1967,1967,1000 SLC,13961446825,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1967,1967,1000 USD,3443518,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1966,1966,1000 Int$,929181,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1966,1966,1000 SLC,2446577774,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1966,1966,1000 USD,603552,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1966,1966,1000 Int$,1535595,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1966,1966,1000 SLC,10927300069,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1966,1966,1000 USD,2695190,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1965,1965,1000 Int$,977674,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1965,1965,1000 SLC,2574261125,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1965,1965,1000 USD,635051,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1965,1965,1000 Int$,1573660,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1965,1965,1000 SLC,10808352014,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1965,1965,1000 USD,2665861,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1964,1964,1000 Int$,1079352,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1964,1964,1000 SLC,2841984282,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1964,1964,1000 USD,701096,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1964,1964,1000 Int$,1683729,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1964,1964,1000 SLC,10909228249,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1964,1964,1000 USD,2690757,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1963,1963,1000 Int$,1025384,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1963,1963,1000 SLC,2699885068,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1963,1963,1000 USD,666041,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1963,1963,1000 Int$,1572792,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1963,1963,1000 SLC,10047469676,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1963,1963,1000 USD,2478209,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1962,1962,1000 Int$,797391,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1962,1962,1000 SLC,2099567374,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1962,1962,1000 USD,517948,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1962,1962,1000 Int$,1298206,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1962,1962,1000 SLC,8789694651,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1962,1962,1000 USD,2167963,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),113,Rice,1961,1961,1000 Int$,931919,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),113,Rice,1961,1961,1000 SLC,2453785705,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),113,Rice,1961,1961,1000 USD,605331,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,152,Gross Production Value (constant 2014-2016 thousand I$),F2051,Agriculture,1961,1961,1000 Int$,1450469,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,55,Gross Production Value (constant 2014-2016 thousand SLC),F2051,Agriculture,1961,1961,1000 SLC,8984463757,E,Estimated value
+QV,Value of Agricultural Production,116,Cambodia,58,Gross Production Value (constant 2014-2016 thousand US$),F2051,Agriculture,1961,1961,1000 USD,2216021,E,Estimated value

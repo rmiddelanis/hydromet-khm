@@ -1,6 +1,5 @@
 import json
 import os
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,11 +9,12 @@ import seaborn as sns
 import itertools
 import statsmodels.api as sm
 from matplotlib.transforms import blended_transform_factory
-from sklearn.metrics import r2_score
 
-def process_temperature_data(raw_data_path, output_path):
-    # Load raw temperature data
-    df = pd.read_csv(raw_data_path).rename(columns={'Category': 'year'}).set_index('year')
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
+
+def process_temperature_data(raw_temperatures_data_path_, temperature_outpath_):
+    df = pd.read_csv(raw_temperatures_data_path_).rename(columns={'Category': 'year'}).set_index('year')
 
     df = df.rename(columns={'Hist. Ref. Period, 1950-2014': 'Historical'})
 
@@ -38,13 +38,6 @@ def process_temperature_data(raw_data_path, output_path):
     axs[0].legend(loc='upper left', frameon=False)
     axs[0].set_ylim((27, 31))
 
-    # offset = (df.loc[2020, 'SSP1-2.6-rolling'] + df.loc[2020, 'SSP5-8.5-rolling']) / 2
-    # ax2 = axs[0].twinx()
-    # ylim_left = axs[0].get_ylim()
-    # ax2.set_ylim([ylim_left[0] - offset, ylim_left[1] - offset])
-    # ax2.set_ylabel("Temperature increase (°C)")
-    # ax2.axhline(0, color='gray', linestyle='--', linewidth=0.8)
-
     x_pos = df.index[plot_range][-1] + 5
     for i, (scenario, color) in enumerate(zip(['Optimistic', 'Pessimistic'], ['tab:blue', 'tab:red'])):
         scenario_data = df.loc[simulation_range, scenario]
@@ -61,18 +54,16 @@ def process_temperature_data(raw_data_path, output_path):
     axs[0].set_ylim((27, 31))
     axs[0].set_xlim((axs[0].get_xlim()[0], axs[0].get_xlim()[1] + 5))
 
+    os.makedirs(temperature_outpath_, exist_ok=True)
+
     plt.tight_layout()
-    fig.savefig(os.path.join(output_path, 'temperature_projections_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(temperature_outpath_, 'temperature_projections_KHM.pdf'), dpi=300)
 
     temperature_change_to_base_year = (df - df.loc[2020])[['Historical', 'Optimistic', 'Pessimistic', 'SSP1-2.6-rolling', 'SSP5-8.5-rolling']]
-    temperature_change_to_base_year.drop(columns='Historical').dropna(how='all').to_csv(os.path.join(output_path, 'temperature_change_to_2020.csv'))
-    # for scenario, color in zip(['Historical', 'SSP1-2.6', 'SSP5-8.5'], ['k', 'tab:blue', 'tab:red']):
-    #     axs[1].plot(temperature_change_to_base_year.index, temperature_change_to_base_year[scenario], label=scenario, color=color)
-    # axs[1].set_ylabel('Temperature Change to 2020 (°C)')
-    # axs[1].set_xlabel('Year')
+    temperature_change_to_base_year.drop(columns='Historical').dropna(how='all').to_csv(os.path.join(temperature_outpath_, 'temperature_change_to_2020.csv'))
 
 
-def calculate_drr_impact_channel(temperature_increases_path, implementation_year=2031, implementation_duration=10, outpath=None):
+def calculate_drr_impact_channel(drr_outpath_, temperature_path_, implementation_year_=2031, implementation_duration_=10):
     current_aal = 0.9290
     optimistic_aal_2050 = 1.0130
     pessimistic_aal_2050 = 2.9740
@@ -85,22 +76,27 @@ def calculate_drr_impact_channel(temperature_increases_path, implementation_year
     current_ew_lead_time = 7
     current_ew_benefits = potential_ew_benefit * current_ew_coverage * (1 - np.exp(-current_ew_lead_time / tau))
 
-    perfect_ew_coverage = 1
-    perfect_ew_lead_time = 12
-    perfect_ew_benefits = potential_ew_benefit * perfect_ew_coverage * (1 - np.exp(-perfect_ew_lead_time / tau))
+    future_ew_coverage = 1
 
-    temperature_increases = pd.read_csv(temperature_increases_path, index_col='year').loc[simulation_range]
+    status_quo_future_benefits = potential_ew_benefit * future_ew_coverage * (1 - np.exp(-current_ew_lead_time / tau))
+
+    improvement_future_lead_time = 12
+    improvement_future_benefits = potential_ew_benefit * future_ew_coverage * (1 - np.exp(-improvement_future_lead_time / tau))
+
+    print(f"Current EW benefits: {current_ew_benefits * 100:.2f}%, Status quo benefits (2050): {status_quo_future_benefits * 100:.2f}%, Improvement benefits (2050): {improvement_future_benefits * 100:.2f}%")
+
+    temperature_increases = pd.read_csv(temperature_path_, index_col='year').loc[simulation_range]
 
     res = pd.DataFrame(index=simulation_range)
+    res.index.name = 'Year'
     res['Optimistic - Control'] = (temperature_increases / temperature_increases.loc[2050])['Optimistic'] * (optimistic_aal_2050 - current_aal) + current_aal
     res['Pessimistic - Control'] = (temperature_increases / temperature_increases.loc[2050])['Pessimistic'] * (pessimistic_aal_2050 - current_aal) + current_aal
 
-    res['Optimistic - Status quo'] = res['Optimistic - Control'] * (1 - current_ew_benefits)
-    res['Pessimistic - Status quo'] = res['Pessimistic - Control'] * (1 - current_ew_benefits)
-
-    implementation_level = pd.Series(np.clip((res.index - (implementation_year - 1)) / implementation_duration, 0, 1), index=res.index, name='implementation_level')
-    res['Optimistic - Improvement'] = res['Optimistic - Control'] * (1 - (current_ew_benefits + implementation_level * (perfect_ew_benefits - current_ew_benefits)))
-    res['Pessimistic - Improvement'] = res['Pessimistic - Control'] * (1 - (current_ew_benefits + implementation_level * (perfect_ew_benefits - current_ew_benefits)))
+    implementation_level = pd.Series(np.clip((res.index - (implementation_year_ - 1)) / implementation_duration_, 0, 1), index=res.index, name='implementation_level')
+    res['Optimistic - Status quo'] = res['Optimistic - Control'] * (1 - (current_ew_benefits + (status_quo_future_benefits - current_ew_benefits) * implementation_level))
+    res['Pessimistic - Status quo'] = res['Pessimistic - Control'] * (1 - (current_ew_benefits + (status_quo_future_benefits - current_ew_benefits) * implementation_level))
+    res['Optimistic - Improvement'] = res['Optimistic - Control'] * (1 - (current_ew_benefits + (improvement_future_benefits - current_ew_benefits) * implementation_level))
+    res['Pessimistic - Improvement'] = res['Pessimistic - Control'] * (1 - (current_ew_benefits + (improvement_future_benefits - current_ew_benefits) * implementation_level))
 
     res = res[['Optimistic - Control', 'Optimistic - Status quo', 'Optimistic - Improvement', 'Pessimistic - Control', 'Pessimistic - Status quo', 'Pessimistic - Improvement']]
     fig, ax = plt.subplots(figsize=(7, 3))
@@ -114,23 +110,39 @@ def calculate_drr_impact_channel(temperature_increases_path, implementation_year
 
     res.columns = pd.MultiIndex.from_tuples([tuple(col.split(' - ')) for col in res.columns], names=['Climate scenario', 'Forecast scenario'])
     res = res.sort_index(axis=1, level='Climate scenario', sort_remaining=False)
-    if outpath:
-        fig.savefig(os.path.join(outpath, 'drr_impact_channel_KHM.pdf'), dpi=300)
-        res.to_csv(os.path.join(outpath, 'drr_impact_channel_KHM.csv'))
-        latex = res.to_latex(float_format="%.2f", index=True, header=True, na_rep="",
-                             caption="Annual average flood damage (\% national capital stock).", label="tab:drr_impact_channel_KHM", multicolumn=True,
-                             multicolumn_format='c')
+
+    os.makedirs(drr_outpath_, exist_ok=True)
+
+    fig.savefig(os.path.join(drr_outpath_, 'drr_impact_channel_KHM.pdf'), dpi=300)
+
+    csv_outfile = os.path.join(drr_outpath_, 'drr_impact_channel_KHM.csv')
+    with open(csv_outfile, 'w') as f:
+        f.write("values denote the percentage of total national capital stock destroyed through floods \n")
+        f.write(" \n")
+        res.to_csv(f)
+
+
+        latex = res.to_latex(
+            float_format="%.2f",
+            index=True,
+            header=True,
+            na_rep="",
+            caption="Annual average flood damage (\% national capital stock).",
+            label="tab:drr_impact_channel_KHM",
+            multicolumn=True,
+            multicolumn_format='c'
+        )
         latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
-        with open(os.path.join(outpath, "drr_impact_channel_KHM.tex"), 'w') as f:
+        with open(os.path.join(drr_outpath_, "drr_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
 
 
 
-def calc_agri_impact_channel(temperature_increases_path, implementation_year=2031, implementation_duration=10, outpath=None):
-    temperature_increases = pd.read_csv(temperature_increases_path, index_col='year')
+def calc_agri_impact_channel(agri_outpath_, temperature_increases_path_, implementation_year_=2031, implementation_duration_=10):
+    temperature_increases = pd.read_csv(temperature_increases_path_, index_col='year')
     temperature_increases = temperature_increases[temperature_increases.index <= 2050]
 
-    # values obtained from Roson and Sartori (2016) - values are relatie to the baseline with central year 1992
+    # values obtained from Roson and Sartori (2016) - values are relative to the baseline with central year 1992
     productivity_loss_lookup = {
         0: 0.0,
         1: -2.51,
@@ -154,13 +166,14 @@ def calc_agri_impact_channel(temperature_increases_path, implementation_year=203
     productivity_increase_perfect_forecasts = 0.1686
 
     res = pd.DataFrame(index=simulation_range)
+    res.index.name = 'Year'
     for scenario in ['Optimistic', 'Pessimistic']:
         temp_increase = temperature_increases.loc[res.index, scenario]
         productivity_loss = temp_increase.map(lambda x: (1 + get_productivity_loss(x + delta_t_since_1992, productivity_loss_lookup)) / (1 + get_productivity_loss(delta_t_since_1992, productivity_loss_lookup)) - 1)
         res[f'{scenario} - Control'] = productivity_loss
-        res[f'{scenario} - Status quo'] = (1 + res[f'{scenario} - Control']) * (1 + productivity_increase_current_forecasts) - 1
-        implementation_level = pd.Series(np.clip((res.index - (implementation_year - 1)) / implementation_duration, 0, 1), index=res.index, name='implementation_level')
-        res[f'{scenario} - Improvement'] = (1 + res[f'{scenario} - Control']) * (1 + productivity_increase_current_forecasts + implementation_level * (productivity_increase_perfect_forecasts - productivity_increase_current_forecasts)) - 1
+        implementation_level = pd.Series(np.clip((res.index - (implementation_year_ - 1)) / implementation_duration_, 0, 1), index=res.index, name='implementation_level')
+        res[f'{scenario} - Status quo'] = (1 + res[f'{scenario} - Control']) * (1 + productivity_increase_current_forecasts * implementation_level) - 1
+        res[f'{scenario} - Improvement'] = (1 + res[f'{scenario} - Control']) * (1 + productivity_increase_perfect_forecasts * implementation_level) - 1
     res *= 100  # convert to percentage
     res = res[['Optimistic - Control', 'Optimistic - Status quo', 'Optimistic - Improvement', 'Pessimistic - Control', 'Pessimistic - Status quo', 'Pessimistic - Improvement']]
 
@@ -173,19 +186,27 @@ def calc_agri_impact_channel(temperature_increases_path, implementation_year=203
     plt.tight_layout()
 
     res.columns = pd.MultiIndex.from_tuples([tuple(col.split(' - ')) for col in res.columns], names=['Climate scenario', 'Forecast scenario'])
-    if outpath:
-        fig.savefig(os.path.join(outpath, 'agri_impact_channel_KHM.pdf'), dpi=300)
-        res.to_csv(os.path.join(outpath, 'agri_impact_channel_KHM.csv'))
+
+    os.makedirs(agri_outpath_, exist_ok=True)
+
+    fig.savefig(os.path.join(agri_outpath_, 'agri_impact_channel_KHM.pdf'), dpi=300)
+
+    csv_outfile = os.path.join(agri_outpath_, 'agri_impact_channel_KHM.csv')
+    with open(csv_outfile, 'w') as f:
+        f.write("values are the agricultural productivity change w.r.t. the 2020 control level in percent\n")
+        f.write(" \n")
+        res.to_csv(f)
+
         latex = res.to_latex(float_format="%.2f", index=True, header=True,
                      na_rep="", caption="Agricultural productivity change (\%).", label="tab:agri_impact_channel_KHM", multicolumn=True,
                              multicolumn_format='c',
         )
         latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
-        with open(os.path.join(outpath, "agri_impact_channel_KHM.tex"), 'w') as f:
+        with open(os.path.join(agri_outpath_, "agri_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
 
 
-def prepare_hydropower_channel(hydropower_input_data_path_, temperature_increases_path, implementation_year, implementation_duration, outpath=None, seasonally=True, weighted=False):
+def prepare_hydropower_channel(hydropower_outpath_, hydropower_input_data_path_, temperature_increases_path_, implementation_year_, implementation_duration_, seasonally=True, weighted=False):
     seasons_mapping = {
         1: 'Post-monsoon',
         2: 'Pre-monsoon',
@@ -209,14 +230,15 @@ def prepare_hydropower_channel(hydropower_input_data_path_, temperature_increase
     costs = costs.set_index(['Year', 'Month']).drop(columns=['Date']).sort_index()
 
     scenario_col_mapping = {
+        'Status quo': ['No forecast', 'Ensemble Mean'],
         'Control': ['No forecast'],
         'Improvement': ['No forecast', 'Perfect', 'Ensemble Mean'],
     }
     costs = pd.concat([costs[cols].stack().groupby(['Year', 'Month']).min().squeeze().rename(scenario_name) for scenario_name, cols in scenario_col_mapping.items()], axis=1)
     costs = costs.groupby('Year').sum()
-    forecast_benefit = (1 - costs['Improvement'] / costs['Control']) * 100
-    forecast_benefit = forecast_benefit.rename('cost_reduction')
-    print(f"Average cost reduction: {forecast_benefit.mean():.2}%")
+    forecast_benefit = (1 - costs[['Status quo', 'Improvement']].div(costs['Control'], axis=0)) * 100
+    print(f"Average cost reduction: {forecast_benefit.mean().loc['Status quo']:.2}% (status quo) / {forecast_benefit.mean().loc['Improvement']:.2}% (improvement)")
+    forecast_benefit.columns = [f"cost reduction - {c}" for c in forecast_benefit.columns]
 
     discharge = pd.read_csv(os.path.join(hydropower_input_data_path_, "monthly", "Q_m_avg.csv"))
     discharge['Month'] = discharge['Date'].apply(lambda x: x.split('-')[0]).map({'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12})
@@ -272,94 +294,93 @@ def prepare_hydropower_channel(hydropower_input_data_path_, temperature_increase
     print("Correlation matrix:")
     print(merged.corr())
 
-    r2_scores = {}
-    for col in merged.columns[:-1]:
-        X = sm.add_constant(merged[col])
-        model = sm.OLS(merged['cost_reduction'], X).fit()
-        r2_scores[col] = model.rsquared
-
-    # regression model
-    X = merged.iloc[:, :-1]
-    Y = merged.iloc[:, -1]
-    X = sm.add_constant(X)
-    ols_model = sm.OLS(Y, X)
-    ols_result = ols_model.fit()
-    print(ols_result.summary())
+    r2_scores = pd.DataFrame(columns=['Status quo', 'Improvement'], index=merged.columns[:-2])
+    for climate_sc in ['Status quo', 'Improvement']:
+        for season in merged.columns[:-2]:
+            X = sm.add_constant(merged[season])
+            model = sm.OLS(merged[f'cost reduction - {climate_sc}'], X).fit()
+            r2_scores.loc[season, climate_sc] = model.rsquared
+        # regression model
+        X = merged.iloc[:, :-2]
+        Y = merged[f'cost reduction - {climate_sc}']
+        X = sm.add_constant(X)
+        ols_model = sm.OLS(Y, X)
+        ols_result = ols_model.fit()
+        print(ols_result.summary())
 
     for climate_scenario, change_rates in target_change_rates.items():
         target = [(1 + change_rates[s]) * discharge[s].mean() for s in fit_on]
         weights = np.array([r2_scores[col] for col in fit_on]) if weighted else None
         subset, err = find_best_subset(discharge[fit_on], target, 1, weights=weights)
         years = list(discharge.index[list(subset)])
-        # selected_years_avg_cost_red = (1 - costs.loc[years].mean()['Improvement'] / costs.loc[years].mean()['Control']) * 100
         selected_years_avg_cost_red = forecast_benefit.loc[years].mean()
         print(f"## {climate_scenario} ## selected years: {years}, RMSE: {err}, average forecast benefit: {selected_years_avg_cost_red}")
         print(f"Target mean: {target}, subset mean: {discharge[fit_on].loc[years].mean().values}")
         best_fit_result[climate_scenario] = {
             'subset': years,
             'RMSE': err,
-            'cost_reduction': selected_years_avg_cost_red,
+            'cost_reduction': {sc: selected_years_avg_cost_red[f"cost reduction - {sc}"] for sc in ['Status quo', 'Improvement']},
             'mean_shift': (discharge.loc[years, fit_on].mean() / discharge[fit_on].mean() - 1).to_dict()
         }
-    with open(os.path.join(outpath, f'best_fit_result_{"+".join(fit_on)}.json'), 'w') as f:
+
+    os.makedirs(hydropower_outpath_, exist_ok=True)
+
+    with open(os.path.join(hydropower_outpath_, f'best_fit_result_{"+".join(fit_on)}.json'), 'w') as f:
         json.dump(best_fit_result, f, indent=2)
 
-    # fig, axs = plt.subplots(ncols=3, nrows=4 if period=='monthly' else 1, figsize=(12, 14 if period == 'monthly' else 3.5), sharey=True)
+    plot_scenario = 'Improvement'
     fig, axs = plt.subplots(ncols=2, nrows=2, figsize=(6, 6), sharey=True)
-    axs = axs.flatten()
     handles, labels = [], []
-    for ax, col in zip(axs, merged.columns[:-1]):
-        # ax.scatter(merged[col], merged['cost_reduction'], facecolors='k', alpha=.8, s=30, edgecolors='none')
-        ax.set_xlabel(col)
-        sns.regplot(x=merged[col], y=merged['cost_reduction'], ax=ax, scatter_kws={'s': 20, 'alpha': .5, 'edgecolor': 'none'}, line_kws={'alpha': .5, 'linewidth': .8}, label='Full sample' if ax == axs[0] else '__none__')
-        # for x, y, text in zip(merged[col], merged['cost_reduction'], merged.reset_index()['Year']):
-        #     ax.text(x, y, str(text), fontsize=7, alpha=0.5, ha='center', va='bottom')
+    for ax, season in zip(axs.flatten(), merged.columns[:-2]):
+        ax.set_xlabel(season)
+        sns.regplot(x=merged[season], y=merged[f'cost reduction - {plot_scenario}'], ax=ax, scatter_kws={'s': 20, 'alpha': .5, 'edgecolor': 'none'}, line_kws={'alpha': .5, 'linewidth': .8}, label='Full sample' if ax == axs[0, 0] else '__none__')
         ax.set_ylabel('')
         ax.xaxis.set_major_formatter(PercentFormatter(xmax=1))
-        ax.text(.01, .99, f"R2={r2_scores[col]:.2f}", ha='left', va='top', transform=ax.transAxes)
+        ax.text(.01, .99, f"R2={r2_scores.loc[season, plot_scenario]:.2f}", ha='left', va='top', transform=ax.transAxes)
 
-        # full_sample_mean_discharge_deviation = (discharge.mean() / discharge.mean()).loc[col] - 1
         full_sample_mean_cost_reduction = (1 - costs.mean()['Improvement'] / costs.mean()['Control']) * 100
         ax.scatter(0, full_sample_mean_cost_reduction, color='blue', s=100, marker='x', zorder=10, label='__none__')
-        # ax.axhline(full_sample_mean_cost_reduction, color='blue', linestyle='--', linewidth=0.8)
-        if col in fit_on:
-            ax.axvline(target_change_rates['Optimistic'][col], color='orange', linestyle='--', linewidth=0.8, label='__none__')
-            ax.text(target_change_rates['Optimistic'][col], 0.01, f"{'  +' if target_change_rates['Optimistic'][col] > 0 else '  '}{target_change_rates['Optimistic'][col] * 100:.1f}%  ", ha='left' if target_change_rates['Optimistic'][col] > target_change_rates['Pessimistic'][col] else 'right', va='bottom', fontsize=7, color='orange', transform=blended_transform_factory(ax.transData, ax.transAxes))
-            ax.scatter(merged[col].loc[best_fit_result['Optimistic']['subset']].values, merged['cost_reduction'].loc[best_fit_result['Optimistic']['subset']].values, color='orange', s=50, facecolors='none', label='__none__')
-            ax.axvline(target_change_rates['Pessimistic'][col], color='red', linestyle='--', linewidth=0.8, label='__none__')
-            ax.text(target_change_rates['Pessimistic'][col], 0.01, f"{'  +' if target_change_rates['Pessimistic'][col] > 0 else '  '}{target_change_rates['Pessimistic'][col] * 100:.1f}%  ", ha='right' if target_change_rates['Optimistic'][col] > target_change_rates['Pessimistic'][col] else 'left', va='bottom', fontsize=7, color='red', transform=blended_transform_factory(ax.transData, ax.transAxes))
-            ax.scatter(merged[col].loc[best_fit_result['Pessimistic']['subset']].values, merged['cost_reduction'].loc[best_fit_result['Pessimistic']['subset']].values, color='red', s=100, facecolors='none', label='__none__')
-            ax.axvline(target_change_rates['Pessimistic'][col], color='red', linestyle='--', linewidth=0.8, label='__none__')
-            ax.scatter(best_fit_result['Optimistic']['mean_shift'][col], best_fit_result['Optimistic']['cost_reduction'], color='orange', s=100, marker='x', zorder=10, label='__none__')
-            ax.scatter(best_fit_result['Pessimistic']['mean_shift'][col], best_fit_result['Pessimistic']['cost_reduction'], color='red', s=100, marker='x', zorder=10, label='__none__')
+        if season in fit_on:
+            ax.axvline(target_change_rates['Optimistic'][season], color='orange', linestyle='--', linewidth=0.8, label='__none__')
+            ax.text(target_change_rates['Optimistic'][season], 0.01, f"{'  +' if target_change_rates['Optimistic'][season] > 0 else '  '}{target_change_rates['Optimistic'][season] * 100:.1f}%  ", ha='left' if target_change_rates['Optimistic'][season] > target_change_rates['Pessimistic'][season] else 'right', va='bottom', fontsize=7, color='orange', transform=blended_transform_factory(ax.transData, ax.transAxes))
+            ax.scatter(merged[season].loc[best_fit_result['Optimistic']['subset']].values, merged[f'cost reduction - {plot_scenario}'].loc[best_fit_result['Optimistic']['subset']].values, color='orange', s=50, facecolors='none', label='__none__')
+            ax.axvline(target_change_rates['Pessimistic'][season], color='red', linestyle='--', linewidth=0.8, label='__none__')
+            ax.text(target_change_rates['Pessimistic'][season], 0.01, f"{'  +' if target_change_rates['Pessimistic'][season] > 0 else '  '}{target_change_rates['Pessimistic'][season] * 100:.1f}%  ", ha='right' if target_change_rates['Optimistic'][season] > target_change_rates['Pessimistic'][season] else 'left', va='bottom', fontsize=7, color='red', transform=blended_transform_factory(ax.transData, ax.transAxes))
+            ax.scatter(merged[season].loc[best_fit_result['Pessimistic']['subset']].values, merged[f'cost reduction - {plot_scenario}'].loc[best_fit_result['Pessimistic']['subset']].values, color='red', s=100, facecolors='none', label='__none__')
+            ax.axvline(target_change_rates['Pessimistic'][season], color='red', linestyle='--', linewidth=0.8, label='__none__')
+            ax.scatter(best_fit_result['Optimistic']['mean_shift'][season], best_fit_result['Optimistic']['cost_reduction'][plot_scenario], color='orange', s=100, marker='x', zorder=10, label='__none__')
+            ax.scatter(best_fit_result['Pessimistic']['mean_shift'][season], best_fit_result['Pessimistic']['cost_reduction'][plot_scenario], color='red', s=100, marker='x', zorder=10, label='__none__')
         ax_handles, ax_labels = ax.get_legend_handles_labels()
         handles.extend(ax_handles)
         labels.extend(ax_labels)
-    # fig.text('Cost reduction (%)')
     handles.extend([
         Line2D([0], [0], marker='o', linestyle='None', markersize=8, markeredgecolor='orange', markerfacecolor='none'),
         Line2D([0], [0], marker='o', linestyle='None', markersize=10, markeredgecolor='red', markerfacecolor='none'),
         Line2D([0], [0], marker='x', color='black', linestyle='None', markersize=8),
         Line2D([0], [0], color='black', linestyle='--', linewidth=0.8),
     ])
+    for ax in axs[:, 0]:
+        ax.set_ylabel(f"Cost reduction - {plot_scenario} [%]")
     labels.extend(['Optimistic sample', 'Pessimistic sample', 'Sample means', 'Projected discharge change'])
-    axs[-1].legend(handles=handles, labels=labels, loc='upper left', bbox_to_anchor=(0, 1), frameon=False)
-    axs[-1].axis('off')
+    axs[-1, -1].legend(handles=handles, labels=labels, loc='upper left', bbox_to_anchor=(0, 1), frameon=False)
+    axs[-1, -1].axis('off')
     fig.tight_layout()
-    if outpath is not None:
-        fig.savefig(os.path.join(outpath, f'hydropower_cc_year_selection_{"+".join(fit_on)}.pdf'), dpi=300)
+    if hydropower_outpath_ is not None:
+        fig.savefig(os.path.join(hydropower_outpath_, f'hydropower_cc_year_selection.pdf'), dpi=300)
 
-    temperature_increases = pd.read_csv(temperature_increases_path, index_col='year')
+    temperature_increases = pd.read_csv(temperature_increases_path_, index_col='year')
     current_potential_benefit = forecast_benefit.mean()
     rel_temp_change = temperature_increases / temperature_increases.loc[2085]
     rel_temp_change = rel_temp_change[rel_temp_change.index <= 2050]
 
     res = pd.DataFrame(index=simulation_range)
-    res[f'Control / Status quo'] = 0
-    for scenario in ['Optimistic', 'Pessimistic']:
-        implementation_level = pd.Series(np.clip((res.index - (implementation_year - 1)) / implementation_duration, 0, 1), index=res.index, name='implementation_level')
-        res[f'{scenario} - Improvement'] = ((current_potential_benefit + (best_fit_result[scenario]['cost_reduction'] - current_potential_benefit) * rel_temp_change[scenario]) * implementation_level).loc[simulation_range]
-    res = res[['Control / Status quo', 'Optimistic - Improvement', 'Pessimistic - Improvement']]
+    res.index.name = 'Year'
+    res[f'Optimistic / Pessimistic - Control'] = 0
+    for climate_sc in ['Optimistic', 'Pessimistic']:
+        implementation_level = pd.Series(np.clip((res.index - (implementation_year_ - 1)) / implementation_duration_, 0, 1), index=res.index, name='implementation_level')
+        for fc_sc in ['Status quo', 'Improvement']:
+            res[f'{climate_sc} - {fc_sc}'] = ((current_potential_benefit[f'cost reduction - {fc_sc}'] + (best_fit_result[climate_sc]['cost_reduction'][fc_sc] - current_potential_benefit[f'cost reduction - {fc_sc}']) * rel_temp_change[climate_sc]) * implementation_level).loc[simulation_range]
+    res = res[['Optimistic / Pessimistic - Control', 'Optimistic - Status quo', 'Optimistic - Improvement', 'Pessimistic - Status quo', 'Pessimistic - Improvement']]
 
     fig, ax = plt.subplots(figsize=(7, 3))
     for col in res.columns:
@@ -371,33 +392,138 @@ def prepare_hydropower_channel(hydropower_input_data_path_, temperature_increase
 
     res = res.rename(columns={'Control / Status quo': ' - Control / Status quo'})
     res.columns = pd.MultiIndex.from_tuples([tuple(col.split(' - ')) for col in res.columns], names=['Climate scenario', 'Forecast scenario'])
-    if outpath:
-        fig.savefig(os.path.join(outpath, 'hydropower_impact_channel_KHM.pdf'), dpi=300)
-        res.to_csv(os.path.join(outpath, 'hydropower_impact_channel_KHM.csv'))
-        latex = res.to_latex(float_format="%.2f", index=True, header=True,
-                     na_rep="", caption="Electricity generation\ncost reduction (\%).", label="tab:hydropower_impact_channel_KHM", multicolumn=True,
-                             multicolumn_format='c',
+    if hydropower_outpath_:
+        fig.savefig(os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.pdf'), dpi=300)
+
+        csv_outfile = os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.csv')
+        with open(csv_outfile, 'w') as f:
+            f.write("values are percent cost reductions of electricity generation cost in comparison to the control scenario\n")
+            f.write(" \n")
+            res.to_csv(f)
+
+        latex = res.to_latex(
+            float_format="%.2f",
+            index=True,
+            header=True,
+            na_rep="",
+            caption="Electricity generation\ncost reduction (\%).",
+            label="tab:hydropower_impact_channel_KHM",
+            multicolumn=True,
+            multicolumn_format='c'
         )
         latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
-        with open(os.path.join(outpath, "hydropower_impact_channel_KHM.tex"), 'w') as f:
+        with open(os.path.join(hydropower_outpath_, "hydropower_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
+
+
+def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=1_000_000., capex_improvement_=21_000_000., capex_improvement_duration_=5, capex_improvement_start_=2031):
+    res = pd.DataFrame(
+        data=0,
+        index=simulation_range, columns=pd.MultiIndex.from_product(
+            iterables=[['OPEX', 'CAPEX'], ['Optimistic', 'Pessimistic'], ['Control', 'Status quo', 'Improvement']],
+            names=['Cost type', 'Climate scenario', 'Forecast scenario'],
+        )
+    )
+    res.index.name = 'Year'
+
+    res.loc[:, pd.IndexSlice['OPEX', :, 'Status quo']] = opex_status_quo_
+    res.loc[:, pd.IndexSlice['OPEX', :, 'Improvement']] = opex_improvement_
+    res.loc[np.arange(capex_improvement_start_, capex_improvement_start_ + capex_improvement_duration_), pd.IndexSlice['CAPEX', :, 'Improvement']] = capex_improvement_ / capex_improvement_duration_
+
+    table_reduced = pd.DataFrame(
+        data=0,
+        columns=['OPEX', 'CAPEX'],
+        index=pd.Index(['Status quo', 'Improvement'], name='Forecast scenario'),
+        dtype=str,
+    )
+    table_reduced.loc['Status quo', 'OPEX'] = f"{opex_status_quo_ / 1e6:.0f} p.a."
+    table_reduced.loc['Improvement', 'OPEX'] = f"{opex_improvement_ / 1e6:.0f} p.a."
+    table_reduced.loc['Status quo', 'CAPEX'] = f"{capex_improvement_ / capex_improvement_duration_ / 1e6:.0f} p.a. ({capex_improvement_start_}--{capex_improvement_start_ + capex_improvement_duration_})"
+
+    os.makedirs(costs_outpath_, exist_ok=True)
+
+    csv_outfile = os.path.join(costs_outpath_, 'scenario_costs_KHM.csv')
+    with open(csv_outfile, 'w') as f:
+        f.write("All values in 2025 USD\n")
+        f.write(" \n")
+        res.to_csv(f)
+    latex = res.to_latex(
+        index=True,
+        header=True,
+        na_rep="",
+        caption="Scenario costs (m~USD, 2025 net present value).",
+        label="tab:scenario_costs_KHM",
+        multicolumn=True,
+        multicolumn_format='c'
+    )
+    latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
+    with open(os.path.join(costs_outpath_, "scenario_costs_KHM.tex"), 'w') as f:
+        f.write(latex)
+
+
+def combine_tables(table_paths, outpath_):
+    with pd.ExcelWriter(outpath_, engine='openpyxl') as writer:
+        for sheet_name, (file, num_header_rows) in table_paths.items():
+            with open(file, "r") as f:
+                meta_df = pd.DataFrame({'Info:': [f.readlines()[0].strip(), '']}).T
+            df = pd.read_csv(file, header=list(np.arange(1, num_header_rows + 1)), index_col=0)
+            meta_df.to_excel(writer, sheet_name=sheet_name, index=True, header=False, startrow=0)
+            df.to_excel(writer, sheet_name=sheet_name, index=True, startrow=len(meta_df))
+
 
 if __name__ == "__main__":
     simulation_range = np.arange(2020, 2051)
-    temperature_data_path = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/data/Temperature/projected-average-mean-s.csv"
-    temperature_outpath = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/results/Temperature/"
-    process_temperature_data(temperature_data_path, temperature_outpath)
-    temperature_change_path = os.path.join(temperature_outpath, 'temperature_change_to_2020.csv')
 
-    drr_outpath = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/results/DRR/"
-    calculate_drr_impact_channel(temperature_change_path, implementation_year=2021, implementation_duration=30, outpath=drr_outpath)
+    raw_temperatures_data_path = os.path.join(script_dir, "data/Temperature/projected-average-mean-s.csv")
+    temp_outpath = os.path.join(script_dir, "results/Temperature")
+    process_temperature_data(
+        raw_temperatures_data_path_=raw_temperatures_data_path,
+        temperature_outpath_=temp_outpath
+    )
+    temperature_path = os.path.join(script_dir, temp_outpath, 'temperature_change_to_2020.csv')
 
-    agri_outpath = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/results/Agriculture/"
-    calc_agri_impact_channel(temperature_change_path, implementation_year=2021, implementation_duration=30, outpath=agri_outpath)
+    costs_outpath = os.path.join(script_dir, "results/Costs")
+    generate_costs(
+        costs_outpath_=costs_outpath,
+        opex_status_quo_=0.5e6,
+        opex_improvement_=1e6,
+        capex_improvement_=21e6,
+        capex_improvement_duration_=5,
+        capex_improvement_start_=2031
+    )
 
-    hydropower_outpath = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/results/Hydropower/"
-    hydropower_input_data_path = "/Users/robin/Documents/Karriere/Jobs/2023_The_World_Bank/03_projects/05_Hydromet-Cambodia/data/Hydropower/Koh_Galelli"
-    # prepare_hydropower_channel(hydropower_input_data_path_=hydropower_input_data_path, fit_on_=['Pre-monsoon', 'Monsoon', 'Post-monsoon'], outpath_=hydropower_outpath)
-    # prepare_hydropower_channel(hydropower_input_data_path_=hydropower_input_data_path, fit_on_=['Monsoon'], outpath_=hydropower_outpath)
-    prepare_hydropower_channel(hydropower_input_data_path_=hydropower_input_data_path, temperature_increases_path=temperature_change_path, implementation_year=2021, implementation_duration=30, outpath=hydropower_outpath)
+    drr_outpath = os.path.join(script_dir, "results/DRR")
+    calculate_drr_impact_channel(
+        drr_outpath_=drr_outpath,
+        temperature_path_=temperature_path,
+        implementation_year_=2021,
+        implementation_duration_=30,
+    )
 
+    agri_outpath = os.path.join(script_dir, "results/Agriculture")
+    calc_agri_impact_channel(
+        agri_outpath_=agri_outpath,
+        temperature_increases_path_=temperature_path,
+        implementation_year_=2021,
+        implementation_duration_=30,
+    )
+
+    hydropower_input_data_path = os.path.join(script_dir, "data/Hydropower/Koh_Galelli")
+    hydropower_outpath = os.path.join(script_dir, "results/Hydropower")
+    prepare_hydropower_channel(
+        hydropower_outpath_=hydropower_outpath,
+        hydropower_input_data_path_=hydropower_input_data_path,
+        temperature_increases_path_=temperature_path,
+        implementation_year_=2021,
+        implementation_duration_=30,
+    )
+
+    combine_tables(
+        table_paths={
+            'drr_impact_channel_KHM': (os.path.join(drr_outpath, "drr_impact_channel_KHM.csv"), 2),
+            'agri_impact_channel_KHM': (os.path.join(agri_outpath, "agri_impact_channel_KHM.csv"), 2),
+            'hydropower_impact_channel_KHM': (os.path.join(hydropower_outpath, "hydropower_impact_channel_KHM.csv"), 2),
+            'scenario_costs_KHM': (os.path.join(costs_outpath, "scenario_costs_KHM.csv"), 3),
+        },
+        outpath_=os.path.join(script_dir, "results/Cambodia_MFMod_inputs.xlsx"),
+    )
