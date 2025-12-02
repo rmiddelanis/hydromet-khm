@@ -154,21 +154,21 @@ sorting=none,
   }
   \vspace{1em}
   
-  {
-    \noindent
-    R.~Middelanis\textsuperscript{a},
-    B.~A.~Jafino\textsuperscript{a},
-    M.~Sidibe\textsuperscript{a},
-    P.~Avner\textsuperscript{a}\\
-  }
-  \vspace{0.5em}
+  % {
+  %   \noindent
+  %   R.~Middelanis\textsuperscript{a},
+  %   B.~A.~Jafino\textsuperscript{a},
+  %   M.~Sidibe\textsuperscript{a},
+  %   P.~Avner\textsuperscript{a}\\
+  % }
+  % \vspace{0.5em}
 
-  {
-    \small
-    \noindent
-   \textsuperscript{a}The World Bank\\
-  }
-  \vspace{0.5em}
+  % {
+  %   \small
+  %   \noindent
+  %  \textsuperscript{a}The World Bank\\
+  % }
+  % \vspace{0.5em}
   
 \end{center}
 
@@ -187,7 +187,7 @@ sorting=none,
 \section{Introduction}
 Cambodia aims to develop into a high-income country by 2050 from its current
 status of a lower-middle income country as per the World Bank's country income
-classification and the country. Extreme weather events pose a threat to this
+classification. Extreme weather events pose a threat to this
 development path by impacting key sectors of the economy, with floods being the
 most frequent and damaging disasters, historically
 \parencite{undrr2019disaster_risk_cambodia}. Ongoing climate change further
@@ -201,9 +201,9 @@ and temperature is the agriculture sector
 Cambodia's GDP \parencite{wb2025agri_gdp_cambodia}. The country's electricity
 generation relies heavily on hydropower, which accounted for 35\% of generated
 electricity in 2023 \parencite{iea2023energy_mix_cambodia}. With altered
-rainfall and extreme weather events, streamflow patterns can be expected to
-change, affecting the country's electricity supply. As weather extremes become
-more frequent and intense, damages to assets and infrastructure are likely to
+rainfall and extreme weather events, streamflow patterns will
+change and likely affect the country's electricity supply. As weather extremes become
+more frequent and intense, damages to assets and infrastructure are expected to
 increase, leading to higher economic losses from disasters. Under a pessimistic 
 scenario, annual average flood damages in Cambodia could reach up to 2.97\% of
 the national capital stock by 2050, compared to current levels of 0.93\%
@@ -234,31 +234,36 @@ development path.
 
 We simulate the economic development of Cambodia under optimistic and
 pessimistic climate projections (\cref{fig:temp_projections_khm}). We use an
-optimistic (pessimistic) scenario as the 10-y running average of temperature
-projections from the 10-th (90-th) percentile of the SSP1-2.6 (SSP5-8.5) CMIP6
-ensemble, which we obtain from the World Bank's Climate Change Knowledge Portal
-\parencite{worldbank2025climate_temp_cambodia}. The impact channel variables
-used in the simulations are defined along the temperature change under both
-scenarios relative to the 2020 base year. Under the optimistic projection, the
-temperature in Cambodia will increase by about 0.52\degree~C between 2020 and
-2050, and by about 1.62\degree~C under the pessimistic projection. Under both
-climate scenarios, we simulate three forecast scenarios:
+optimistic (pessimistic) scenario as the 10-y running average of annual average
+temperature projections from the 10-th (90-th) percentile of the SSP1-2.6
+(SSP5-8.5) CMIP6 ensemble, which we obtain from the World Bank's Climate Change
+Knowledge Portal \parencite{worldbank2025climate_temp_cambodia}. The impact
+channel variables used in the simulations are defined along the change of annual
+average temperatures under both scenarios relative to the 2020 base year. Under
+the optimistic projection, the temperature in Cambodia will increase by
+0.52\degree~C between 2020 and 2050, and by 1.62\degree~C under the pessimistic
+projection. Under both climate scenarios, we simulate three forecast scenarios:
 \begin{itemize}
   \item \textbf{Control (no forecasts)}: This control scenario models the development of
     Cambodia in the absence of hydrometeorological forecast benefits.
-  \item \textbf{Maintaining the status quo}: This scenario represents the current
-    forecast skill and its benefits for Cambodia. As the scenario represents the 
-    current state, no additional investments are considered.
+  \item \textbf{Maintaining the status quo}: This scenario represents the
+    current forecast skill and its benefits for Cambodia. As the scenario
+    represents the current forecast state, no investments into additional
+    hydrometeorological infrastructure are considered, but we assume annual
+    maintenance costs for existing infrastructure. Importantly, the status quo 
+    scenario holds the forecast skill constant, but assumes some institutional 
+    progress, as described for each impact channel below. 
   \item \textbf{Continued improvement}: This scenario models an investment into
-  hydrometeorological observations and institutional capacity to improve forecasts
-  and early warning systems. The investment requires continued investments until
-  the year 2050.
+  hydrometeorological observations and institutional capacity to improve
+  forecasts, assuming additional investments until the year 2050. It is identical
+  to the status quo scenario with regards to progress in institutional capacity, 
+  but includes a constantly increasing forecast skill. 
 \end{itemize}
-We note that the forecast skill itself will also likely be affected by climate
-change, e.g. due to changes in weather patterns and increased uncertainty. In
-our simulations, we do not account for this effect and assume that forecast
-skill develops identically across both climate scenarios.
-
+Forecast skill itself will also likely be affected by climate change, e.g. due
+to changes in weather patterns and increased uncertainty. Here, we do not
+account for this effect and assume that forecast skill develops identically
+across both climate scenarios.
+ 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=5in]{./figures/temperature_projections_KHM.pdf}
@@ -288,16 +293,22 @@ an additional USD~7.8~million is planned for the coming four years
 \parencite{crews2025sea2_project}. The initially higher investment has allowed
 Cambodia to reach the current forecast level comparable to other countries in
 the region \parencite{chd2024cambodia}. We assume that annual costs of
-USD~0.5~million (net present value) are required for operation, and that
-continued service improvement requires an additional annual expenditure of
-USD~0.5~million, together amounting to 0.02\% of Cambodia's 2024 GDP of
-USD~46.3~billion. Hydrometerological equipment has a lifetime of about 15 years,
-and we assume that another capital investment of USD~21~million will be required
-over a period between 2031 to 2035. This amount is estimated as the 2025 net
-present value\footnote{Price adjustment is done using the US GDP deflator rates
-for the years 2013 and 2025.} of the originally estimated USD~16~million
-investment for 2013, adjusted for inflation \parencite{us2025deflator}. 
+USD~0.5~million (net present value) are required for operation and maintenance
+(OPEX in the status quo scenario), and that continued service improvement
+requires an additional annual expenditure of USD~0.5~million (additional OPEX in
+the continued improvement scenario), together amounting to 0.02\% of Cambodia's
+2024 GDP of USD~46.3~billion. Hydrometerological equipment has a lifetime of
+about 15 years, and we assume that USD~21~million CAPEX will be required over a
+period between 2031 to 2035 to fund improved infrastructure in the continued
+improvement scenario. This amount is estimated as the 2025 net present
+value\footnote{Price adjustment is done using the US GDP deflator rates for the
+years 2013 and 2025.} of the originally estimated USD~16~million investment for
+2013, adjusted for inflation \parencite{us2025deflator}. We assume no future
+CAPEX in the status quo scenario. For the control scenario, OPEX and CAPEX are
+zero throughout the entire simulation time. Scenario costs are summarized in
+\cref{tab:scenario_costs_KHM}.
 
+\input{tables/scenario_costs_KHM.tex} 
 
 In the following sections, we define variables for each impact channel under the
 different climate and forecast scenarios for the simulation period from 2020 to
@@ -323,24 +334,27 @@ protect assets, infrastructure, and livelihoods.
 
 We assume that projected flood damages under the two climate scenarios
 materialize proportionally to the temperature increase relative to 2020 in the
-absence of forecasts, which yields the "no forecasts" scenario. To define the
-asset damages under the "status quo" 
-scenario, we use values for Cambodia from \textcite{middelanis2025warning},
-who estimate that the current level of forecast skill, institutional capacity,
-and early warning coverage allow to reduce flood damages by 3.2\%. For the
-"continued improvement" scenario, we assume that coverage increases to 100\%,
-and that forecast quality and institutional capacity increase such that average warning
-lead times reach the level of high-income countries, which yields an
-estimated damage reduction of 6.5\% by 2050.
+absence of forecasts, which yields the "no forecasts" scenario. To estimate the
+benefits of early warning systems to reduce asset damages, we use values for
+Cambodia from \textcite{middelanis2025warning}, who estimate that current early
+warning systems allow to reduce flood damages by 3.18\%. We assume that coverage 
+of early warning systems will improve in the future from currently 69\% to 100\% in 2050. 
+This coverage growth is independent of forecast skill, and is therefore assumed under
+both the status quo and improvement scenarios. Under the improvement scenario, 
+we model an additional improvement of forecast quality that increases average 
+early warning lead times to the level of high-income countries by 2050. 
+This yields 2050 damage reduction benefits of 4.59\% under the status quo scenario, 
+and 6.47\% under the continued improvement scenario. 
 
-Annual average flood damages as a fraction of national capital stock are shown
-for all three forecast scenarios under the two climate scenarios in
-\cref{tab:drr_impact_channel_KHM} and \cref{fig:drr_impact_channel_KHM} for the period from 2020 to 2050. 
-With current forecast skill, damages in the optimistic climate scenario are
-reduced from 1.01\% in 2050 to 0.98\%. With perfect forecast skill, damages
-decrease further to 0.95\% in 2050. Under the pessimistic climate scenario,
-damages in 2050 are reduced from 2.97\% to 2.88\% with current forecast skill,
-and to 2.78\% with perfect forecast skill.
+Annual average flood damages resulting from projected flood losses and early
+warning benefits are shown for all three forecast scenarios under the two
+climate scenarios in \cref{tab:drr_impact_channel_KHM} and
+\cref{fig:drr_impact_channel_KHM} for the period from 2020 to 2050. With current
+forecast skill, damages in the optimistic climate scenario are reduced from
+1.01\% in 2050 to 0.97\%. If forecast skill can be improved, damages decrease
+further to 0.95\% in 2050. Under the pessimistic climate scenario, damages in
+2050 are reduced from 2.97\% to 2.84\% with current forecast skill, and to
+2.78\% with improved forecasts. 
 
 \begin{figure}[htb]
   \centering
@@ -355,44 +369,59 @@ and to 2.78\% with perfect forecast skill.
 
 \section{Agricultural Productivity}
 \label{sec:agriculture}
-Various studies have shown the value of weather forecasts for agricultural
-productivity. \cite{collins_evaluating_2024} simulate the value of weather
-forecasts for irrigation for 11 locations scheduling in 7 countries and find
-maize yields to increase by up to 11\% compared to a no-forecast scenario.
-Forecasts can also guide agronomic decisions such as optimal planting dates and
-fertilizer use \parencite{hansen_potential_2009} and inform planting decisions
-to increase agricultural productivity \parencite{tarchiani_access_2021}.
+For the agricultural impact channel, we model productivity increases from
+weather forecasts for the agriculture sector in Cambodia, which occupies a
+significant share of the work force \parencite{WorldBank2013CambodiaHydroMet}
+and accounted for more than half of total agricultural value added in the year
+2023 according to estimates of the Food and Agriculture Organization
+\parencite{fao_faostat_2025}. Various studies have shown the value of weather
+forecasts for agricultural productivity. \cite{collins_evaluating_2024} simulate
+the value of weather forecasts for irrigation for 11 locations scheduling in 7
+countries and find maize yields to increase by up to 11\% compared to a
+no-forecast scenario. Forecasts can also guide agronomic decisions such as
+optimal planting dates and fertilizer use \parencite{hansen_potential_2009} and
+inform planting decisions to increase agricultural productivity
+\parencite{tarchiani_access_2021}. 
 
-To quantify the benefits of weather forecasts for agricultural productivity in
-Cambodia, we use estimates from \cite{an-vo_framework_2021}, who simulate the
-value of improved forecasts on rice yields in the Vietnamese Mekong River Delta
-region under current and perfect forecasts. They use a price of \$220 per ton of
-rice and valuate current forecast skills at \$135\,ha\textsuperscript{-1} and
-perfect forecast skills at \$220\,ha\textsuperscript{-1}. Assuming a rice yield
-of 5.8 t\,ha\textsuperscript{-1} \parencite{stuart2018farm}, the value of current forecasts
-translates to an increase in productivity of 10.34\%, and the value of perfect
-forecasts to an increase of 16.86\%. If costs, inputs, and prices remain
+Recent initiatives aim to increase the use of weather and climate services in
+Cambodia's agriculture sector. For example, the De-Risk Southeast Asia
+initiative, launched in 2018, promotes use and dissemination of agroclimatic
+advisories in two Cambodian regions, using seasonal forecasts
+\parencite{swaans2023agroadvisories}. The PEARL project, financed by the Green
+Climate Fund (GCF), aims to increase climate resilience of agricultural
+production in the Northern Tonle Sap Basin in Cambodia. It is under
+implementation since 2023 and planned for completion in 2029. As these projects
+were launched only recently, we assume no agricultural benefits from forecasts
+in our simulation base year of 2020, but model a linear increase until 2050,
+where we assume that 100\% of potential forecast benefits are attained.
+
+To quantify the potential benefits of weather forecasts for agricultural
+productivity in Cambodia, we use estimates from \cite{an-vo_framework_2021}, who
+simulate the value of improved forecasts on rice yields in the Vietnamese Mekong
+River Delta region under current and perfect forecasts. They use a price of
+\$220 per ton of rice and valuate current forecast skills at
+\$135\,ha\textsuperscript{-1} and perfect forecast skills at
+\$220\,ha\textsuperscript{-1}. Assuming a rice yield of 5.8
+t\,ha\textsuperscript{-1} \parencite{stuart2018farm}, the value of current
+forecasts translates to an increase in productivity of 10.34\%, and the value of
+perfect forecasts to an increase of 16.86\%. If costs, inputs, and prices remain
 constant, these productivity increases can be used as percentage increases of
-total factor productivity (TFP). We apply these productivity increases to the
-agriculture sector in Cambodia, which occupies a significant share of the work
-force \parencite{WorldBank2013CambodiaHydroMet} and accounted for more than half
-of total agricultural value added in the year 2023 according to estimates of the
-Food and Agriculture Organization \parencite{fao_faostat_2025}.
+total factor productivity (TFP). 
 
 In the absence of measures to improve agricultural productivity, climate change
-is expected to reduce output in the agricultural sector. We calibrate these
+is expected to reduce output in the agricultural sector. We calibrate the
 control scenarios under the optimistic and pessimistic climate scenarios using
-estimated damage functions from \cite{roson2016estimation} who find decreases in
+damage functions from \cite{roson2016estimation} who find decreases in
 agriculture multi-factor productivity of 2.53\%, 5.27\%, and 8.2\% under
 temperature increases of 1\degree~C, 2\degree~C, and 3\degree~C, respectively,
 for Cambodia. These estimates are in reference to a baseline period from 1980 to
 2004, and we first adjust them to reflect changes relative to the year 2020. For
 the adjustment, we assume a temperature increase of 0.725\degree~C between 1992
 and 2020 based on the 10-year rolling mean of the CMIP6 ensemble
-data.\footnote{The rolling mean for the SSP2-1.6 and SSP5-8.5 scenarios
-indicate temperature increases of 0.72\degree~C and 0.73\degree~C between 1992
-and 2020, respectively.} Then, the adjusted productivity change for a given temperature change
-$\Delta T$ after 2020 in \degree~C is given by:
+data.\footnote{The rolling mean for the SSP2-1.6 and SSP5-8.5 scenarios indicate
+temperature increases of 0.72\degree~C and 0.73\degree~C between 1992 and 2020,
+respectively.} Then, the adjusted productivity change for a given temperature
+change $\Delta T$ after 2020 in \degree~C is given by:
 \begin{equation}
   \Delta p^{>2020}\left(\Delta T\right) = \frac{1 + \Delta p^{>1992}\left(\Delta T + 0.725\right)}{1 + \Delta p^{>1992}\left(0.725\right)} - 1,
 \end{equation}
@@ -404,11 +433,11 @@ Annual agricultural productivity changes for all scenarios are shown in
 \cref{tab:agri_impact_channel_KHM} and \cref{fig:agri_impact_channel_KHM} for
 the period from 2020 to 2050. In the absence of forecasts, agricultural
 productivity decreases by 1.43\% in the optimistic, and 4.52\% in the
-pessimistic scenario until 2050. This decrease can be offset if current forecast
-skill is fully translated into productivity increases, leading to a 8.77\% and
-5.35\% higher productivity in 2050 compared to the control scenario,
-respectively. With perfect forecast skill, productivity would increase by up to
-15.19\% or 11.57\% in 2050.
+pessimistic scenario until 2050. This decrease can be offset if the status quo
+forecast skill can be fully translated into productivity increases, leading to
+an overall 8.77\% and 5.35\% higher productivity in 2050. With continually
+improved forecast skill, productivity would increase by up to 15.19\% or 11.57\%
+in 2050.
 
 \begin{figure}[htb]
   \centering
@@ -425,25 +454,41 @@ respectively. With perfect forecast skill, productivity would increase by up to
 Cambodia's electricity generation relies heavily on hydropower, which accounted
 for 35\% of generated electricity in 2023
 \parencite{iea2023energy_mix_cambodia}. Hydropower reservoirs and dams are
-currently operated on rule curves, setting target water levels that reservoirs should
-reach at specific times throughout the calendar year. Recent simulations by 
-\cite{koh_evaluating_2024} suggest that forecast-based operations could reduce electricity
-generation costs and thus increase the country's potential for economic development. 
-Using the study's simulation output, we estimate the cost reduction potential that could
-be realized through switching from purely rule-based operations to forecast-informed 
-operations. As forecast-informed operations are currently not applied in Cambodia, 
-the control and status quo scenarios are identical. As \cite{koh_evaluating_2024}
-found that forecast benefits vary beetween seasons, we calculate the potential benefits
-of using forecasts as the mean cost reduction that can be obtained when choosing the cost-optimal
-operation mode for each month throughout the year as
+currently operated on rule curves, setting target water levels that reservoirs
+should reach at specific times throughout the calendar year. Recent simulations
+by \cite{koh_evaluating_2024} suggest that forecast-based operations could
+improve hydropower production, thus reducing reliance on fossil fuels and
+overall electricity generation. The simulations were conducted using 40-day
+forecast ensembles of river discharges, driving a coupled reservoir and power system
+model. The study also reports benefits under a perfect forecast scenario. Using
+the study's simulation output, we estimate the cost reduction potential that
+could be realized through switching from purely rule-based operations to
+forecast-informed operations. As forecast-informed operations are not applied in
+Cambodia as of now, current benefits are zero in all scenarios. As for the agricultural 
+productivity impact channel, we assume that the realized potential grows to 100\% 
+in the year 2050 under the status quo and continued improvement scenarios. 
+
+To estimate current potential benefits under the status quo and improvement
+scenarios, we map simulated benefits from using the forecast ensemble to the
+status quo scenario, and the perfect forecast simulations the continued
+improvement scenario. As \cite{koh_evaluating_2024} found that forecast benefits
+vary beetween seasons, we calculate the potential benefits as the mean cost
+reduction that can be obtained when choosing the cost-optimal operation mode for
+each month throughout the year. For the continued improvement scenario, the
+benefits are calculated from
 \begin{equation}
   \frac{1}{|Y|}\sum_{y\in Y} \left(1 - \frac{\sum_{m=1}^{12} \min{\left(\mathcal{C}_{m,y}^{RB}, \mathcal{C}_{m,y}^{FE}, \mathcal{C}_{m,y}^{PF}\right)}}{\sum_{m=1}^{12} \mathcal{C}_{m,y}^{RB}}\right) \cdot 100,
+  \label{eq:hydropower_monthly_cost_reduction}
 \end{equation}
 where $Y$ are the simulated years from 2000 to 2018, and
-$\mathcal{C}_{m,y}^{RB}$, $\mathcal{C}_{m,y}^{FE}$, and $\mathcal{C}_{m,y}^{PF}$ are the
-system operating costs during the $m$-th month in year $y$ under rule-based operations (RB) 
-or forecast-based operations using the ensemble mean of forecasts (FC) or perfect forecasts (PF).
-The above yields a potential average cost reduction of 9.1\% per year. 
+$\mathcal{C}_{m,y}^{RB}$, $\mathcal{C}_{m,y}^{FE}$, and $\mathcal{C}_{m,y}^{PF}$
+are the system operating costs during the $m$-th month in year $y$ under
+rule-based operations (RB) or forecast-based operations using the ensemble mean
+of forecasts (FC) or perfect forecasts (PF). Curent potential benefits under the
+status quo scenario are obtained by omitting operation costs under the perfect
+forecast skill $\mathcal{C}_{m,y}^{PF}$ from the minimum operator in
+\cref{eq:hydropower_monthly_cost_reduction}. The above yields current potential
+annual cost reduction of 7.7\%, and 9.1\% if forecast skill was improved.
 
 As the climate continues to warm, precipitation patterns in Cambodia and the
 region will change. Projections suggest overall wetter years under both the
@@ -461,13 +506,10 @@ benefits under climate change, we combine the results from
 \cite{koh_evaluating_2024} with results from \cite{wang2024historical} who
 investigated projected discharge for the Mekong River basin at various gauge
 stations, including Stung Treng station in Cambodia. We map projected
-end-of-century discharge changes for this station under RCP2.6 and RCP8.5 to our
+discharge changes for this station under RCP2.6 and RCP8.5 to our
 optimistic and pessimistic climate scenarios, respectively. Then, we calculate
 the expected average seasonal discharge $\overline{q_s^{sc}}$ under scenario
 conditions (optimistic or pessimistic) as
-% \begin{equation}
-%   \overline{q_s^{sc}} = \frac{1}{|M_s|} \sum_{m\in M_s} \left(\frac{1 + \Delta q_m^{sc}}{|Y|}\sum_{y\in Y} q_{m,y}\right),
-% \end{equation}
 \begin{equation}
   \overline{q_s^{sc}} = \frac{1}{|Y| |M_s|} \sum_{y\in Y} \sum_{m\in M_s} \left(1 + \Delta q_m^{sc}\right) q_{m,y},
 \end{equation}
@@ -479,11 +521,13 @@ $s\in S$, where months Feb--Apr are mapped to the Pre-Monsoon season, months May
 are mapped to the Monsoon season, and Nov--Jan are mapped to the Post-Monsoon
 season. 
 
-To estimate how cost reduction benefits may change under climate scenario conditions, 
-we find the subset $Y^{sc}\subseteq Y$ that is closest to the expected future climate
-in terms of seasonal mean discharge. Specifically, we select the subset of years that minimizes the 
-root mean squared error between its seasonal mean discharge $\left\{{\overline{q_s^{Y'}}}\right\}_{s\in S}$ and the expected seasonal mean discharge
-under climate scenario conditions $\left\{{\overline{q_s^{sc}}}\right\}_{s\in S}$:
+To estimate how cost reduction benefits may change under climate scenario
+conditions, we find the subset $Y^{sc}\subseteq Y$ that is closest to the
+expected future climate in terms of seasonal mean discharge. Specifically, we
+select the subset that minimizes the root mean squared error between
+its seasonal mean discharge $\left\{{\overline{q_s^{Y'}}}\right\}_{s\in S}$ and
+the expected seasonal mean discharge under climate scenario conditions
+$\left\{{\overline{q_s^{sc}}}\right\}_{s\in S}$:
 \begin{equation}
   Y^{sc} = \argmin{Y'\subseteq Y} \sqrt{\frac{1}{|S|}\sum_{s \in S}\left(\overline{q_s^{sc}} - \overline{q_s^{Y'}}\right)^2}
 \end{equation}
@@ -491,37 +535,37 @@ with
 \begin{equation}
   \overline{q_s^{Y'}} = \frac{1}{|Y'| |M_s|} \sum_{y\in Y'} \sum_{m\in M_s} q_{m,y}.
 \end{equation}
+Note that the set $Y'$ in the above equations can have any cardinality between 1
+and 19, as the full sample contains 19 years. The selected years for both
+climate scenarios are shown in \cref{fig:hydropower_year_selection}. We use the
+mean cost reduction across selected years as the resulting potential cost
+reduction. 
 
-The selected years for both cliamte scenarios are shown in
-\cref{fig:hydropower_year_selection}. As forecast benefit, we use the mean cost
-reduction across selected years, which yields potential benefits of 9.9\% and
-9.0\% in the optimistic and pessimistic scenarios, respectively. As the
-projections from \cite{wang2024historical} are for the future period between
-2070 to 2099, we assume that these benefits can be achieved by 2085 and scale
-them to the year 2050 with the projected temperature under optimistic and
-pessimistic scenarios. 
-
-Finally, we assume that the fraction of potential cost reduction that is
-realized in the improvement scenario grows linearly over time until 100\% of the
-potential are reached in 2050. The results are shown in
+As \cite{wang2024historical} assess projections for the future period of 2070 to
+2099, we assume that these benefits can be achieved by 2085 and scale them to
+the year 2050 with the projected temperature under optimistic and pessimistic
+scenarios. For the optimistic projections, this yields potential benefits in
+2050 of 8.5\% under the status quo scenario and 9.9\% under continued
+improvement. In the pessimistic climate scenario, benefits amount to only 7.7\%
+and 9.1\%, respectively. Benefits over the entire simulation period are shown in
 \cref{fig:hydropower_impact_channel_KHM} and
-\cref{tab:hydropower_impact_channel_KHM}.
-
+\cref{tab:hydropower_impact_channel_KHM}. 
+ 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=6in]{./figures/hydropower_cc_year_selection_Pre-monsoon+Monsoon+Post-monsoon.pdf}
+  \includegraphics[width=6in]{./figures/hydropower_cc_year_selection.pdf}
   \caption{\textbf{Selection of year subset for hydropower climate change projections.}
-  Potential annual cost reduction over seasonal discharge deviation from full
-  sample mean for all simulated years in \cite{koh_evaluating_2024}. Dashed
-  lines show expected seasonal discharge changes under future climate as
-  indicated by results of \cite{wang2024historical}. Circles indicate years that
-  are selected to yield mean discharge closest to projections. Markers indicate
-  mean deviation and cost reduction for full, optimistic, and pessimistic
-  sample. Solid line shows linear fit across the full sample with 95\%
-  confidence interval and denoted R2 value.}
+  Potential annual cost reduction for the continued improvement scenario over
+  seasonal discharge deviation from full sample mean for all simulated years in
+  \cite{koh_evaluating_2024}. Dashed lines show expected seasonal discharge
+  changes under future climate as indicated by results of
+  \cite{wang2024historical}. Circles indicate years that are selected to yield
+  mean discharge closest to future climate. Markers indicate mean deviation and
+  cost reduction for full, optimistic, and pessimistic sample. Solid line shows
+  linear fit across the full sample with 95\% confidence interval and denoted R2.}
   \label{fig:hydropower_year_selection}
 \end{figure}
-
+ 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/hydropower_impact_channel_KHM.pdf}

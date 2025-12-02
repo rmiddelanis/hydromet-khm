@@ -13,7 +13,7 @@ from matplotlib.transforms import blended_transform_factory
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
 
-def process_temperature_data(raw_temperatures_data_path_, temperature_outpath_):
+def process_temperature_data(raw_temperatures_data_path_, temperature_outpath_, paper_outpath_):
     df = pd.read_csv(raw_temperatures_data_path_).rename(columns={'Category': 'year'}).set_index('year')
 
     df = df.rename(columns={'Hist. Ref. Period, 1950-2014': 'Historical'})
@@ -58,12 +58,13 @@ def process_temperature_data(raw_temperatures_data_path_, temperature_outpath_):
 
     plt.tight_layout()
     fig.savefig(os.path.join(temperature_outpath_, 'temperature_projections_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(paper_outpath_, 'figures/temperature_projections_KHM.pdf'), dpi=300)
 
     temperature_change_to_base_year = (df - df.loc[2020])[['Historical', 'Optimistic', 'Pessimistic', 'SSP1-2.6-rolling', 'SSP5-8.5-rolling']]
     temperature_change_to_base_year.drop(columns='Historical').dropna(how='all').to_csv(os.path.join(temperature_outpath_, 'temperature_change_to_2020.csv'))
 
 
-def calculate_drr_impact_channel(drr_outpath_, temperature_path_, implementation_year_=2031, implementation_duration_=10):
+def calculate_drr_impact_channel(drr_outpath_, paper_outpath_, temperature_path_, implementation_year_=2031, implementation_duration_=10):
     current_aal = 0.9290
     optimistic_aal_2050 = 1.0130
     pessimistic_aal_2050 = 2.9740
@@ -114,6 +115,7 @@ def calculate_drr_impact_channel(drr_outpath_, temperature_path_, implementation
     os.makedirs(drr_outpath_, exist_ok=True)
 
     fig.savefig(os.path.join(drr_outpath_, 'drr_impact_channel_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(paper_outpath_, 'figures/drr_impact_channel_KHM.pdf'), dpi=300)
 
     csv_outfile = os.path.join(drr_outpath_, 'drr_impact_channel_KHM.csv')
     with open(csv_outfile, 'w') as f:
@@ -135,10 +137,12 @@ def calculate_drr_impact_channel(drr_outpath_, temperature_path_, implementation
         latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
         with open(os.path.join(drr_outpath_, "drr_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
+        with open(os.path.join(paper_outpath_, "tables/drr_impact_channel_KHM.tex"), 'w') as f:
+            f.write(latex)
 
 
 
-def calc_agri_impact_channel(agri_outpath_, temperature_increases_path_, implementation_year_=2031, implementation_duration_=10):
+def calc_agri_impact_channel(agri_outpath_, paper_outpath_, temperature_increases_path_, implementation_year_=2031, implementation_duration_=10):
     temperature_increases = pd.read_csv(temperature_increases_path_, index_col='year')
     temperature_increases = temperature_increases[temperature_increases.index <= 2050]
 
@@ -190,6 +194,7 @@ def calc_agri_impact_channel(agri_outpath_, temperature_increases_path_, impleme
     os.makedirs(agri_outpath_, exist_ok=True)
 
     fig.savefig(os.path.join(agri_outpath_, 'agri_impact_channel_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(paper_outpath_, 'figures/agri_impact_channel_KHM.pdf'), dpi=300)
 
     csv_outfile = os.path.join(agri_outpath_, 'agri_impact_channel_KHM.csv')
     with open(csv_outfile, 'w') as f:
@@ -204,9 +209,11 @@ def calc_agri_impact_channel(agri_outpath_, temperature_increases_path_, impleme
         latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
         with open(os.path.join(agri_outpath_, "agri_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
+        with open(os.path.join(paper_outpath_, "tables/agri_impact_channel_KHM.tex"), 'w') as f:
+            f.write(latex)
 
 
-def prepare_hydropower_channel(hydropower_outpath_, hydropower_input_data_path_, temperature_increases_path_, implementation_year_, implementation_duration_, seasonally=True, weighted=False):
+def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_input_data_path_, temperature_increases_path_, implementation_year_, implementation_duration_, seasonally=True, weighted=False):
     seasons_mapping = {
         1: 'Post-monsoon',
         2: 'Pre-monsoon',
@@ -365,8 +372,8 @@ def prepare_hydropower_channel(hydropower_outpath_, hydropower_input_data_path_,
     axs[-1, -1].legend(handles=handles, labels=labels, loc='upper left', bbox_to_anchor=(0, 1), frameon=False)
     axs[-1, -1].axis('off')
     fig.tight_layout()
-    if hydropower_outpath_ is not None:
-        fig.savefig(os.path.join(hydropower_outpath_, f'hydropower_cc_year_selection.pdf'), dpi=300)
+    fig.savefig(os.path.join(hydropower_outpath_, f'hydropower_cc_year_selection.pdf'), dpi=300)
+    fig.savefig(os.path.join(paper_outpath_, f'figures/hydropower_cc_year_selection.pdf'), dpi=300)
 
     temperature_increases = pd.read_csv(temperature_increases_path_, index_col='year')
     current_potential_benefit = forecast_benefit.mean()
@@ -392,31 +399,33 @@ def prepare_hydropower_channel(hydropower_outpath_, hydropower_input_data_path_,
 
     res = res.rename(columns={'Control / Status quo': ' - Control / Status quo'})
     res.columns = pd.MultiIndex.from_tuples([tuple(col.split(' - ')) for col in res.columns], names=['Climate scenario', 'Forecast scenario'])
-    if hydropower_outpath_:
-        fig.savefig(os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(paper_outpath_, 'figures/hydropower_impact_channel_KHM.pdf'), dpi=300)
 
-        csv_outfile = os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.csv')
-        with open(csv_outfile, 'w') as f:
-            f.write("values are percent cost reductions of electricity generation cost in comparison to the control scenario\n")
-            f.write(" \n")
-            res.to_csv(f)
+    csv_outfile = os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.csv')
+    with open(csv_outfile, 'w') as f:
+        f.write("values are percent cost reductions of electricity generation cost in comparison to the control scenario\n")
+        f.write(" \n")
+        res.to_csv(f)
 
-        latex = res.to_latex(
-            float_format="%.2f",
-            index=True,
-            header=True,
-            na_rep="",
-            caption="Electricity generation\ncost reduction (\%).",
-            label="tab:hydropower_impact_channel_KHM",
-            multicolumn=True,
-            multicolumn_format='c'
-        )
-        latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
-        with open(os.path.join(hydropower_outpath_, "hydropower_impact_channel_KHM.tex"), 'w') as f:
-            f.write(latex)
+    latex = res.to_latex(
+        float_format="%.2f",
+        index=True,
+        header=True,
+        na_rep="",
+        caption="Electricity generation\ncost reduction (\%).",
+        label="tab:hydropower_impact_channel_KHM",
+        multicolumn=True,
+        multicolumn_format='c'
+    )
+    latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
+    with open(os.path.join(hydropower_outpath_, "hydropower_impact_channel_KHM.tex"), 'w') as f:
+        f.write(latex)
+    with open(os.path.join(paper_outpath_, "tables/hydropower_impact_channel_KHM.tex"), 'w') as f:
+        f.write(latex)
 
 
-def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=1_000_000., capex_improvement_=21_000_000., capex_improvement_duration_=5, capex_improvement_start_=2031):
+def generate_costs(costs_outpath_, paper_outpath_, opex_status_quo_=500_000., opex_improvement_=1_000_000., capex_improvement_=21_000_000., capex_improvement_duration_=5, capex_improvement_start_=2031):
     res = pd.DataFrame(
         data=0,
         index=simulation_range, columns=pd.MultiIndex.from_product(
@@ -433,12 +442,12 @@ def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=
     table_reduced = pd.DataFrame(
         data=0,
         columns=['OPEX', 'CAPEX'],
-        index=pd.Index(['Status quo', 'Improvement'], name='Forecast scenario'),
+        index=pd.Index(['Control', 'Status quo', 'Improvement'], name='Forecast scenario'),
         dtype=str,
     )
-    table_reduced.loc['Status quo', 'OPEX'] = f"{opex_status_quo_ / 1e6:.0f} p.a."
-    table_reduced.loc['Improvement', 'OPEX'] = f"{opex_improvement_ / 1e6:.0f} p.a."
-    table_reduced.loc['Status quo', 'CAPEX'] = f"{capex_improvement_ / capex_improvement_duration_ / 1e6:.0f} p.a. ({capex_improvement_start_}--{capex_improvement_start_ + capex_improvement_duration_})"
+    table_reduced.loc['Status quo', 'OPEX'] = f"{opex_status_quo_ / 1e6:.1f} p.a."
+    table_reduced.loc['Improvement', 'OPEX'] = f"{opex_improvement_ / 1e6:.1f} p.a."
+    table_reduced.loc['Improvement', 'CAPEX'] = f"{capex_improvement_ / capex_improvement_duration_ / 1e6:.1f} p.a. ({capex_improvement_start_}--{capex_improvement_start_ + capex_improvement_duration_ - 1})"
 
     os.makedirs(costs_outpath_, exist_ok=True)
 
@@ -447,8 +456,8 @@ def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=
         f.write("All values in 2025 USD\n")
         f.write(" \n")
         res.to_csv(f)
-    latex = res.to_latex(
-        index=True,
+    latex_reduced = table_reduced.reset_index().to_latex(
+        index=False,
         header=True,
         na_rep="",
         caption="Scenario costs (m~USD, 2025 net present value).",
@@ -456,9 +465,11 @@ def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=
         multicolumn=True,
         multicolumn_format='c'
     )
-    latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
+    latex_reduced = latex_reduced.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
     with open(os.path.join(costs_outpath_, "scenario_costs_KHM.tex"), 'w') as f:
-        f.write(latex)
+        f.write(latex_reduced)
+    with open(os.path.join(paper_outpath_, "tables/scenario_costs_KHM.tex"), 'w') as f:
+        f.write(latex_reduced)
 
 
 def combine_tables(table_paths, outpath_):
@@ -473,18 +484,22 @@ def combine_tables(table_paths, outpath_):
 
 if __name__ == "__main__":
     simulation_range = np.arange(2020, 2051)
+    paper_outpath = os.path.join(script_dir, "paper")
+    os.makedirs(paper_outpath, exist_ok=True)
 
     raw_temperatures_data_path = os.path.join(script_dir, "data/Temperature/projected-average-mean-s.csv")
     temp_outpath = os.path.join(script_dir, "results/Temperature")
     process_temperature_data(
         raw_temperatures_data_path_=raw_temperatures_data_path,
-        temperature_outpath_=temp_outpath
+        temperature_outpath_=temp_outpath,
+        paper_outpath_=paper_outpath,
     )
     temperature_path = os.path.join(script_dir, temp_outpath, 'temperature_change_to_2020.csv')
 
     costs_outpath = os.path.join(script_dir, "results/Costs")
     generate_costs(
         costs_outpath_=costs_outpath,
+        paper_outpath_=paper_outpath,
         opex_status_quo_=0.5e6,
         opex_improvement_=1e6,
         capex_improvement_=21e6,
@@ -495,6 +510,7 @@ if __name__ == "__main__":
     drr_outpath = os.path.join(script_dir, "results/DRR")
     calculate_drr_impact_channel(
         drr_outpath_=drr_outpath,
+        paper_outpath_=paper_outpath,
         temperature_path_=temperature_path,
         implementation_year_=2021,
         implementation_duration_=30,
@@ -503,6 +519,7 @@ if __name__ == "__main__":
     agri_outpath = os.path.join(script_dir, "results/Agriculture")
     calc_agri_impact_channel(
         agri_outpath_=agri_outpath,
+        paper_outpath_=paper_outpath,
         temperature_increases_path_=temperature_path,
         implementation_year_=2021,
         implementation_duration_=30,
@@ -512,6 +529,7 @@ if __name__ == "__main__":
     hydropower_outpath = os.path.join(script_dir, "results/Hydropower")
     prepare_hydropower_channel(
         hydropower_outpath_=hydropower_outpath,
+        paper_outpath_=paper_outpath,
         hydropower_input_data_path_=hydropower_input_data_path,
         temperature_increases_path_=temperature_path,
         implementation_year_=2021,
