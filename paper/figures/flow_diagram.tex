@@ -1,0 +1,98 @@
+\begin{tikzpicture}[
+    font=\sffamily,
+    every node/.style={align=center},
+    heading/.style={
+        font=\sffamily\bfseries
+    },
+    scen/.style={
+        draw,
+        rectangle,
+        rounded corners=2pt,
+        minimum width=3.0cm,
+        minimum height=0.9cm,
+        fill=green!20
+    },
+    impact/.style={
+        draw,
+        rectangle,
+        rounded corners=2pt,
+        minimum width=2.6cm,
+        minimum height=0.9cm,
+        fill=orange!25
+    },
+    model/.style={
+        draw,
+        rectangle,
+        rounded corners=3pt,
+        minimum width=3cm,
+        minimum height=1.1cm,
+        fill=blue!25
+    },
+    result/.style={
+        draw,
+        rectangle,
+        rounded corners=2pt,
+        minimum width=3.2cm,
+        minimum height=1.1cm,
+        fill=gray!20
+    },
+    arrow/.style={
+        -{Stealth[length=1.5mm,width=1.8mm]}, 
+        thick,
+    },
+]
+
+% ---------------- Headings ----------------
+\node[heading] at (0,3.0)  {Scenarios};
+\node[heading] at (4.8,3.0) {Impact channels};
+\node[heading] at (9.2,3.0) {Economic model};
+\node[heading] at (13.4,3.0) {Results};
+
+% ---------------- Scenarios ----------------
+\node[scen] (skill)    at (0,1.4) {Forecast skill};
+\node[scen] (scenario) at (0,0.2) {Climate change};
+
+% ---------------- Impact channels ----------------
+\node[impact] (drr)  at (4.8,1.8) {Disaster Risk};
+\node[impact] (agri) at (4.8,0.8) {Agriculture};
+\node[impact] (hp)   at (4.8,-0.2) {Hydropower};
+
+% ---------------- Economic model ----------------
+\node[model] (model) at (9.2,0.8) {MFMod};
+
+% ---------------- Results ----------------
+\node[result] (gdp) at (13.4,0.8) {Projected GDP};
+
+% ---------------- Bidirectional link between scenarios ----------------
+\coordinate (start) at (skill.west);
+\coordinate (vert) at ($(skill.west)+(-5mm,0)$); % vertical line x-position, same y as skill.west
+\coordinate (vertEnd) at ($(vert|-scenario.west)$); % vertical line goes down to scenario.west y
+
+% Main arrow: horizontal-left, vertical, horizontal-right
+\draw[<->, dashed, {Stealth[length=1.5mm,width=1.8mm]}-{Stealth[length=1.5mm,width=1.8mm]}] (start) -- (vert) -- (vertEnd) -- (scenario.west);
+
+% Draw cross at middle of vertical segment
+\coordinate (cross) at ($(vert)!0.5!(vertEnd)$); % middle of vertical segment
+\draw[thick] ($(cross)+(-2mm,-2mm)$) -- ($(cross)+(2mm,2mm)$);
+\draw[thick] ($(cross)+(-2mm,2mm)$) -- ($(cross)+(2mm,-2mm)$);
+
+% ---------------- Arrows: scenarios -> impacts ----------------
+\draw[arrow] (skill.east) -- ([yshift=2pt] drr.west);
+\draw[arrow] (scenario.east) -- ([yshift=-2pt] drr.west);
+
+\draw[arrow] (skill.east) -- ([yshift=2pt] agri.west);
+\draw[arrow] (scenario.east) -- ([yshift=-2pt] agri.west);
+
+\draw[arrow] (skill.east) -- ([yshift=2pt] hp.west);
+\draw[arrow] (scenario.east) -- ([yshift=-2pt] hp.west);
+
+
+% ---------------- Arrows: impacts -> model ----------------
+\draw[arrow] (drr.east) -- ([yshift=3pt] model.west);
+\draw[arrow] (agri.east) -- (model.west);
+\draw[arrow] (hp.east) -- ([yshift=-3pt] model.west);
+
+% ---------------- Arrow: model -> result ----------------
+\draw[arrow] (model.east) -- (gdp.west);
+
+\end{tikzpicture}

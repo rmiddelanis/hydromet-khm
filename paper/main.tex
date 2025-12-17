@@ -82,7 +82,7 @@ sorting=none,
 \addbibresource{lib.bib}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows, arrows.meta, calc, positioning, quotes, shapes, decorations.pathreplacing}
+\usetikzlibrary{arrows, arrows.meta, calc, positioning, quotes, shapes, decorations.pathreplacing, decorations.markings}
 \usepackage{placeins}
 \usepackage{comment}
 
@@ -229,8 +229,29 @@ development path.
 
 
 \FloatBarrier
-\section{Scenarios}
-\label{sec:scenarios}
+\section{Methods}
+\label{sec:methods}
+
+\cref{fig:setup_flow_diagram} illustrates the overall structure of our
+analysis. We consider scenarios with different forecast skill and climate change
+projections, which feed into the impact channels of disaster risk, agriculture
+productivity, and hydropower generation. Impact channels are then integrated
+within the economic model (MFMod) to produce GDP projections. In the following,
+we describe the setup of scenarios (\cref{sec:methods_scenarios}) and impact channels
+(\cref{sec:methods_impact_channels}), and give an introducted to the used macro-economic 
+model (\cref{sec:methods_mfmod}).
+
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/flow_diagram}
+  \caption{\textbf{Conceptual setup of the study.}}
+  \label{fig:setup_flow_diagram}
+\end{figure}
+
+
+\subsection{Scenarios}
+\label{sec:methods_scenarios}
 
 We simulate the economic development of Cambodia under optimistic and
 pessimistic climate projections (\cref{fig:temp_projections_khm}). We use an
@@ -261,8 +282,8 @@ projection. Under both climate scenarios, we simulate three forecast scenarios:
 \end{itemize}
 Forecast skill itself will also likely be affected by climate change, e.g. due
 to changes in weather patterns and increased uncertainty. Here, we do not
-account for this effect and assume that forecast skill develops identically
-across both climate scenarios.
+account for this relationship and assume that forecast skill is independent of
+the climate scenarios.
  
 \begin{figure}[htb]
   \centering
@@ -316,8 +337,11 @@ different climate and forecast scenarios for the simulation period from 2020 to
 Cambodia's economic development under the different scenarios.
 
 
-\section{Disaster Risk Reduction}
-\label{sec:drr}
+\subsection{Impact channels}
+\label{sec:methods_impact_channels}
+
+\subsubsection{Disaster Risk Reduction}
+\label{sec:methods_drr}
 
 Flood damages are expected to increase in Cambodia due to climate change and can
 reach up to 2.97\% annual average loss of national capital by 2050 under a
@@ -367,8 +391,8 @@ further to 0.95\% in 2050. Under the pessimistic climate scenario, damages in
 \end{figure}
 
 
-\section{Agricultural Productivity}
-\label{sec:agriculture}
+\subsubsection{Agricultural Productivity}
+\label{sec:methods_agriculture}
 For the agricultural impact channel, we model productivity increases from
 weather forecasts for the agriculture sector in Cambodia, which occupies a
 significant share of the work force \parencite{WorldBank2013CambodiaHydroMet}
@@ -449,8 +473,8 @@ in 2050.
 \end{figure}
 
 
-\section{Hydropower Generation}
-\label{sec:hydropower}
+\subsubsection{Hydropower Generation}
+\label{sec:methods_hydropower}
 Cambodia's electricity generation relies heavily on hydropower, which accounted
 for 35\% of generated electricity in 2023
 \parencite{iea2023energy_mix_cambodia}. Hydropower reservoirs and dams are
@@ -699,16 +723,21 @@ Potential approaches:
 \end{itemize}
 \fi
 
+\subsection{Macro-economic model}
+\label{sec:methods_mfmod}
+\todo{model description}
+
 \section{Results}
 \label{sec:results}
 \todo{MFMod results on economic development}
 
-\noindent
-\todo{Potentially include MFMod results on job creation}
-
 \section{Discussion}
 \label{sec:discussion}
 \todo{The discussion}
+
+\section{Conclusions}
+\label{sec:conclusions}
+\todo{conclusions}
 
 \input{tables/drr_impact_channel_KHM.tex}
 
