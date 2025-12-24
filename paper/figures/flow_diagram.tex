@@ -69,7 +69,7 @@
 \coordinate (vertEnd) at ($(vert|-scenario.west)$); % vertical line goes down to scenario.west y
 
 % Main arrow: horizontal-left, vertical, horizontal-right
-\draw[<->, dashed, {Stealth[length=1.5mm,width=1.8mm]}-{Stealth[length=1.5mm,width=1.8mm]}] (start) -- (vert) -- (vertEnd) -- (scenario.west);
+\draw[<->, dashed, {Stealth[length=1.5mm,width=1.8mm]}-] (start) -- (vert) -- (vertEnd) -- (scenario.west);
 
 % Draw cross at middle of vertical segment
 \coordinate (cross) at ($(vert)!0.5!(vertEnd)$); % middle of vertical segment
