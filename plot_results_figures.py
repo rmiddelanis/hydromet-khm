@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
 
-def read_results_sheet(excel_path, sheet_name):
+def read_results_sheet(excel_path, sheet_name, start_year=2020):
     """Read the absolute GDP columns (B-H) and percentage deviation columns (K-Q) from a results sheet."""
     df_raw = pd.read_excel(excel_path, sheet_name=sheet_name, header=None)
     # Percentage deviation from baseline: columns K-Q (indices 10-16)
@@ -23,6 +23,10 @@ def read_results_sheet(excel_path, sheet_name):
     abs_data = df_raw.iloc[2:, 1:8].values.astype(float)
     df_abs = pd.DataFrame(abs_data, index=abs_years, columns=abs_labels)
     df_abs.index.name = 'Year'
+
+    # Filter to start_year onwards
+    df_pct = df_pct.loc[df_pct.index >= start_year]
+    df_abs = df_abs.loc[df_abs.index >= start_year]
 
     return df_pct, df_abs
 
