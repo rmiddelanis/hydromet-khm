@@ -727,10 +727,64 @@ Potential approaches:
 \label{sec:methods_mfmod}
 \todo{model description}
 
+\FloatBarrier
 \section{Results}
 \label{sec:results}
-\todo{MFMod results on economic development}
+\todo{write the results section}
 
+\cref{fig:results_DRR_control,fig:results_AGR_control,fig:results_HYD_control}
+show the GDP deviation from the respective control scenario when simulating each
+impact channel in isolation, and \cref{fig:results_All_control} shows the
+combined effect when all three channels are simulated simultaneously. The
+underlying data are provided in
+\cref{tab:results_DRR_control_rel,tab:results_AGR_control_rel,tab:results_HYD_control_rel,tab:results_All_control_rel}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_DRR_control_rel.pdf}
+  \caption{\textbf{GDP impact of the Disaster Risk Reduction channel in
+  isolation.} GDP deviation of the status quo and continued improvement forecast
+  scenarios from their respective control scenarios under optimistic and
+  pessimistic climate projections, when only the DRR channel is active.}
+  \label{fig:results_DRR_control}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_AGR_control_rel.pdf}
+  \caption{\textbf{GDP impact of the Agricultural Productivity channel in
+  isolation.} GDP deviation of the status quo and continued improvement forecast
+  scenarios from their respective control scenarios under optimistic and
+  pessimistic climate projections, when only the agriculture channel is active.}
+  \label{fig:results_AGR_control}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_HYD_control_rel.pdf}
+  \caption{\textbf{GDP impact of the Hydropower channel in isolation.} GDP
+  deviation of the status quo and continued improvement forecast scenarios from
+  their respective control scenarios under optimistic and pessimistic climate
+  projections, when only the hydropower channel is active.}
+  \label{fig:results_HYD_control}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_All_control_rel.pdf}
+  \caption{\textbf{Combined GDP impact with all channels active simultaneously.}
+  GDP deviation of the status quo and continued improvement forecast scenarios
+  from their respective control scenarios under optimistic and pessimistic
+  climate projections, when all three impact channels are simulated together.}
+  \label{fig:results_All_control}
+\end{figure}
+
+\input{tables/results_DRR_control_rel.tex}
+\input{tables/results_AGR_control_rel.tex}
+\input{tables/results_HYD_control_rel.tex}
+\input{tables/results_All_control_rel.tex}
+
+\FloatBarrier
 \section{Discussion}
 \label{sec:discussion}
 \todo{The discussion}
@@ -751,6 +805,62 @@ Potential approaches:
 
 \printbibliography[heading=bibintoc]
 
+
+\clearpage
+\FloatBarrier
+\appendix
+\section{GDP deviations from baseline}
+\label{app:baseline_rel}
+
+\cref{fig:results_DRR_baseline,fig:results_AGR_baseline,fig:results_HYD_baseline}
+show the GDP deviation from the no-climate-change baseline when simulating each
+impact channel in isolation, and \cref{fig:results_All_baseline} shows the
+combined effect when all three channels are simulated simultaneously. The
+underlying data are provided in
+\cref{tab:results_DRR_baseline_rel,tab:results_AGR_baseline_rel,tab:results_HYD_baseline_rel,tab:results_All_baseline_rel}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_DRR_baseline_rel.pdf}
+  \caption{\textbf{Disaster Risk Reduction channel in isolation -- GDP deviation
+  from baseline.} GDP deviation from the no-climate-change baseline under all
+  forecast and climate scenarios, when only the DRR channel is active.}
+  \label{fig:results_DRR_baseline}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_AGR_baseline_rel.pdf}
+  \caption{\textbf{Agricultural Productivity channel in isolation -- GDP
+  deviation from baseline.} GDP deviation from the no-climate-change baseline
+  under all forecast and climate scenarios, when only the agriculture channel is
+  active.}
+  \label{fig:results_AGR_baseline}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_HYD_baseline_rel.pdf}
+  \caption{\textbf{Hydropower channel in isolation -- GDP deviation from
+  baseline.} GDP deviation from the no-climate-change baseline under all
+  forecast and climate scenarios, when only the hydropower channel is active.}
+  \label{fig:results_HYD_baseline}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_All_baseline_rel.pdf}
+  \caption{\textbf{Combined GDP impact with all channels active simultaneously
+  -- deviation from baseline.} GDP deviation from the no-climate-change baseline
+  under all forecast and climate scenarios, when all three impact channels are
+  simulated together.}
+  \label{fig:results_All_baseline}
+\end{figure}
+
+\input{tables/results_DRR_baseline_rel.tex}
+\input{tables/results_AGR_baseline_rel.tex}
+\input{tables/results_HYD_baseline_rel.tex}
+\input{tables/results_All_baseline_rel.tex}
 
 
 % \FloatBarrier

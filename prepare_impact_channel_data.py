@@ -488,7 +488,7 @@ if __name__ == "__main__":
     os.makedirs(paper_outpath, exist_ok=True)
 
     raw_temperatures_data_path = os.path.join(script_dir, "data/Temperature/projected-average-mean-s.csv")
-    temp_outpath = os.path.join(script_dir, "results/Temperature")
+    temp_outpath = os.path.join(script_dir, "input_channels/Temperature")
     process_temperature_data(
         raw_temperatures_data_path_=raw_temperatures_data_path,
         temperature_outpath_=temp_outpath,
@@ -496,7 +496,7 @@ if __name__ == "__main__":
     )
     temperature_path = os.path.join(script_dir, temp_outpath, 'temperature_change_to_2020.csv')
 
-    costs_outpath = os.path.join(script_dir, "results/Costs")
+    costs_outpath = os.path.join(script_dir, "input_channels/Costs")
     generate_costs(
         costs_outpath_=costs_outpath,
         paper_outpath_=paper_outpath,
@@ -507,7 +507,7 @@ if __name__ == "__main__":
         capex_improvement_start_=2031
     )
 
-    drr_outpath = os.path.join(script_dir, "results/DRR")
+    drr_outpath = os.path.join(script_dir, "input_channels/DRR")
     calculate_drr_impact_channel(
         drr_outpath_=drr_outpath,
         paper_outpath_=paper_outpath,
@@ -516,7 +516,7 @@ if __name__ == "__main__":
         implementation_duration_=30,
     )
 
-    agri_outpath = os.path.join(script_dir, "results/Agriculture")
+    agri_outpath = os.path.join(script_dir, "input_channels/Agriculture")
     calc_agri_impact_channel(
         agri_outpath_=agri_outpath,
         paper_outpath_=paper_outpath,
@@ -526,7 +526,7 @@ if __name__ == "__main__":
     )
 
     hydropower_input_data_path = os.path.join(script_dir, "data/Hydropower/Koh_Galelli")
-    hydropower_outpath = os.path.join(script_dir, "results/Hydropower")
+    hydropower_outpath = os.path.join(script_dir, "input_channels/Hydropower")
     prepare_hydropower_channel(
         hydropower_outpath_=hydropower_outpath,
         paper_outpath_=paper_outpath,
@@ -543,5 +543,5 @@ if __name__ == "__main__":
             'hydropower_impact_channel_KHM': (os.path.join(hydropower_outpath, "hydropower_impact_channel_KHM.csv"), 2),
             'scenario_costs_KHM': (os.path.join(costs_outpath, "scenario_costs_KHM.csv"), 3),
         },
-        outpath_=os.path.join(script_dir, "results/Cambodia_MFMod_inputs.xlsx"),
+        outpath_=os.path.join(script_dir, "input_channels/Cambodia_MFMod_inputs.xlsx"),
     )
