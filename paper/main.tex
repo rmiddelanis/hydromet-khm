@@ -117,7 +117,7 @@ sorting=none,
 % CHECK Titles do not exceed two lines in print. This equates to 75 characters (including spaces). Titles do not normally include numbers, acronyms, abbreviations or punctuation. They should include sufficient detail for indexing purposes but be general enough for readers outside the field to appreciate what the paper is about.
 
 
-\newcommand{\articletitle}{Economic Benefits of Improved Hydrometeorological Forecasts in Cambodia---Technical Background Paper}
+\newcommand{\articletitle}{Economy-wide benefits of improved hydrometeorological forecasts and services in Cambodia}
 % TODO: check title length
 
 \hypersetup{colorlinks=true}
@@ -199,51 +199,57 @@ exacerbates these risks along Cambodia's development path, both through gradual
 changes in temperature and precipitation patterns as well as through an increase
 in the frequency and intensity of extreme weather events. 
 
-One sector that is particularly vulnerable to changing precipitation patterns
-and temperature is the agriculture sector
+The impacts of gradual climate change and intensification of extreme weather
+events materialize in Cambodia's economy through various channels. First, one
+sector that is particularly vulnerable to changing precipitation patterns and
+temperature is the agriculture sector
 \parencite{wbadb2021climate_risk_cambodia}, which still accounts for 17\% of
 Cambodia's GDP \parencite{wb2025agri_gdp_cambodia}. The country's electricity
 generation relies heavily on hydropower, which accounted for 35\% of generated
 electricity in 2023 \parencite{iea2023energy_mix_cambodia}. With altered
-rainfall and extreme weather events, streamflow patterns will
-change and likely affect the country's electricity supply. As weather extremes become
-more frequent and intense, damages to assets and infrastructure are expected to
-increase, leading to higher economic losses from disasters. Under a pessimistic 
+rainfall and extreme weather events, streamflow patterns will change and likely
+affect the country's electricity supply. Second, as weather extremes become more
+frequent and intense, damages to assets and infrastructure are expected to
+increase, leading to higher economic losses from disasters. Under a pessimistic
 scenario, annual average flood damages in Cambodia could reach up to 2.97\% of
 the national capital stock by 2050, compared to current levels of 0.93\%
-\parencite{worldbank2023ccdr}.
+\parencite{worldbank2023ccdr}. Third, \todo{third channel}
 
 Better weather forecasts can help mitigate these negative impacts by providing
-timely information to farmers, energy producers, and policymakers. In the
-agriculture sector, accurate forecasts can inform decisions about planting and
-harvesting crops \parencite{an-vo_framework_2021}, while energy producers can
-use forecasts to optimize their operations \parencite{koh_evaluating_2024}. They
-also enable timely early warnings that allow for proactive measures to protect
-infrastructure and communities, effectively reducing their impact on the economy
-and society \parencite{middelanis2025warning}. 
+timely information to households, farmers, energy producers, and policymakers.
+In the agriculture sector, accurate forecasts can inform decisions about
+planting and harvesting crops \parencite{an-vo_framework_2021}, while energy
+producers can use forecasts to optimize their operations
+\parencite{koh_evaluating_2024}. They also enable timely early warnings that
+allow for proactive measures to protect infrastructure and communities,
+effectively reducing their impact on the economy and society
+\parencite{middelanis2025warning}. 
 
-Here we use the World Bank's macro-economic model \textit{MFMod}
-\parencite{burns_world_2019} to estimate the economic benefits of improved
-hydrometeorological forecasts in Cambodia. We focus on three impact channels:
-(i) \textbf{disaster risk reduction for reduced flood damages}, (ii)
-\textbf{improved agricultural productivity}, and (iii) \textbf{optimized hydropower operation}.
-This technical background paper describes the data and methods used in the
-analysis, presents the results, and discusses their implications for Cambodia's
-development path.
+To fill this research gap, we assess the economy-wide integrated benefits of
+hydromet forecasts and services using the World Bank's macro-economic model
+\textit{MFMod} \parencite{burns_world_2019} to estimate the economic benefits of
+improved hydrometeorological forecasts in Cambodia. We focus on three impact
+channels: (i) \textbf{disaster risk reduction for reduced flood damages}, (ii)
+\textbf{improved agricultural productivity}, and (iii) \textbf{optimized
+hydropower operation}. This technical background paper describes the data and
+methods used in the analysis, presents the results, and discusses their
+implications for Cambodia's development path.
 
 
 \FloatBarrier
 \section{Methods}
 \label{sec:methods}
 
-\cref{fig:setup_flow_diagram} illustrates the overall structure of our
-analysis. We consider scenarios with different forecast skill and climate change
-projections, which feed into the impact channels of disaster risk, agriculture
-productivity, and hydropower generation. Impact channels are then integrated
-within the economic model (MFMod) to produce GDP projections. In the following,
-we describe the setup of scenarios (\cref{sec:methods_scenarios}) and impact channels
-(\cref{sec:methods_impact_channels}), and give an overview of the used macro-economic 
-model (\cref{sec:methods_mfmod}).
+\cref{fig:setup_flow_diagram} illustrates the overall structure of our analysis.
+To assess the economy-wide benefits of hydromet services, we consider scenarios
+with different forecast skill and climate change projections, which feed into
+the impact channels of disaster risk, agriculture productivity, and hydropower
+generation. Impact channels are then integrated within the economic model
+(MFMod) to produce GDP projections, which are the main outcome variable of
+interest in this study. In the following, we describe the setup of scenarios
+(\cref{sec:methods_scenarios}) and impact channels
+(\cref{sec:methods_impact_channels}), and give an overview of the used
+macro-economic model (\cref{sec:methods_mfmod}).
 
 
 \begin{figure}[htbp]
@@ -269,8 +275,9 @@ the optimistic projection, the temperature in Cambodia will increase by
 0.52\degree~C between 2020 and 2050, and by 1.62\degree~C under the pessimistic
 projection. Under both climate scenarios, we simulate three forecast scenarios:
 \begin{itemize}
-  \item \textbf{Control (no forecasts)}: This control scenario models the development of
-    Cambodia in the absence of hydrometeorological forecast benefits.
+  \item \textbf{Control (no forecasts)}: This control scenario models the
+    development of Cambodia with climate change but in the absence of
+    hydrometeorological forecast benefits.
   \item \textbf{Maintaining the status quo}: This scenario represents the
     current forecast skill and its benefits for Cambodia. As the scenario
     represents the current forecast state, no investments into additional
@@ -572,11 +579,11 @@ reduction.
 As \cite{wang2024historical} assess projections for the future period of 2070 to
 2099, we assume that these benefits can be achieved by 2085 and scale them to
 the year 2050 with the projected temperature under optimistic and pessimistic
-scenarios. For the optimistic projections, this yields potential benefits in
-2050 of 8.5\% under the status quo scenario and 9.9\% under continued
-improvement. In the pessimistic climate scenario, benefits amount to only 7.7\%
-and 9.1\%, respectively. Benefits over the entire simulation period are shown in
-\cref{fig:hydropower_impact_channel_KHM} and
+scenarios. For the optimistic climate projections, this yields potential
+benefits in 2050 of 8.5\% under the status quo scenario and 9.9\% under
+continued improvement. In the pessimistic climate scenario, benefits amount to
+only 7.7\% and 9.1\%, respectively. Benefits over the entire simulation period
+are shown in \cref{fig:hydropower_impact_channel_KHM} and
 \cref{tab:hydropower_impact_channel_KHM}. 
  
 \begin{figure}[htb]
