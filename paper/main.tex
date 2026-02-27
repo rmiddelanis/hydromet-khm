@@ -9,7 +9,7 @@
 \documentclass[
   final,
   10pt,
-  a4paper,
+  letterpaper,
   english,
 ]{article}
 \setlength{\parskip}{6pt}
@@ -17,7 +17,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage[
-  a4paper,
+  letterpaper,
   top=25mm,
   left=13.5mm,
   right=13.5mm,
@@ -77,7 +77,8 @@ backend=biber,
 %style=numeric-comp,
 % style=nature,
 style=authoryear,
-sorting=none,
+sorting=nyt,
+maxcitenames=2,
 ]{biblatex}
 \addbibresource{lib.bib}
 
@@ -191,39 +192,79 @@ sorting=none,
 \section{Introduction}
 Cambodia aims to develop into a high-income country by 2050 from its current
 status of a lower-middle income country as per the World Bank's country income
-classification. Extreme weather events pose a threat to this
-development path by impacting key sectors of the economy, with floods being the
-most frequent and damaging disasters, historically
-\parencite{undrr2019disaster_risk_cambodia}. Ongoing climate change further
-exacerbates these risks along Cambodia's development path, both through gradual
-changes in temperature and precipitation patterns as well as through an increase
-in the frequency and intensity of extreme weather events. 
+classification. Extreme weather events pose a threat to this development path by
+impacting key sectors of the economy, with floods being the most frequent and
+damaging disasters, historically \parencite{undrr2019disaster_risk_cambodia}.
+Ongoing climate change further exacerbates these risks along Cambodia's
+development path, both through gradual changes in temperature and precipitation
+patterns as well as through an increase in the frequency and intensity of
+extreme weather events. The impacts of gradual climate change and
+intensification of extreme weather events can materialize in Cambodia's economy
+through various channels. Here we focus on three of these impact channels, and
+assess how improved hydrometeorological forecasts and serives can reduce the
+resulting risks for the country's economic development.
 
-The impacts of gradual climate change and intensification of extreme weather
-events materialize in Cambodia's economy through various channels. First, one
-sector that is particularly vulnerable to changing precipitation patterns and
-temperature is the agriculture sector
+First, as weather extremes become more frequent and intense, flood damages to
+assets and infrastructure are expected to increase, leading to higher economic
+losses from disasters. Under a pessimistic scenario, annual average flood
+damages in Cambodia could reach up to 2.97\% of the national capital stock by
+2050, compared to current levels of 0.93\% \parencite{worldbank2023ccdr}.
+
+Second, one sector that is particularly vulnerable to changing precipitation
+patterns and temperature is the agriculture sector
 \parencite{wbadb2021climate_risk_cambodia}, which still accounts for 17\% of
-Cambodia's GDP \parencite{wb2025agri_gdp_cambodia}. The country's electricity
-generation relies heavily on hydropower, which accounted for 35\% of generated
-electricity in 2023 \parencite{iea2023energy_mix_cambodia}. With altered
-rainfall and extreme weather events, streamflow patterns will change and likely
-affect the country's electricity supply. Second, as weather extremes become more
-frequent and intense, damages to assets and infrastructure are expected to
-increase, leading to higher economic losses from disasters. Under a pessimistic
-scenario, annual average flood damages in Cambodia could reach up to 2.97\% of
-the national capital stock by 2050, compared to current levels of 0.93\%
-\parencite{worldbank2023ccdr}. Third, \todo{third channel}
+Cambodia's GDP \parencite{wb2025agri_gdp_cambodia}. Projected increases in
+temperature and changes in rainfall patterns are expected to affect crop yields
+and increase production volatility, threatening incomes and food security.
+\textcite{roson2016estimation} estimate that agricultural productivity in
+Cambodia could decline by up to 8.2\% in a 3\degree\,C warmer world, compared to
+the 1980--2004 period. 
+
+Third, Cambodia's electricity generation relies heavily on hydropower, which
+accounted for 35\% of generated electricity in 2023
+\parencite{iea2023energy_mix_cambodia}. With altered rainfall and extreme
+weather events, streamflow patterns will change and likely affect the country's
+electricity supply. Most studies for the region project overall intensified
+river discharge, but these increases materialize mostly in the wet season. Dry
+season discharge is expected to decrease
+\parencite{inseeyong2025evaluation,horton2022cambodian,li2021assessment},
+reducing reliability of energy generation and potentially constraining economic
+activity through higher energy system costs. 
+
 
 Better weather forecasts can help mitigate these negative impacts by providing
 timely information to households, farmers, energy producers, and policymakers.
-In the agriculture sector, accurate forecasts can inform decisions about
-planting and harvesting crops \parencite{an-vo_framework_2021}, while energy
-producers can use forecasts to optimize their operations
-\parencite{koh_evaluating_2024}. They also enable timely early warnings that
+In the agriculture sector, accurate forecasts can increase production yields and
+avoid losses, for instance by informing planting and harvesting decisionis
+\parencite{an-vo_framework_2021}. At global scale, cereal agriculture benefits
+of weather forecasts have been estimated at up to USD~231~billion
+\parencite{farkas2025economic}. Weather forecasts can be used by energy
+producers to optimize operations, for example by taking energy generation and
+discharge control decisions based on weather forecasts
+\parencite{koh_evaluating_2024}. For Cambodia's neighbor country Viet Nam,
+\textcite{giuliani2015making} estimate that the hydropower benefits of weather
+forecasts in Viet Nam could reach up to USD~1.9~million per year. Better
+hydrometeorological forcasts and services also enable timely early warnings that
 allow for proactive measures to protect infrastructure and communities,
 effectively reducing their impact on the economy and society
-\parencite{middelanis2025warning}. 
+\parencite{middelanis2025warning}. According to \textcite{hallegatte_cost_2012},
+disaster-related annual asset damages in developing countries could be reduced
+by USD~300~million to USD~3~billion if early warning systems are improved to
+developed-country standards.
+
+The economic benefits of better weather services are often assessed on a
+sector-by-sector basis \parencite{farkas2025economic}. One strand of studies
+uses sectoral simulation models to create counterfactual scenarios that
+represent the improvement of weather observations and services, and test the
+benefits of such scenarios to the system outcomes (e.g.,
+\cite{koh_evaluating_2024,pappenberger2015monetary}). Another strand of studies
+is more empirical in nature, for instance, by using historical household survey
+to see the differences in outcomes of farmers with access to higher forecast
+accuracy (e.g., \cite{amegnaglo2022use,dupdal2020farmers}). What is less
+obvious and studied is how these sectoral benefits translate into economy-wide
+benefits at a country level. Furthermore, such sectoral benefits are often
+assessed in isolation, while an economy-wide assessment of the hydromet services
+benefits through multiple impact channels is missing.
 
 To fill this research gap, we assess the economy-wide integrated benefits of
 hydromet forecasts and services using the World Bank's macro-economic model
@@ -236,9 +277,16 @@ methods used in the analysis, presents the results, and discusses their
 implications for Cambodia's development path.
 
 
-\FloatBarrier
+% \FloatBarrier
 \section{Methods}
 \label{sec:methods}
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/flow_diagram}
+  \caption{\textbf{Conceptual setup of the study.}}
+  \label{fig:setup_flow_diagram}
+\end{figure}
 
 \cref{fig:setup_flow_diagram} illustrates the overall structure of our analysis.
 To assess the economy-wide benefits of hydromet services, we consider scenarios
@@ -252,16 +300,21 @@ interest in this study. In the following, we describe the setup of scenarios
 macro-economic model (\cref{sec:methods_mfmod}).
 
 
-\begin{figure}[htbp]
-  \centering
-  \input{figures/flow_diagram}
-  \caption{\textbf{Conceptual setup of the study.}}
-  \label{fig:setup_flow_diagram}
-\end{figure}
-
-
 \subsection{Scenarios}
 \label{sec:methods_scenarios}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=5in]{./figures/temperature_projections_KHM.pdf}
+  \caption{\textbf{Temperature projections for Cambodia.} Projections are shown
+    for the SSP1-2.6 and SSP5-8.5 (ensemble median and 10th/90th percentile). Optimistic and pessimistic
+    scenarios for the simulation period from 2020 to 2050 are given by the 10-y
+    running central averages of the respective 10-th and 90-th percentiles of
+    the CMIP6 ensemble. Vertical bars indicate projected temperature increases
+    under the optimistic and pessimistic scenarios between the years 2020 and
+    2050. Data obtained from \cite{worldbank2025climate_temp_cambodia}.}
+  \label{fig:temp_projections_khm}
+\end{figure}
 
 We simulate the economic development of Cambodia under optimistic and
 pessimistic climate projections (\cref{fig:temp_projections_khm}). We use an
@@ -272,7 +325,7 @@ Knowledge Portal \parencite{worldbank2025climate_temp_cambodia}. The impact
 channel variables used in the simulations are defined along the change of annual
 average temperatures under both scenarios relative to the 2020 base year. Under
 the optimistic projection, the temperature in Cambodia will increase by
-0.52\degree~C between 2020 and 2050, and by 1.62\degree~C under the pessimistic
+0.52\degree\,C between 2020 and 2050, and by 1.62\degree\,C under the pessimistic
 projection. Under both climate scenarios, we simulate three forecast scenarios:
 \begin{itemize}
   \item \textbf{Control (no forecasts)}: This control scenario models the
@@ -296,18 +349,6 @@ to changes in weather patterns and increased uncertainty. Here, we do not
 account for this relationship and assume that forecast skill is independent of
 the climate scenarios.
  
-\begin{figure}[htb]
-  \centering
-  \includegraphics[width=5in]{./figures/temperature_projections_KHM.pdf}
-  \caption{\textbf{Temperature projections for Cambodia.} Projections are shown
-    for the SSP1-2.6 and SSP5-8.5 (ensemble median and 10th/90th percentile). Optimistic and pessimistic
-    scenarios for the simulation period from 2020 to 2050 are given by the 10-y
-    running central averages of the respective 10-th and 90-th percentiles of
-    the CMIP6 ensemble. Vertical bars indicate projected temperature increases
-    under the optimistic and pessimistic scenarios between the years 2020 and
-    2050. Data obtained from \cite{worldbank2025climate_temp_cambodia}.}
-  \label{fig:temp_projections_khm}
-\end{figure}
 
 \noindent
 In their 2013 report, \cite{WorldBank2013CambodiaHydroMet} assessed the state of
@@ -354,6 +395,14 @@ Cambodia's economic development under the different scenarios.
 \subsubsection{Disaster Risk Reduction}
 \label{sec:methods_drr}
 
+We consider flooding for the disaster risk reduction impact channel due to
+Cambdia's high risk to floods, making it one of the most flood-exposed countries
+in the world \parencite{wbadb2021climate_risk_cambodia}. To get flood damages
+across climate scenarios, we leverage modelled estimates from
+\textcite{worldbank2023ccdr} and apply the methodology described in
+\textcite{middelanis2025warning} to estimate early warning benefits in terms of
+flood damage reduction.
+
 Flood damages are expected to increase in Cambodia due to climate change and can
 reach up to 2.97\% annual average loss of national capital by 2050 under a
 pessimistic climate scenario, and up to 1.01\% under an optimistic
@@ -372,14 +421,33 @@ materialize proportionally to the temperature increase relative to 2020 in the
 absence of forecasts, which yields the "no forecasts" scenario. To estimate the
 benefits of early warning systems to reduce asset damages, we use values for
 Cambodia from \textcite{middelanis2025warning}, who estimate that current early
-warning systems allow to reduce flood damages by 3.18\%. We assume that coverage 
-of early warning systems will improve in the future from currently 69\% to 100\% in 2050. 
-This coverage growth is independent of forecast skill, and is therefore assumed under
-both the status quo and improvement scenarios. Under the improvement scenario, 
-we model an additional improvement of forecast quality that increases average 
-early warning lead times to the level of high-income countries by 2050. 
-This yields 2050 damage reduction benefits of 4.59\% under the status quo scenario, 
-and 6.47\% under the continued improvement scenario. 
+warning systems allow to reduce flood damages by 3.18\%, based on estimated
+population coverage of early warning systems and average realized warning lead
+times. This damage reduction $\pi$ is calculated as
+\begin{equation}
+  \pi = \epsilon_{WRN} \cdot \pi_{max} \cdot \left(1 - e^{-\lambda_{WRN}/\tau}\right),
+\end{equation}
+where $\epsilon_{WRN}=0.69$ is the fraction of the population covered,
+$\pi_{max}=0.097$ is the fraction of assets that can be protected (estimated as
+the fraction moveable assets in total capital stock), $\lambda_{WRN}=7$ is
+the average warning lead time in hours, and $\tau=10.92$ a scaling parameter as
+estimated by \textcite{middelanis2025warning}. Currently realized average early
+warning lead times are set according to country income group, assuming average
+flood warnings of 7~hrs in lower-middle income countries and 12~hrs for
+high-income countries.
+
+Coverage is mainly determined by local institutional capacities. This
+includes the ability to interpret forecastas in terms of socio-economic risk,
+and to subsequently generate warnings and broadly disseminate actionable
+information among the population at risk. Therefore, it can be assumed
+independent of forecast skill and we model a growth of population coverage under
+both the status quo and improvement scenarios, increasing from currently 69\% to
+100\% in 2050. Under the improvement scenario, we additionally assume an
+increase in forecast quality that reduces average early warning lead times to
+the level of high-income countries by 2050. This increases damage reduction
+benefits from currently 3.18\% to 4.59\% in 2050 under the status quo scenario
+(due to better coverage), and 6.47\% under the continued improvement scenario
+(due to better coverage and forecasts). 
 
 Annual average flood damages resulting from projected flood losses and early
 warning benefits are shown for all three forecast scenarios under the two
@@ -433,13 +501,16 @@ where we assume that 100\% of potential forecast benefits are attained.
 To quantify the potential benefits of weather forecasts for agricultural
 productivity in Cambodia, we use estimates from \cite{an-vo_framework_2021}, who
 simulate the value of improved forecasts on rice yields in the Vietnamese Mekong
-River Delta region under current and perfect forecasts. They use a price of
-\$220 per ton of rice and valuate current forecast skills at
-\$135\,ha\textsuperscript{-1} and perfect forecast skills at
-\$220\,ha\textsuperscript{-1}. Assuming a rice yield of 5.8
-t\,ha\textsuperscript{-1} \parencite{stuart2018farm}, the value of current
-forecasts translates to an increase in productivity of 10.34\%, and the value of
-perfect forecasts to an increase of 16.86\%. If costs, inputs, and prices remain
+River Delta region under current and perfect forecasts. The study valuates
+current forecast value at \$135\,ha\textsuperscript{-1} and perfect forecast
+skills at \$220\,ha\textsuperscript{-1}, assuming a price of \$225 per ton of
+rice. If these benefits materialize in the form of increased output, this
+implies a production increase of 0.6\,t\,ha\textsuperscript{-1} and
+0.978\,t\,ha\textsuperscript{-1}, respectively. With a rice yield of 5.8
+t\,ha\textsuperscript{-1} \parencite{stuart2018farm}, the estimated value of
+current forecasts translates to an increase in productivity of $10.34\%$ [$=(5.8
++ 0.6) / 5.8 - 1$], and the value of perfect forecasts to an increase of
+$16.86\%$ [=$(5.8 + 0.978) / 5.8 - 1$]. If costs, inputs, and prices remain
 constant, these productivity increases can be used as percentage increases of
 total factor productivity (TFP). 
 
@@ -448,15 +519,15 @@ is expected to reduce output in the agricultural sector. We calibrate the
 control scenarios under the optimistic and pessimistic climate scenarios using
 damage functions from \cite{roson2016estimation} who find decreases in
 agriculture multi-factor productivity of 2.53\%, 5.27\%, and 8.2\% under
-temperature increases of 1\degree~C, 2\degree~C, and 3\degree~C, respectively,
+temperature increases of 1\degree\,C, 2\degree\,C, and 3\degree\,C, respectively,
 for Cambodia. These estimates are in reference to a baseline period from 1980 to
 2004, and we first adjust them to reflect changes relative to the year 2020. For
-the adjustment, we assume a temperature increase of 0.725\degree~C between 1992
+the adjustment, we assume a temperature increase of 0.725\degree\,C between 1992
 and 2020 based on the 10-year rolling mean of the CMIP6 ensemble
 data.\footnote{The rolling mean for the SSP2-1.6 and SSP5-8.5 scenarios indicate
-temperature increases of 0.72\degree~C and 0.73\degree~C between 1992 and 2020,
+temperature increases of 0.72\degree\,C and 0.73\degree\,C between 1992 and 2020,
 respectively.} Then, the adjusted productivity change for a given temperature
-change $\Delta T$ after 2020 in \degree~C is given by:
+change $\Delta T$ after 2020 in \degree\,C is given by:
 \begin{equation}
   \Delta p^{>2020}\left(\Delta T\right) = \frac{1 + \Delta p^{>1992}\left(\Delta T + 0.725\right)}{1 + \Delta p^{>1992}\left(0.725\right)} - 1,
 \end{equation}
@@ -493,15 +564,24 @@ currently operated on rule curves, setting target water levels that reservoirs
 should reach at specific times throughout the calendar year. Recent simulations
 by \cite{koh_evaluating_2024} suggest that forecast-based operations could
 improve hydropower production, thus reducing reliance on fossil fuels and
-overall electricity generation. The simulations were conducted using 40-day
-forecast ensembles of river discharges, driving a coupled reservoir and power system
-model. The study also reports benefits under a perfect forecast scenario. Using
-the study's simulation output, we estimate the cost reduction potential that
-could be realized through switching from purely rule-based operations to
-forecast-informed operations. As forecast-informed operations are not applied in
-Cambodia as of now, current benefits are zero in all scenarios. As for the agricultural 
-productivity impact channel, we assume that the realized potential grows to 100\% 
-in the year 2050 under the status quo and continued improvement scenarios. 
+overall electricity generation. We here use simulated electricity system
+operation costs from \cite{koh_evaluating_2024} to estimate forecast benefits in
+the hydropower sector in terms of reduction in electricity generation cost.
+
+The simulations were conducted using 40-day forecast ensembles of river
+discharges, driving a coupled reservoir and power system model. The study also
+reports benefits under a perfect forecast scenario. Using the study's simulation
+output, we estimate the cost reduction potential that could be realized through
+switching from purely rule-based operations to forecast-informed operations.
+Forecast-informed operations are not applied in Cambodia as of now, and
+therefore none of the potential benefits are currently realized. Accordingly,
+current benefits are assumed to be zero in all scenarios. While the control
+scenario remains at this level, we assume that the fraction of potential
+benefits realized (which is independent of hydromet investments, but rather a
+function of hydropower operations) grows linearly up to to 100\% in the year
+2050 under the status quo and continued improvement scenarios. The potential
+benefits can be leveraged through hydromet investments in the improvement
+scenario and is assumed constant under status quo conditions.
 
 To estimate current potential benefits under the status quo and improvement
 scenarios, we map simulated benefits from using the forecast ensemble to the
@@ -576,17 +656,7 @@ climate scenarios are shown in \cref{fig:hydropower_year_selection}. We use the
 mean cost reduction across selected years as the resulting potential cost
 reduction. 
 
-As \cite{wang2024historical} assess projections for the future period of 2070 to
-2099, we assume that these benefits can be achieved by 2085 and scale them to
-the year 2050 with the projected temperature under optimistic and pessimistic
-scenarios. For the optimistic climate projections, this yields potential
-benefits in 2050 of 8.5\% under the status quo scenario and 9.9\% under
-continued improvement. In the pessimistic climate scenario, benefits amount to
-only 7.7\% and 9.1\%, respectively. Benefits over the entire simulation period
-are shown in \cref{fig:hydropower_impact_channel_KHM} and
-\cref{tab:hydropower_impact_channel_KHM}. 
- 
-\begin{figure}[htb]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=6in]{./figures/hydropower_cc_year_selection.pdf}
   \caption{\textbf{Selection of year subset for hydropower climate change projections.}
@@ -600,6 +670,18 @@ are shown in \cref{fig:hydropower_impact_channel_KHM} and
   linear fit across the full sample with 95\% confidence interval and denoted R2.}
   \label{fig:hydropower_year_selection}
 \end{figure}
+
+As \cite{wang2024historical} assess projections for the future period of 2070 to
+2099, we assume that these benefits can be achieved by 2085 and scale them to
+the year 2050 with the projected temperature under optimistic and pessimistic
+scenarios. For the optimistic climate projections, this yields potential
+reduction in electricity generation cost of 8.5\% in 2050 under the status quo
+scenario and 9.9\% under continued improvement. In the pessimistic climate
+scenario, benefits amount to only 7.7\% and 9.1\%, respectively. Benefits over
+the entire simulation period are shown in
+\cref{fig:hydropower_impact_channel_KHM} and
+\cref{tab:hydropower_impact_channel_KHM}. 
+ 
  
 \begin{figure}[htb]
   \centering
@@ -611,7 +693,7 @@ are shown in \cref{fig:hydropower_impact_channel_KHM} and
 \end{figure}
 
 
-\FloatBarrier
+% \FloatBarrier
 
 % Several studies \parencite{ly2023integrated,piman2014managing} also highlight
 % that future discharge changes strongly depend on hydropower operations and
@@ -739,50 +821,115 @@ Potential approaches:
 \label{sec:methods_mfmod}
 \todo{model description}
 
-\FloatBarrier
+% \FloatBarrier
 \section{Results}
 \label{sec:results}
-\todo{write the results section}
 
-\cref{fig:results_DRR_control,fig:results_AGR_control,fig:results_HYD_control}
-show the GDP deviation from the respective control scenario when simulating each
-impact channel in isolation, and \cref{fig:results_All_control} shows the
-combined effect when all three channels are simulated simultaneously. The
-underlying data are provided in
-\cref{tab:results_DRR_control_rel,tab:results_AGR_control_rel,tab:results_HYD_control_rel,tab:results_All_control_rel}.
+MFMod simulations indicate that improved hydrometeorological forecast services
+yield persistent, and in many scenarios significant, GDP gains for Cambodia
+across all three impact channels and across both climate trajectories, with
+benefits growing through 2050 as forecast uptake matures and climate risks
+intensify. The economic gains substantially exceed the modeled investment costs
+(\cref{tab:scenario_costs_KHM}) by several orders of magnitude, providing a case
+for the economic viability of sustained hydromet investment (see
+\cref{sec:discussion_cost_effectiveness} for a cost-effectiveness analysis
+discussion).
+\Cref{fig:results_DRR_control,fig:results_AGR_control,fig:results_HYD_control,fig:results_All_control}
+report GDP deviations from the respective control scenarios under each forecast
+scenario, while
+\cref{tab:results_DRR_control_rel,tab:results_AGR_control_rel,tab:results_HYD_control_rel,tab:results_All_control_rel}
+provide the underlying annual data. In this section, we first present results
+for each impact channel in isolation and then for all three channels jointly.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_DRR_control_rel.pdf}
-  \caption{\textbf{GDP impact of the Disaster Risk Reduction channel in
-  isolation.} GDP deviation of the status quo and continued improvement forecast
-  scenarios from their respective control scenarios under optimistic and
-  pessimistic climate projections, when only the DRR channel is active. Data in
+  \caption{\textbf{Isolated GDP impact of the Disaster Risk Reduction channel.}
+  GDP deviation of the status quo and continued improvement forecast scenarios
+  from their respective control scenarios under optimistic and pessimistic
+  climate projections, when only the DRR channel is active. Data in
   \cref{tab:results_DRR_control_rel}.}
   \label{fig:results_DRR_control}
 \end{figure}
 
+\paragraph{Disaster risk reduction (DRR) channel.}
+When only the DRR channel is active, GDP gains are positive but moderate under
+the optimistic climate scenario and substantially larger under the pessimistic
+scenario (\cref{fig:results_DRR_control}, \cref{tab:results_DRR_control_rel}).
+Under the optimistic scenario, GDP is 0.44\% and 0.55\% above the control by
+2050 under the status quo and continued improvement forecast scenarios,
+respectively. Under the pessimistic scenario, the corresponding figures rise to
+0.84\% and 1.07\%. The amplification of benefits in the pessimistic climate is
+consistent with the underlying damage function: as baseline flood losses
+increase from 0.93\% of national capital stock in 2020 to 2.97\% by 2050 in the
+pessimistic control, avoided damages—and their macroeconomic multiplier—expand
+commensurately (\cref{tab:drr_impact_channel_KHM}). The gap between the two
+forecast scenarios also widens over time, reflecting the increasing value of
+additional lead time and forecast quality as climate risks mount. Viewed from
+the perspective of total climate exposure (\cref{fig:results_DRR_baseline} in
+\cref{app:baseline_rel}), early warning systems with maintained or improved
+forecast skill partially---but not fully---offset growing climate losses, reducing
+the GDP deficit relative to the no-climate-change baseline from 19.1\%
+(optimistic control) to 18.4\% and 10.3\% respectively under pessimistic and
+optimistic improvement scenarios by 2050. \todo{decide whether Appendix A should
+be dropped altogether.}
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_AGR_control_rel.pdf}
-  \caption{\textbf{GDP impact of the Agricultural Productivity channel in
-  isolation.} GDP deviation of the status quo and continued improvement forecast
+  \caption{\textbf{Isolated GDP impact of the Agricultural Productivity channel.} GDP deviation of the status quo and continued improvement forecast
   scenarios from their respective control scenarios under optimistic and
   pessimistic climate projections, when only the agriculture channel is active.
   Data in \cref{tab:results_AGR_control_rel}.}
   \label{fig:results_AGR_control}
 \end{figure}
 
+\paragraph{Agricultural productivity channel}
+Agriculture generates the largest standalone GDP gains of the three channels
+throughout the projection horizon (\cref{fig:results_AGR_control},
+\cref{tab:results_AGR_control_rel}). GDP deviations above control increase
+nearly linearly as forecast benefits are phased in, reaching 1.88\% (status quo)
+and 3.06\% (continued improvement) by 2050 under the optimistic scenario. The
+pessimistic scenario yields marginally lower but broadly similar gains of 1.84\%
+(status quo) and 3.00\% (continued improvement). This near-symmetry across
+climate scenarios reflects the structure of the agricultural input channel
+(\cref{tab:agri_impact_channel_KHM}): forecast-driven total factor
+productivity (TFP) gains are similar under both climate scenarios in absolute
+terms (approximately +10.2 percentage points relative to the pessimistic control
+and +10.2 percentage points relative to the optimistic control at 2050 under
+status quo), because they are defined relative to the climate-specific control
+path rather than in absolute terms. The strong GDP response to the agricultural
+channel---roughly one-fifth to one-sixth of the sector-level productivity shock---is
+mediated through Cambodia's substantial agricultural sector share (17\% of GDP)
+and downstream effects on capital accumulation, employment, and exports.
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_HYD_control_rel.pdf}
-  \caption{\textbf{GDP impact of the Hydropower channel in isolation.} GDP
+  \caption{\textbf{Isolated GDP impact of the Hydropower channel.} GDP
   deviation of the status quo and continued improvement forecast scenarios from
   their respective control scenarios under optimistic and pessimistic climate
   projections, when only the hydropower channel is active. Data in
   \cref{tab:results_HYD_control_rel}.}
   \label{fig:results_HYD_control}
 \end{figure}
+
+\paragraph{Hydropower channel}
+The hydropower channel contributes positive but comparatively small GDP gains in
+isolation (\cref{fig:results_HYD_control}, \cref{tab:results_HYD_control_rel}).
+By 2050, GDP is 0.16\% (status quo) and 0.18\% (continued improvement) above
+control under the optimistic scenario, and 0.15\% and 0.16\% under the
+pessimistic scenario. The modest difference between status quo and improvement
+in GDP terms---only 0.02 to 0.01 percentage points---mirrors the narrow spread in
+electricity generation cost inputs (\cref{tab:hydropower_impact_channel_KHM}):
+by 2050, status quo and improved operations achieve 8.5\% and 9.9\% cost
+reductions under the optimistic scenario, with a 1.4 percentage point spread
+translating into a barely discernible GDP difference through the electricity
+cost channel. The slightly lower benefits under the pessimistic climate scenario
+(compared with the optimistic) are consistent with seasonally heterogeneous
+discharge changes under RCP 8.5, in particular the modeled decline in dry-season
+discharge that reduces the scope for cost-optimal dispatch
+(\cref{fig:hydropower_year_selection}).
 
 \begin{figure}[htb]
   \centering
@@ -795,16 +942,356 @@ underlying data are provided in
   \label{fig:results_All_control}
 \end{figure}
 
+\paragraph{Combined impact across all channels}
+When all three channels are activated simultaneously, modeled GDP gains become
+sizeable and grow continuously through 2050
+(\cref{fig:results_All_control},
+\cref{tab:results_All_control_rel}). Under the optimistic climate
+scenario, GDP is 2.50\% above control by 2050 under the status quo and 3.83\%
+under continued improvement. Under the pessimistic scenario, combined gains are
+larger: 2.86\% (status quo) and 4.30\% (continued improvement). The larger
+combined benefit under the pessimistic climate scenario---despite lower
+agricultural and hydropower contributions in that scenario---reflects the
+dominance of the DRR channel under high-damage conditions: greater baseline
+climate exposure amplifies the macroeconomic payoff from avoided flood losses.
+This interaction is a key finding of the analysis: worsening climate change
+increases, not decreases, the total economic return to maintaining and improving
+hydrometeorological forecast services.
+
+The incremental benefit of continued forecast improvement over the status quo is
+substantial in the combined runs. By 2050, this increment amounts to 1.33
+percentage points of GDP in the optimistic climate scenario (3.83\% vs 2.50\%) and
+1.44 percentage points in the pessimistic scenario (4.30\% vs 2.86\%). These
+differences widen over time, indicating that the economic returns to forecast
+improvement compound rather than remaining static.
+
+\paragraph{Relative contributions and channel interactions}
+Comparing the isolated channel runs with the combined run reveals the relative
+importance of each pathway. At 2050 under the optimistic/status quo
+configuration, the isolated GDP deviations are 0.44\% (DRR), 1.88\% (agriculture),
+and 0.16\% (hydropower), summing to 2.48\%, compared with the combined effect of
+2.50\%. Under the pessimistic/improvement configuration, isolated effects are
+1.07\%, 3.00\%, and 0.16\%, summing to 4.23\% against a combined effect of 4.30\%. In
+all four 2050 scenario pairs, the combined GDP deviation is 0.02--0.07 percentage
+points larger than the sum of isolated effects. These small positive residuals
+suggest modest cross-channel complementarities in MFMod---for example,
+productivity gains from agriculture and DRR jointly reinforce capital
+accumulation---rather than exact additivity. Across the full simulation period,
+the qualitative rank order of channels is stable: agriculture dominates, DRR is
+the second-largest contributor (and becomes increasingly important under
+worsening climate conditions), and hydropower provides a smaller but positive
+increment.
 
 
-\FloatBarrier
+% \FloatBarrier
 \section{Discussion}
 \label{sec:discussion}
-\todo{The discussion}
+
+\subsection{Main economic interpretation}
+\label{sec:discussion_main}
+
+The results demonstrate that improved hydrometeorological forecast services
+generate persistent, economy-wide GDP benefits for Cambodia across all climate
+scenarios and impact channels, with gains compounding over time as uptake
+expands and climate risks intensify. Three features of the findings merit
+particular emphasis.
+
+First, the agriculture impact channel is the single largest GDP driver,
+consistent with the structural importance of agriculture in Cambodia's economy
+and the magnitude of the modeled TFP shock. The high sensitivity of aggregate
+GDP to agricultural TFP changes reflects the sector's role not just in direct
+value added, but also as an income source for rural households, a driver of
+domestic consumption, and a determinant of factor allocation economy-wide. This
+finding aligns with broader literature showing that weather forecast value is
+relatively high in economies with large agricultural sectors and rainfed systems
+\parencite{hansen_potential_2009,an-vo_framework_2021}.
+
+Second, the DRR channel exhibits a distinctive and policy-relevant feature: its
+value is positively correlated with the severity of climate change. Under the
+pessimistic trajectory, in which annual average flood damages could reach 2.97\%
+of the national capital stock by 2050 (compared with 1.01\% under the optimistic
+trajectory), early warning benefits are substantially amplified. This means that
+the economic case for investing in---or at minimum maintaining---forecast
+infrastructure becomes stronger under the scenarios of higher climatic risk.
+Forecast services therefore function not merely as an economic good but as a
+climate adaptation instrument whose marginal value increases with exposure.
+
+Third, the hydropower channel, while comparatively small in GDP terms, is
+non-negligible in absolute terms and may carry system-level co-benefits not
+captured by our analytical approach. Forecast-informed dispatch reduces reliance
+on fossil backup generation and improves reservoir resilience, contributing to
+energy security. The modest spread between status quo and improvement scenarios
+in the hydropower channel also reflects that Cambodia's current forecast system
+could already capture a meaningful share of available dispatch gains, suggesting
+diminishing returns to further forecast improvement for this channel alone.
+
+
+\subsection{Cost-effectiveness analysis}
+\label{sec:discussion_cost_effectiveness}
+
+The scenario costs in \cref{tab:scenario_costs_KHM} allow a preliminary assessment of
+cost-effectiveness. Under the status quo scenario, annual operation and
+maintenance costs are assumed at USD~0.5~million per year (2025 NPV). Under the
+continued improvement scenario, total costs reach approximately USD~1.0~million
+per year in OPEX plus USD~4.2~million per year in CAPEX during the 2031--2035
+investment period, amounting to USD~5.2~million annually in peak years and
+approximately USD~1.0~million annually thereafter. Even at the low end of
+modeled GDP gains, the implied benefit-cost ratios are extremely large.
+
+To illustrate this: Cambodia's GDP in 2024 was approximately USD~46.3~billion. A
+GDP gain of 0.13\% in 2025 alone---the modeled combined gain under the
+optimistic/status quo scenario---corresponds to approximately USD~60~million, or
+roughly 120 times the USD~0.5~million annual OPEX in that year. By 2035,
+combined gains of approximately 1.0\% of a GDP growing at Cambodia's projected
+pace imply annual benefit flows exceeding USD~500~million, against cumulative
+annual costs of at most USD~5.2~million in the peak CAPEX year---an annual
+benefit-cost ratio exceeding 100:1. Even under highly conservative
+assumptions---for example, discounting all GDP gains at 10\% and assuming only a
+fraction of modeled gains materialize---the present value of benefits over the
+2025--2050 horizon dwarfs the present value of costs under both the status quo
+and continued improvement scenarios. 
+
+This order-of-magnitude result is robust to the choice of discount rate and the
+assumed realization rate of modeled benefits, because the asymmetry between
+annual investment costs (USD~0.5--5.2~million) and economy-wide GDP multipliers
+(USD hundreds of millions per year by the 2030s) is so large. A formal net
+present value analysis, beyond the scope of this paper, could refine these
+estimates using projected GDP paths from MFMod directly.
+
+It should be noted that the costs modeled here represent incremental investments
+for Cambodia specifically and do not capture the full fiscal burden of
+maintaining or improving a national meteorological and hydrological service,
+which includes staffing, training, and institutional overhead beyond the
+infrastructure items in \cref{tab:scenario_costs_KHM}. It also does not
+include complementary sectoral investments required to realize the forecasts
+benefits, such as the construction of multipurpose disaster shelters for people
+to take refuge and evacuate during disaster periods. Including these would raise
+costs but is unlikely to reverse the sign of the cost-effectiveness assessment
+given the magnitude of the GDP differentials.
+
+
+
+\subsection{Comparison with prior literature}
+\label{sec:discussion_literature}
+
+The results of this study are broadly consistent with the prior literature on
+the economic value of hydrometeorological services, while extending it in
+methodologically and empirically important ways. Three reference points from the
+literature are particularly relevant.
+
+\textcite{hallegatte_cost_2012} provides the most directly comparable prior
+estimate of the economic returns to hydromet investment in developing countries.
+Analysing the potential benefits of upgrading all developing countries to
+high-income-country service standards, \textcite{hallegatte_cost_2012} estimates
+BCRs of between 4:1 and 36:1. The BCRs implied by the present study are
+substantially higher when computed using the same avoided-cost logic---by the
+2030s, Cambodia's annual GDP benefits exceed the annual investment costs by two
+or more orders of magnitude---but the two estimates are not directly comparable.
+\textcite{hallegatte_cost_2012} uses a damage-reduction framework focused on
+developing countries in aggregate, while our study employs a general-equilibrium
+macroeconomic model that captures economy-wide multipliers, capital accumulation
+dynamics, and cross-sector linkages. These transmission mechanisms can amplify
+sector-level shocks into aggregate GDP, which partly explains the larger implied
+BCRs in our results.
+
+The \textcite{world2015valuing} report \textit{Valuing Weather and Climate:
+Economic Assessment of Meteorological and Hydrological Services} provides the
+methodological framework within which both \textcite{hallegatte_cost_2012} and
+the present study can be situated. \textcite{world2015valuing} articulates the
+full spectrum of valuation approaches for meteorological and hydrological
+services---from non-market valuation and economic decision modelling to
+avoided-cost assessments and benefit transfer---and emphasizes the importance of
+understanding the full value chain from observation infrastructure through to
+end-user decision-making. The multi-channel structure of the present study is
+consistent with this framework: each impact channel (DRR, agriculture,
+hydropower) corresponds to a distinct user group and decision context in which
+forecast information generates measurable economic value. Importantly,
+\textcite{world2015valuing} also cautions that benefit estimates derived from
+different valuation methods are rarely directly comparable. Our study addresses
+this comparability challenge by maintaining a consistent analytical framework
+across all three channels and both climate scenarios.
+
+\textcite{farkas2025economic} provide the most comprehensive recent synthesis of the
+quantitative literature on forecast value. Several of their findings are
+directly relevant to interpreting the results of the present study. First,
+\textcite{farkas2025economic} find that estimated benefits span several orders of
+magnitude even within specific subsectors. Scaled to the global level, the
+literature implies cereal agriculture benefits of USD~0 to USD~231~billion per
+year, hydropower benefits of USD~3 to USD~19.7~billion per year, and DRM
+benefits of USD~90~million to USD~9.3~billion per year. The Cambodia-specific
+estimates in this study are consistent with these ranges when scaled by GDP
+share, though direct comparison is impeded by differences in method and scope.
+Second, \textcite{farkas2025economic} find that theoretical model-based studies---such as
+the present one---tend to report significantly larger benefit values than
+empirical or experimental studies. This pattern suggests that our MFMod-derived
+GDP gains should be interpreted as estimates of the potential economic value of
+forecast services under full uptake and adequate institutional capacity, not as
+predictions of realised benefits. Third, \textcite{farkas2025economic} identify a
+science-to-policy gap: most policy reports on forecast value rely on
+back-of-the-envelope methods sourced from earlier policy documents rather than
+from peer-reviewed empirical evidence. By grounding the three impact channels in
+peer-reviewed sector studies and channeling them through a formal macroeconomic
+model, the present study represents a methodological step toward closing this
+gap.
+
+This study extends the literature in several ways. First, by channeling forecast
+benefits explicitly through a macroeconomic model (MFMod), it captures
+general-equilibrium transmission mechanisms---capital accumulation, sectoral
+adjustment, consumption smoothing---that sector-level partial-equilibrium analyses
+omit. Second, by considering multiple impact pathways simultaneously, it
+quantifies the degree to which benefits across agriculture, disaster risk, and
+energy are approximately additive, a question rarely addressed in the
+literature. Third, and most distinctively, it evaluates how the economic returns
+to forecasting change under contrasting climate trajectories, finding that
+worsening climate amplifies aggregate benefits through the DRR channel, an
+interaction that has not been prominently documented in prior work.
+
+
+\subsection{Limitations and uncertainty}
+\label{sec:discussion_limitations}
+
+Several limitations of the analysis should inform the interpretation of results.
+First, the MFMod framework is a reduced-form macro-fiscal model calibrated to
+historical relationships between sectoral shocks and aggregate GDP. While this
+enables consistent, cross-scenario comparisons, it does not explicitly resolve
+the microeconomic or behavioral mechanisms through which forecast information
+translates into farmer decisions, power dispatch choices, or disaster
+preparedness actions. The linearity assumptions embedded in the model may
+overstate (or understate) aggregate responses at extremes of the damage
+distribution.
+
+Second, the agricultural productivity shocks are drawn from \textcite{an-vo_framework_2021}
+and calibrated for the Vietnamese Mekong Delta context, then applied to
+Cambodia. While the two settings share important agro-climatic characteristics,
+productivity responses to forecast information may differ due to differences in
+cropping systems, irrigation infrastructure, extension service capacity, and
+market structure. The modeled TFP increase of 10.34\% under current forecasts and
+16.86\% under perfect forecasts represents the potential benefit and does not
+account for the time, effort, and institutional investment required to translate
+forecast information into farm-level decisions. The assumed linear phase-in of
+agricultural benefits to 100\% by 2050 is a simplification and may overstate the
+pace of uptake in contexts with limited forecast dissemination infrastructure.
+
+Third, the hydropower benefit projections are based on simulation results from
+\textcite{koh_evaluating_2024} using historical discharge data (2000--2018) and
+projected climate-driven discharge changes from \textcite{wang2024historical}.
+The mapping of future discharge changes onto current operational benefits rests
+on an analog-year selection approach whose explanatory power varies by season:
+$R^2 = 0.59$ in the monsoon season but only $0.28$ and $0.10$ in pre- and post-monsoon
+periods (\cref{fig:hydropower_year_selection}). The uncertainty in dry-season
+discharge projections is particularly consequential, as dry-season water
+scarcity is the main constraint on hydropower generation. The results for the
+hydropower channel should therefore be treated as indicative of direction and
+order of magnitude rather than precise estimates.
+
+Fourth, forecast skill is treated as independent of climate change throughout
+the analysis. In practice, shifts in weather patterns and increased atmospheric
+variability under higher-emissions scenarios may reduce forecast skill or
+require new investment to maintain equivalent predictive performance. Ignoring
+this feedback potentially overstates the benefits of both the status quo and
+continued improvement scenarios.
+
+Finally, the analysis does not model distributional effects. GDP gains are
+reported in aggregate terms, but the incidence of benefits---whether they accrue
+primarily to smallholder farmers, energy consumers, or capital owners---has
+important equity implications that are not captured by the macroeconomic
+aggregates presented here.
+
+
+\subsection{Policy implications}
+\label{sec:discussion_policy}
+
+The findings carry several implications for investment policy in Cambodia and
+comparable lower-middle-income countries. First, the results provide
+quantitative support for sustained investment in hydrometeorological
+infrastructure. The very high benefit-cost ratios implied by the simulations
+suggest that even if realized gains are a small fraction of the modeled
+potential, the investment is likely to be economically justified. The
+continuation of the World Meteorological Organization's Southeast Asia 2.0
+initiative \parencite{crews2025sea2_project}, budgeted at USD~7.8~million for
+Cambodia and Lao PDR over four years, falls squarely within the investment
+envelope assumed here.
+
+Second, the results emphasize the importance of institutional as well as
+technical capacity. The agricultural channel---the dominant GDP driver---cannot be
+activated by forecast infrastructure alone; it requires last-mile dissemination
+systems, agrometeorological extension services, and farm-level capacity to
+translate forecast information into actionable planting, irrigation, and
+harvesting decisions. Investment strategies that focus on observational and
+forecast infrastructure without corresponding attention to the agricultural
+advisory chain will realize only a fraction of the modeled potential.
+
+Third, the finding that DRR benefits grow as climate risk intensifies implies
+that the economic case for hydromet investment is likely to strengthen over
+time, particularly under higher-emission scenarios. Policymakers considering
+whether to upgrade versus merely maintain forecast infrastructure should factor
+in this positive relationship between climate risk and forecast value: under
+pessimistic climate trajectories, the gains from moving from status quo to
+continued improvement are 1.44 percentage points of GDP by 2050---a difference
+that, in absolute terms, will grow with Cambodia's economy.
+
+Fourth, hydropower forecast benefits, though modest in GDP terms, may take on
+greater significance as Cambodia's electricity system evolves. If hydropower
+remains a central pillar of Cambodia's generation mix through 2050,
+forecast-informed dispatch could reduce the frequency and cost of fossil-fuel
+backup activation, contributing to both fiscal savings and emissions reduction
+objectives---co-benefits not captured in the GDP-centric framework used here.
+
 
 \section{Conclusions}
 \label{sec:conclusions}
-\todo{conclusions}
+This study estimates the macroeconomic benefits of improved hydrometeorological
+forecast services in Cambodia using the World Bank's MFMod macro-fiscal model.
+We consider three impact channels---disaster risk reduction, agricultural
+productivity, and hydropower generation---under optimistic and pessimistic climate
+scenarios and three forecast scenarios (control, status quo, and continued
+improvement), spanning the period 2020--2050.
+
+The central finding is that forecast services generate substantial and growing
+GDP gains under all scenarios. When all three channels operate jointly, GDP is
+estimated to be 2.50--4.30\% above the no-forecast control by 2050, depending on
+the forecast and climate scenario. The agricultural productivity channel
+accounts for the majority of these gains, while disaster risk reduction becomes
+increasingly important---and eventually dominant over the other channels---as
+climate conditions worsen. Hydropower contributes positively in all scenarios
+but at a lower order of magnitude. A key result that differentiates this
+analysis from prior work is that the aggregate economic return to forecast
+investment is larger, not smaller, under the pessimistic climate scenario,
+because the DRR channel amplifies with increasing flood damage exposure. This
+implies that hydrometeorological investments function as a form of climate
+adaptation whose returns grow with climate risk.
+
+The implied benefit-cost ratios are extremely large. Even under conservative
+assumptions, the present value of GDP gains over the simulation horizon exceeds
+the present value of modeled investment costs by several orders of magnitude.
+Annual benefit flows in the 2030s---on the order of hundreds of millions of USD~at
+Cambodia's projected GDP level---dwarf the annual OPEX and CAPEX costs of USD
+0.5--5.2~million. This does not make the investment trivial to implement:
+translating the modeled potential into realized gains requires sustained
+institutional investment, evacuation infrastructure for flood episodes,
+last-mile dissemination infrastructure for agriculture, and governance
+frameworks for forecast-informed hydropower dispatch. But the asymmetry between
+costs and benefits is large enough to be robust to substantial implementation
+shortfalls.
+
+Several limitations temper these conclusions. The agricultural benefit
+parameters are calibrated from a related but distinct regional context
+(Vietnam's Mekong Delta), the linear uptake assumptions may overstate the pace
+of institutional adoption, the hydropower projections carry seasonal
+uncertainty, and distributional effects are not addressed. Future work should
+refine sector-level transmission mechanisms, extend the analysis to other
+climate-vulnerable sectors (e.g., fisheries, infrastructure maintenance), and
+assess the distributional incidence of forecast benefits across income groups
+and regions within Cambodia.
+
+More broadly, the findings support the case for treating hydrometeorological
+services as a high-return public investment in climate-vulnerable developing
+economies. The combination of large benefit multipliers, increasing returns
+under worsening climate conditions, and the cross-sector reach of forecast
+information suggests that national meteorological and hydrological services are
+among the most cost-effective climate adaptation investments available to
+governments in the region.
+
 
 \input{tables/drr_impact_channel_KHM.tex}
 \input{tables/agri_impact_channel_KHM.tex}
@@ -857,20 +1344,21 @@ Supplementary information is available for this paper.
 \clearpage
 \FloatBarrier
 \appendix
+
 \section{GDP deviations from baseline}
 \label{app:baseline_rel}
 
 \cref{fig:results_DRR_baseline,fig:results_AGR_baseline,fig:results_HYD_baseline}
-show the GDP deviation from the no-climate-change baseline when simulating each
-impact channel in isolation, and \cref{fig:results_All_baseline} shows the
-combined effect when all three channels are simulated simultaneously. The
-underlying data are provided in
+show the GDP deviation from a hypothetical no-climate-change baseline when
+simulating each impact channel in isolation, and \cref{fig:results_All_baseline}
+shows the combined effect when all three channels are simulated simultaneously.
+The underlying data are provided in
 \cref{tab:results_DRR_baseline_rel,tab:results_AGR_baseline_rel,tab:results_HYD_baseline_rel,tab:results_All_baseline_rel}.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_DRR_baseline_rel.pdf}
-  \caption{\textbf{Disaster Risk Reduction channel in isolation -- GDP deviation
+  \caption{\textbf{Isolated Disaster Risk Reduction channel -- GDP deviation
   from baseline.} GDP deviation from the no-climate-change baseline under all
   forecast and climate scenarios, when only the DRR channel is active. Data in
   \cref{tab:results_DRR_baseline_rel}.}
@@ -880,7 +1368,7 @@ underlying data are provided in
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_AGR_baseline_rel.pdf}
-  \caption{\textbf{Agricultural Productivity channel in isolation -- GDP
+  \caption{\textbf{Isolated Agricultural Productivity channel -- GDP
   deviation from baseline.} GDP deviation from the no-climate-change baseline
   under all forecast and climate scenarios, when only the agriculture channel is
   active. Data in \cref{tab:results_AGR_baseline_rel}.}
@@ -890,7 +1378,7 @@ underlying data are provided in
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_HYD_baseline_rel.pdf}
-  \caption{\textbf{Hydropower channel in isolation -- GDP deviation from
+  \caption{\textbf{Isolated Hydropower channel -- GDP deviation from
   baseline.} GDP deviation from the no-climate-change baseline under all
   forecast and climate scenarios, when only the hydropower channel is active.
   Data in \cref{tab:results_HYD_baseline_rel}.}
