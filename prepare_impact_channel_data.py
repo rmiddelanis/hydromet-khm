@@ -135,6 +135,7 @@ def calculate_drr_impact_channel(drr_outpath_, paper_outpath_, temperature_path_
             multicolumn_format='c'
         )
         latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
+        latex = latex.replace("\\label{tab", "\\label[suptable]{tab")
         with open(os.path.join(drr_outpath_, "drr_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
         with open(os.path.join(paper_outpath_, "tables/drr_impact_channel_KHM.tex"), 'w') as f:
@@ -207,6 +208,7 @@ def calc_agri_impact_channel(agri_outpath_, paper_outpath_, temperature_increase
                              multicolumn_format='c',
         )
         latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
+        latex = latex.replace("\\label{tab", "\\label[suptable]{tab")
         with open(os.path.join(agri_outpath_, "agri_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
         with open(os.path.join(paper_outpath_, "tables/agri_impact_channel_KHM.tex"), 'w') as f:
@@ -419,6 +421,7 @@ def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_i
         multicolumn_format='c'
     )
     latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
+    latex = latex.replace("\\label{tab", "\\label[suptable]{tab")
     with open(os.path.join(hydropower_outpath_, "hydropower_impact_channel_KHM.tex"), 'w') as f:
         f.write(latex)
     with open(os.path.join(paper_outpath_, "tables/hydropower_impact_channel_KHM.tex"), 'w') as f:

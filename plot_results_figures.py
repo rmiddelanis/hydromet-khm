@@ -84,7 +84,7 @@ def to_multiindex(df):
     return df.sort_index(axis=1, level='Climate scenario', sort_remaining=False)
 
 
-def export_table(df, caption, label, outpath, filename):
+def export_table(df, caption, label, outpath, filename, suptable=False):
     """Export a DataFrame with MultiIndex columns to .tex and .csv files."""
     latex = df.to_latex(
         float_format="%.2f",
@@ -97,6 +97,8 @@ def export_table(df, caption, label, outpath, filename):
         multicolumn_format='c',
     )
     latex = latex.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
+    if suptable:
+        latex = latex.replace("\\label{tab", "\\label[suptable]{tab")
     with open(os.path.join(outpath, filename + '.tex'), 'w') as f:
         f.write(latex)
     df.to_csv(os.path.join(outpath, filename + '.csv'))
@@ -127,6 +129,7 @@ if __name__ == "__main__":
             label=f"tab:results_{name}_baseline_rel",
             outpath=outpath,
             filename=f'results_{name}_baseline_rel',
+            suptable=True,
         )
 
         # Control-relative
@@ -138,6 +141,7 @@ if __name__ == "__main__":
             label=f"tab:results_{name}_control_rel",
             outpath=outpath,
             filename=f'results_{name}_control_rel',
+            suptable=True,
         )
 
     # Copy .tex and .pdf files to paper directory
