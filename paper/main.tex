@@ -179,14 +179,39 @@ maxcitenames=2,
 
 
 
-% \begin{abstract}
-%   \noindent
-%   \todo{The abstract}
-% \end{abstract}
+\begin{abstract}
+  \noindent
+  This paper estimates the macroeconomic benefits of improved
+  hydrometeorological forecast services in Cambodia using the World Bank's MFMod
+  macro-fiscal model, considering three impact channels---disaster risk
+  reduction (DRR) for flood damages, agricultural productivity increase, and
+  hydropower cost reduction. Benefits are assessed over the 2020--2050 period
+  under optimistic and pessimistic climate change projections. Benefits under
+  current forecast skill and continued investment into forecast improvements 
+  are compared to a control scenario without any forecast benefits.  
+  When all channels operate jointly, GDP is estimated to be 2.50--4.30\% above
+  the no-forecast control by 2050. Continued improvement of forecast services
+  yields a 1.33--1.44 percentage point increase in GDP, compared to the status
+  quo scenario. Agricultural productivity is the dominant channel for economic
+  benefits, while DRR contributions grow with climate severity and become
+  increasingly important under the pessimistic scenario. Hydropower contributes
+  positively across all scenarios, though at a lower order of magnitude.
+  Aggregate benefits are larger under the pessimistic climate scenario, because
+  DRR channel returns amplify with increasing flood exposure.
+  Back-of-the-envelope estimates suggest large benefit-cost ratios, making an
+  economic case for improved hydrometeorological forecasts and services. The
+  results provide quantitative support for sustained investment in
+  hydrometeorological infrastructure.
+\end{abstract}
+\vspace{3em}
+\noindent
+\textbf{Keywords:} Cambodia, economic development, weather forecast value, climate adaptation, macroeconomic modeling 
 
+\noindent
+\textbf{JEL codes:} Q54, C63, O13, O53, H41
 
-% \restoregeometry
-% \clearpage
+\restoregeometry
+\clearpage
 
 
 \section{Introduction}
@@ -680,7 +705,7 @@ factor productivity (TFP) shocks, as described in
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=5.6in]{./figures/hydropower_cc_year_selection.pdf}
+  \includegraphics[width=6in]{./figures/hydropower_cc_year_selection.pdf}
   \caption{\textbf{Selection of year subset for hydropower climate change projections.}
   Potential annual cost reduction for the continued improvement scenario over
   seasonal discharge deviation from full sample mean for all simulated years in
@@ -690,7 +715,7 @@ factor productivity (TFP) shocks, as described in
   mean discharge closest to future climate. Markers indicate mean deviation and
   cost reduction for full, optimistic, and pessimistic sample. Solid line shows
   linear fit across the full sample with 95\% confidence interval and denoted R2.}
-  \label{fig:hydropower_year_selection}
+  \label{fig:hydropower_year_selection} 
 \end{figure}
 
  
@@ -887,6 +912,18 @@ activity.
 
 
 \FloatBarrier
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_DRR_control_rel.pdf}
+  \caption{\textbf{Isolated GDP impact of the Disaster Risk Reduction channel.}
+  GDP deviation of the status quo and continued improvement forecast scenarios
+  from their respective control scenarios under optimistic and pessimistic
+  climate projections, when only the DRR channel is active. Data in
+  \cref{tab:results_DRR_control_rel}.}
+  \label{fig:results_DRR_control}
+\end{figure}
+
 \section{Results}
 \label{sec:results}
 
@@ -905,17 +942,6 @@ scenario. The underlying data is shown in
 \cref{tab:results_DRR_control_rel,tab:results_AGR_control_rel,tab:results_HYD_control_rel,tab:results_All_control_rel}.
 In this section, we first present results for each impact channel in isolation
 and then for all three channels jointly.
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=7in]{./figures/results_DRR_control_rel.pdf}
-  \caption{\textbf{Isolated GDP impact of the Disaster Risk Reduction channel.}
-  GDP deviation of the status quo and continued improvement forecast scenarios
-  from their respective control scenarios under optimistic and pessimistic
-  climate projections, when only the DRR channel is active. Data in
-  \cref{tab:results_DRR_control_rel}.}
-  \label{fig:results_DRR_control}
-\end{figure}
 
 \paragraph{Disaster risk reduction (DRR) channel.}
 When only the DRR channel is active, GDP gains are positive but moderate under
@@ -967,16 +993,7 @@ channel---roughly one-fifth to one-sixth of the sector-level productivity shock-
 mediated through Cambodia's substantial agricultural sector share (17\% of GDP)
 and downstream effects on capital accumulation, employment, and exports.
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=7in]{./figures/results_HYD_control_rel.pdf}
-  \caption{\textbf{Isolated GDP impact of the Hydropower channel.} GDP
-  deviation of the status quo and continued improvement forecast scenarios from
-  their respective control scenarios under optimistic and pessimistic climate
-  projections, when only the hydropower channel is active. Data in
-  \cref{tab:results_HYD_control_rel}.}
-  \label{fig:results_HYD_control}
-\end{figure}
+
 
 \paragraph{Hydropower channel}
 The hydropower channel contributes positive but comparatively small GDP gains in
@@ -995,16 +1012,19 @@ discharge changes under RCP 8.5, in particular the modeled decline in dry-season
 discharge that reduces the scope for cost-optimal dispatch
 (\cref{fig:hydropower_year_selection}).
 
+
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=7in]{./figures/results_All_control_rel.pdf}
-  \caption{\textbf{Combined GDP impact with all channels active simultaneously.}
-  GDP deviation of the status quo and continued improvement forecast scenarios
-  from their respective control scenarios under optimistic and pessimistic
-  climate projections, when all three impact channels are simulated together.
-  Data in \cref{tab:results_All_control_rel}.}
-  \label{fig:results_All_control}
+  \includegraphics[width=7in]{./figures/results_HYD_control_rel.pdf}
+  \caption{\textbf{Isolated GDP impact of the Hydropower channel.} GDP
+  deviation of the status quo and continued improvement forecast scenarios from
+  their respective control scenarios under optimistic and pessimistic climate
+  projections, when only the hydropower channel is active. Data in
+  \cref{tab:results_HYD_control_rel}.}
+  \label{fig:results_HYD_control}
 \end{figure}
+
+
 
 \paragraph{Combined impact across all channels}
 When all three channels are activated simultaneously, modeled GDP gains become
@@ -1021,6 +1041,17 @@ climate exposure amplifies the macroeconomic payoff from avoided flood losses.
 This interaction is a key finding of the analysis: worsening climate change
 increases, not decreases, the total economic return to maintaining and improving
 hydrometeorological forecast services.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=7in]{./figures/results_All_control_rel.pdf}
+  \caption{\textbf{Combined GDP impact with all channels active simultaneously.}
+  GDP deviation of the status quo and continued improvement forecast scenarios
+  from their respective control scenarios under optimistic and pessimistic
+  climate projections, when all three impact channels are simulated together.
+  Data in \cref{tab:results_All_control_rel}.}
+  \label{fig:results_All_control}
+\end{figure}
 
 The incremental benefit of continued forecast improvement over the status quo is
 substantial in the combined runs. By 2050, this increment amounts to 1.33
