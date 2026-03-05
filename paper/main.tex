@@ -143,7 +143,7 @@ maxcitenames=2,
 
 
 \begin{document}
-\begin{refsection}
+
 
 \newgeometry{textwidth=183mm}
 
@@ -383,14 +383,15 @@ zero throughout the entire simulation time. Scenario costs are summarized in
 
 \input{tables/scenario_costs_KHM.tex} 
 
-In the following sections, we define variables for each impact channel under the
-different climate and forecast scenarios for the simulation period from 2020 to
-2050. These variables are used as inputs to the \textit{MFMod} model to simulate
-Cambodia's economic development under the different scenarios.
-
 
 \subsection{Impact channels}
 \label{sec:methods_impact_channels}
+In the following sections, we derive the three impact channel variables that
+serve as inputs to the \textit{MFMod} macroeconomic model (described in
+\cref{sec:methods_mfmod}). For each channel, we compute annual shock values
+under all climate and forecast scenarios throughout the 2020--2050 simulation
+period. These computed values are then passed to MFMod as sector-specific shocks
+to simulate their economy-wide GDP effects.
 
 \subsubsection{Disaster Risk Reduction}
 \label{sec:methods_drr}
@@ -458,6 +459,9 @@ forecast skill, damages in the optimistic climate scenario are reduced from
 further to 0.95\% in 2050. Under the pessimistic climate scenario, damages in
 2050 are reduced from 2.97\% to 2.84\% with current forecast skill, and to
 2.78\% with improved forecasts. 
+
+These damages enter the MFMod model as the fraction of the capital stock
+destroyed every year, $\frac{DS}{\widetilde{K}}$ (see \cref{sec:methods_mfmod_drr}).
 
 \begin{figure}[htb]
   \centering
@@ -545,6 +549,10 @@ an overall 8.77\% and 5.35\% higher productivity in 2050. With continually
 improved forecast skill, productivity would increase by up to 15.19\% or 11.57\%
 in 2050.
 
+These changes in annual agricultural productivity enter MFMod as sectoral total
+factor productivity (TFP) shocks, as described in
+\cref{sec:methods_mfmod_productivity}.
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/agri_impact_channel_KHM.pdf}
@@ -553,7 +561,6 @@ in 2050.
   scenarios. Data in \cref{tab:agri_impact_channel_KHM}.}
   \label{fig:agri_impact_channel_KHM}
 \end{figure}
-
 
 \subsubsection{Hydropower Generation}
 \label{sec:methods_hydropower}
@@ -656,9 +663,24 @@ climate scenarios are shown in \cref{fig:hydropower_year_selection}. We use the
 mean cost reduction across selected years as the resulting potential cost
 reduction. 
 
+As \cite{wang2024historical} assess projections for the future period of 2070 to
+2099, we assume that these benefits can be achieved by 2085 and scale them to
+the year 2050 with the projected temperature under optimistic and pessimistic
+scenarios. For the optimistic climate projections, this yields potential
+reduction in electricity generation cost of 8.5\% in 2050 under the status quo
+scenario and 9.9\% under continued improvement. In the pessimistic climate
+scenario, benefits amount to only 7.7\% and 9.1\%, respectively. Benefits over
+the entire simulation period are shown in
+\cref{fig:hydropower_impact_channel_KHM} and
+\cref{tab:hydropower_impact_channel_KHM}. 
+ 
+These changes in annual electricity generation cost enter MFMod as sectoral total
+factor productivity (TFP) shocks, as described in
+\cref{sec:methods_mfmod_productivity}.
+
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=6in]{./figures/hydropower_cc_year_selection.pdf}
+  \includegraphics[width=5.6in]{./figures/hydropower_cc_year_selection.pdf}
   \caption{\textbf{Selection of year subset for hydropower climate change projections.}
   Potential annual cost reduction for the continued improvement scenario over
   seasonal discharge deviation from full sample mean for all simulated years in
@@ -671,17 +693,6 @@ reduction.
   \label{fig:hydropower_year_selection}
 \end{figure}
 
-As \cite{wang2024historical} assess projections for the future period of 2070 to
-2099, we assume that these benefits can be achieved by 2085 and scale them to
-the year 2050 with the projected temperature under optimistic and pessimistic
-scenarios. For the optimistic climate projections, this yields potential
-reduction in electricity generation cost of 8.5\% in 2050 under the status quo
-scenario and 9.9\% under continued improvement. In the pessimistic climate
-scenario, benefits amount to only 7.7\% and 9.1\%, respectively. Benefits over
-the entire simulation period are shown in
-\cref{fig:hydropower_impact_channel_KHM} and
-\cref{tab:hydropower_impact_channel_KHM}. 
- 
  
 \begin{figure}[htb]
   \centering
@@ -691,7 +702,6 @@ the entire simulation period are shown in
   \cref{tab:hydropower_impact_channel_KHM}.}
   \label{fig:hydropower_impact_channel_KHM}
 \end{figure}
-
 
 % \FloatBarrier
 
@@ -817,7 +827,9 @@ Potential approaches:
 \end{itemize}
 \fi
 
+\FloatBarrier
 \subsection{Macro-economic model: MFMod for Cambodia}
+\label{sec:methods_mfmod}
 
 MFMod is a semi-structural macroeconometric model developed by the World Bank
 and maintained for 181 individual countries \parencite{burns_world_2019}. It is
@@ -848,7 +860,10 @@ economic outcomes through three transmission channels: reduced disaster losses,
 improved agricultural productivity, and enhanced hydropower generation.
 
 \subsubsection{Core model structure}
-Economic output is determined by a combination of aggregate demand and supply capacity. On the supply side, potential output $Y^*_t$ is determined by a standard production function combining capital $K$, labor $L$, and productivity $A$:
+Economic output is determined by a combination of aggregate demand and supply
+capacity. On the supply side, potential output $Y^*_t$ is determined by a
+standard production function combining capital $K$, labor $L$, and productivity
+$A$:
 \begin{equation}
   Y^*_t = A_t\,K_{t-1}^{1-\alpha}\,L_t^{\alpha}
 \end{equation}
@@ -891,10 +906,10 @@ Improvement, each evaluated under two climate futures: Optimistic and
 Pessimistic.
 
 The benefits of improved hydromet services are modeled as reductions in
-climate-related damages. Capital expenditures associated with hydromet systems
-are introduced as additional public investment financed through government
-borrowing, while operational and maintenance costs are assumed to be borne by
-final users.
+climate-related damages. Capital expenditures (CAPEX) associated with hydromet
+systems are introduced as additional public investment financed through
+government borrowing, while operational and maintenance costs (OPEX) are assumed
+to be borne by final users.
 
 Although damage functions are commonly used to estimate the economic impacts of
 climate change \parencite{nordhaus1992optimal,nordhaus1992dice}, this approach
@@ -915,6 +930,7 @@ the model.
 
 
 \subsubsection{Modelling Disaster Risk Reduction}
+\label{sec:methods_mfmod_drr}
 Empirical evidence suggests that the macroeconomic impacts of disasters often
 exceed what would be expected from capital destruction alone, as disruptions to
 infrastructure, supply chains, and economic activity amplify output losses
@@ -962,6 +978,7 @@ production function through the effective capital stock $K$, thereby affecting
 potential output and overall economic activity.
 
 \subsubsection{Modelling Sectoral Productivity (Agriculture and Hydropower)}
+\label{sec:methods_mfmod_productivity}
 
 Given the aggregate structure of MFMod and the absence of explicit production
 functions for individual sectors, sectoral impacts are introduced through
@@ -992,7 +1009,7 @@ which in turn affect production costs, relative prices, and aggregate economic
 activity.
 
 
-% \FloatBarrier
+\FloatBarrier
 \section{Results}
 \label{sec:results}
 
@@ -1012,7 +1029,7 @@ scenario, while
 provide the underlying annual data. In this section, we first present results
 for each impact channel in isolation and then for all three channels jointly.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
   \centering
   \includegraphics[width=7in]{./figures/results_DRR_control_rel.pdf}
   \caption{\textbf{Isolated GDP impact of the Disaster Risk Reduction channel.}
@@ -1037,15 +1054,14 @@ pessimistic control, avoided damages—and their macroeconomic multiplier—expa
 commensurately (\cref{tab:drr_impact_channel_KHM}). The gap between the two
 forecast scenarios also widens over time, reflecting the increasing value of
 additional lead time and forecast quality as climate risks mount. Viewed from
-the perspective of total climate exposure (\cref{fig:results_DRR_baseline} in
-\cref{app:baseline_rel}), early warning systems with maintained or improved
-forecast skill partially---but not fully---offset growing climate losses, reducing
-the GDP deficit relative to the no-climate-change baseline from 19.1\%
-(optimistic control) to 18.4\% and 10.3\% respectively under pessimistic and
-optimistic improvement scenarios by 2050. \todo{decide whether Appendix A should
-be dropped altogether.}
+the perspective of total climate exposure (\cref{fig:results_DRR_baseline}),
+early warning systems with maintained or improved forecast skill partially---but
+not fully---offset growing climate losses, reducing the GDP deficit relative to
+the no-climate-change baseline from 19.1\% (optimistic control) to 18.4\% and
+10.3\% respectively under pessimistic and optimistic improvement scenarios by
+2050. \todo{decide whether Appendix A should be dropped altogether.} 
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
   \centering
   \includegraphics[width=7in]{./figures/results_AGR_control_rel.pdf}
   \caption{\textbf{Isolated GDP impact of the Agricultural Productivity channel.} GDP deviation of the status quo and continued improvement forecast
@@ -1074,7 +1090,7 @@ channel---roughly one-fifth to one-sixth of the sector-level productivity shock-
 mediated through Cambodia's substantial agricultural sector share (17\% of GDP)
 and downstream effects on capital accumulation, employment, and exports.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
   \centering
   \includegraphics[width=7in]{./figures/results_HYD_control_rel.pdf}
   \caption{\textbf{Isolated GDP impact of the Hydropower channel.} GDP
@@ -1102,7 +1118,7 @@ discharge changes under RCP 8.5, in particular the modeled decline in dry-season
 discharge that reduces the scope for cost-optimal dispatch
 (\cref{fig:hydropower_year_selection}).
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
   \centering
   \includegraphics[width=7in]{./figures/results_All_control_rel.pdf}
   \caption{\textbf{Combined GDP impact with all channels active simultaneously.}
@@ -1154,7 +1170,7 @@ worsening climate conditions), and hydropower provides a smaller but positive
 increment.
 
 
-% \FloatBarrier
+\FloatBarrier
 \section{Discussion}
 \label{sec:discussion}
 
@@ -1280,7 +1296,7 @@ forecast information generates measurable economic value. Importantly,
 \textcite{world2015valuing} also cautions that benefit estimates derived from
 different valuation methods are rarely directly comparable. Our study addresses
 this comparability challenge by maintaining a consistent analytical framework
-across all three channels and both climate scenarios.
+across all three channels and both climate scenarios. 
 
 \textcite{farkas2025economic} provide the most comprehensive recent synthesis of the
 quantitative literature on forecast value. Several of their findings are
@@ -1409,6 +1425,7 @@ backup activation, contributing to both fiscal savings and emissions reduction
 objectives---co-benefits not captured in the GDP-centric framework used here.
 
 
+\FloatBarrier
 \section{Conclusions}
 \label{sec:conclusions}
 This study estimates the macroeconomic benefits of improved hydrometeorological
@@ -1464,15 +1481,6 @@ among the most cost-effective climate adaptation investments available to
 governments in the region.
 
 
-\input{tables/drr_impact_channel_KHM.tex}
-\input{tables/agri_impact_channel_KHM.tex}
-\input{tables/hydropower_impact_channel_KHM.tex}
-
-\input{tables/results_DRR_control_rel.tex}
-\input{tables/results_AGR_control_rel.tex}
-\input{tables/results_HYD_control_rel.tex}
-\input{tables/results_All_control_rel.tex}
-
 
 \clearpage
 
@@ -1508,159 +1516,156 @@ from all authors. All authors discussed the results.
 The authors declare that they have no competing interests.
 
 \subsection*{Additional information}
-\todo{supplements (if applicable)}
 Supplementary information is available for this paper.
-
 
 \clearpage
 \FloatBarrier
 \appendix
 
-\section{GDP deviations from baseline}
+% Reset counters and rename captions for supplementary material
+\setcounter{page}{1}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\addto\captionsenglish{\renewcommand{\figurename}{Supplementary Figure}}
+\renewcommand{\figurename}{Supplementary Figure}
+\addto\captionsenglish{\renewcommand{\tablename}{Supplementary Table}}
+\renewcommand{\tablename}{Supplementary Table}
+
+
+\newpage
+\begin{center}
+  { \Large
+    \noindent
+    Supplementary information for: \\ \vspace{1em}
+    \articletitle
+  }
+    
+
+  {
+    \noindent
+    {
+    \noindent
+    R.~Middelanis,
+    U.~Chewpreecha,
+    B.~A.~Jafino,
+    S.~Galelli,
+    M.~Sidibe,
+    P.~Avner
+  }
+  }
+\end{center}
+
+\vspace{3em}
+
+{
+  \noindent\textbf{\large Table of Contents}
+
+  \vspace{1em}
+  \noindent\textbf{\ref{app:baseline_rel}\enspace Supplementary Figures}\dotfill\pageref{app:baseline_rel}\\[0.3em]
+  \hspace*{2em}Supplementary Figure~1: Isolated DRR channel -- GDP deviation from baseline (\%)\dotfill\pageref{fig:results_DRR_baseline}\\[0.15em]
+  \hspace*{2em}Supplementary Figure~2: Isolated Agricultural Productivity channel -- GDP deviation from baseline (\%)\dotfill\pageref{fig:results_AGR_baseline}\\[0.15em]
+  \hspace*{2em}Supplementary Figure~3: Isolated Hydropower channel -- GDP deviation from baseline (\%)\dotfill\pageref{fig:results_HYD_baseline}\\[0.15em]
+  \hspace*{2em}Supplementary Figure~4: Combined GDP impact -- deviation from baseline (\%)\dotfill\pageref{fig:results_All_baseline}\\[1em]
+
+  \noindent\textbf{\ref{app:data_tables}\enspace Supplementary Tables}\dotfill\pageref{app:data_tables}\\[0.3em]
+  \hspace*{2em}Supplementary Table~1: Annual average flood damage (\% national capital stock)\dotfill\pageref{tab:drr_impact_channel_KHM}\\[0.15em]
+  \hspace*{2em}Supplementary Table~2: Agricultural productivity change (\%)\dotfill\pageref{tab:agri_impact_channel_KHM}\\[0.15em]
+  \hspace*{2em}Supplementary Table~3: Electricity generation cost reduction (\%)\dotfill\pageref{tab:hydropower_impact_channel_KHM}\\[0.15em]
+  \hspace*{2em}Supplementary Table~4: GDP deviation from control (\%) -- Disaster Risk Reduction\dotfill\pageref{tab:results_DRR_control_rel}\\[0.15em]
+  \hspace*{2em}Supplementary Table~5: GDP deviation from control (\%) -- Agricultural Productivity\dotfill\pageref{tab:results_AGR_control_rel}\\[0.15em]
+  \hspace*{2em}Supplementary Table~6: GDP deviation from control (\%) -- Hydropower\dotfill\pageref{tab:results_HYD_control_rel}\\[0.15em]
+  \hspace*{2em}Supplementary Table~7: GDP deviation from control (\%) -- all channels combined\dotfill\pageref{tab:results_All_control_rel}\\[0.15em]
+  \hspace*{2em}Supplementary Table~8: GDP deviation from baseline (\%) -- Disaster Risk Reduction\dotfill\pageref{tab:results_DRR_baseline_rel}\\[0.15em]
+  \hspace*{2em}Supplementary Table~9: GDP deviation from baseline (\%) -- Agricultural Productivity\dotfill\pageref{tab:results_AGR_baseline_rel}\\[0.15em]
+  \hspace*{2em}Supplementary Table~10: GDP deviation from baseline (\%) -- Hydropower\dotfill\pageref{tab:results_HYD_baseline_rel}\\[0.15em]
+  \hspace*{2em}Supplementary Table~11: GDP deviation from baseline (\%) -- all channels combined\dotfill\pageref{tab:results_All_baseline_rel}
+}
+
+
+\clearpage
+
+\section{Supplementary Figures}
 \label{app:baseline_rel}
 
 \cref{fig:results_DRR_baseline,fig:results_AGR_baseline,fig:results_HYD_baseline}
 show the GDP deviation from a hypothetical no-climate-change baseline when
 simulating each impact channel in isolation, and \cref{fig:results_All_baseline}
 shows the combined effect when all three channels are simulated simultaneously.
-The underlying data are provided in
-\cref{tab:results_DRR_baseline_rel,tab:results_AGR_baseline_rel,tab:results_HYD_baseline_rel,tab:results_All_baseline_rel}.
+The underlying data are provided in \cref{app:data_tables}.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_DRR_baseline_rel.pdf}
   \caption{\textbf{Isolated Disaster Risk Reduction channel -- GDP deviation
-  from baseline.} GDP deviation from the no-climate-change baseline under all
+  from baseline (\%).} GDP deviation from the no-climate-change baseline under all
   forecast and climate scenarios, when only the DRR channel is active. Data in
   \cref{tab:results_DRR_baseline_rel}.}
-  \label{fig:results_DRR_baseline}
+  \label[supfigure]{fig:results_DRR_baseline}
 \end{figure}
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_AGR_baseline_rel.pdf}
   \caption{\textbf{Isolated Agricultural Productivity channel -- GDP
-  deviation from baseline.} GDP deviation from the no-climate-change baseline
+  deviation from baseline (\%).} GDP deviation from the no-climate-change baseline
   under all forecast and climate scenarios, when only the agriculture channel is
   active. Data in \cref{tab:results_AGR_baseline_rel}.}
-  \label{fig:results_AGR_baseline}
+  \label[supfigure]{fig:results_AGR_baseline}
 \end{figure}
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_HYD_baseline_rel.pdf}
   \caption{\textbf{Isolated Hydropower channel -- GDP deviation from
-  baseline.} GDP deviation from the no-climate-change baseline under all
+  baseline (\%).} GDP deviation from the no-climate-change baseline under all
   forecast and climate scenarios, when only the hydropower channel is active.
   Data in \cref{tab:results_HYD_baseline_rel}.}
-  \label{fig:results_HYD_baseline}
+  \label[supfigure]{fig:results_HYD_baseline}
 \end{figure}
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=7in]{./figures/results_All_baseline_rel.pdf}
   \caption{\textbf{Combined GDP impact with all channels active simultaneously
-  -- deviation from baseline.} GDP deviation from the no-climate-change baseline
+  -- deviation from baseline (\%).} GDP deviation from the no-climate-change baseline
   under all forecast and climate scenarios, when all three impact channels are
   simulated together. Data in \cref{tab:results_All_baseline_rel}.}
-  \label{fig:results_All_baseline}
+  \label[supfigure]{fig:results_All_baseline}
 \end{figure}
 
 \FloatBarrier
+\clearpage
+
+
+\section{Supplementary Tables}
+\label{app:data_tables}
+
+\Cref{tab:drr_impact_channel_KHM,tab:agri_impact_channel_KHM,tab:hydropower_impact_channel_KHM}
+provide the impact channel inputs to MFMod under all climate and forecast
+scenarios for disaster risk reduction, agricultural productivity, and hydropower,
+respectively. \Cref{tab:results_DRR_control_rel,tab:results_AGR_control_rel,tab:results_HYD_control_rel,tab:results_All_control_rel}
+provide the annual GDP deviation data underlying \cref{fig:results_DRR_control,fig:results_AGR_control,fig:results_HYD_control,fig:results_All_control}
+in \cref{sec:results}.
+\Cref{tab:results_DRR_baseline_rel,tab:results_AGR_baseline_rel,tab:results_HYD_baseline_rel,tab:results_All_baseline_rel}
+provide the corresponding data for the GDP deviations from the no-climate-change
+baseline shown in \cref{app:baseline_rel}.
+
+\input{tables/drr_impact_channel_KHM.tex}
+\input{tables/agri_impact_channel_KHM.tex}
+\input{tables/hydropower_impact_channel_KHM.tex}
+
+\input{tables/results_DRR_control_rel.tex}
+\input{tables/results_AGR_control_rel.tex}
+\input{tables/results_HYD_control_rel.tex}
+\input{tables/results_All_control_rel.tex}
 
 \input{tables/results_DRR_baseline_rel.tex}
 \input{tables/results_AGR_baseline_rel.tex}
 \input{tables/results_HYD_baseline_rel.tex}
 \input{tables/results_All_baseline_rel.tex}
 
-
 \FloatBarrier
 \clearpage
-
-
-% \end{refsection}
-
-% \begin{refsection}
-
-% \setcounter{page}{1}
-% \FloatBarrier
-% \newpage
-% \begin{center}
-%   {
-%     \Large
-%     \noindent
-%     Supplementary information for: \\ \vspace{1em}
-%     \articletitle
-%   }
-    
-
-%   {
-%     \noindent
-%     \todo{author list}
-%   }
-% \end{center}
-
-
-% \setcounter{figure}{0}
-% \addto\captionsenglish{\renewcommand{\figurename}{Supplementary Figure}}
-% \renewcommand{\figurename}{Supplementary Figure}
-% \addto\captionsenglish{\renewcommand{\tablename}{Supplementary Table}}
-% \renewcommand{\tablename}{Supplementary Table}
-% \setcounter{equation}{0}
-% \renewcommand{\theequation}{S.\arabic{equation}}
-
-% \setcounter{section}{0}
-
-
-
-
-% \subsection*{Table of contents}
-
-% \subsubsection*{A Methods supplement}
-% \noindent
-% \cref{sec:}: .
-% \\[0.67em]
-
-% \subsubsection*{B Supplementary figures}
-% \noindent
-% % \cref{supfig:supfigure_1}: \todo{Supfigure 1 title}.
-% % \\[0.67em]
-
-% \subsubsection*{C Supplementary tables}
-% \noindent
-% % \cref{suptab:suptable_1}: \todo{Suptable 1 title}.
-% % \\[0.67em]
-
-
-% \clearpage
-% \FloatBarrier
-% \renewcommand{\thesection}{A}
-% \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-% \section{Methods supplement}
-% \label{si:methods}
-  
-% \clearpage
-% \FloatBarrier
-% \renewcommand{\thesection}{B}
-% \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-% \section{Supplementary figures}
-% \label{si:figures}
-
-
-% \clearpage
-% \FloatBarrier
-% \renewcommand{\thesection}{C}
-% \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-% \section{Supplementary tables}
-% \label{si:tables}
-
-
-
-% \clearpage
-
-% \printbibliography[heading=subbibintoc]
-
-\end{refsection}
 
 
 \end{document}
