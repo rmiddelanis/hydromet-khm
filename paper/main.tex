@@ -158,10 +158,10 @@ maxcitenames=2,
   {
     \noindent
     R.~Middelanis\textsuperscript{a},
-    B.~A.~Jafino\textsuperscript{a},
-    M.~Sidibe\textsuperscript{a},
     U.~Chewpreecha\textsuperscript{a},
+    B.~A.~Jafino\textsuperscript{a},
     S.~Galelli\textsuperscript{b},
+    M.~Sidibe\textsuperscript{a},
     P.~Avner\textsuperscript{a}\\
   }
   \vspace{0.5em}
@@ -817,9 +817,180 @@ Potential approaches:
 \end{itemize}
 \fi
 
-\subsection{Macro-economic model}
-\label{sec:methods_mfmod}
-\todo{model description}
+\subsection{Macro-economic model: MFMod for Cambodia}
+
+MFMod is a semi-structural macroeconometric model developed by the World Bank
+and maintained for 181 individual countries \parencite{burns_world_2019}. It is
+designed to support macroeconomic forecasting and policy simulation and has been
+progressively extended to accommodate climate and disaster risk applications,
+referred to as MFMod-CC \parencite{burns2021climate,burns2021macroeconomic}. The
+model combines macroeconomic accounting identities with empirically estimated
+behavioral equations and is widely used in World Bank country work, including
+Country Climate and Development Reports (CCDRs) and macro-fiscal policy
+analysis.
+
+MFMod follows a stock-flow consistent macroeconomic framework linking the real
+economy, fiscal sector, external sector, and financial conditions. Economic
+activity is determined through interactions between aggregate demand, productive
+capacity, labor markets, and fiscal dynamics, while maintaining consistency with
+national accounts and balance of payments identities. Unlike computable general
+equilibrium (CGE) models, MFMod is estimated using time-series econometric
+techniques, typically employing error-correction models that capture both
+short-run dynamics and long-run equilibrium relationships. This structure allows
+the model to simulate the medium- to long-term macroeconomic impacts of policy
+changes and structural shocks.
+
+The model is calibrated to country-specific macroeconomic data and institutional
+characteristics. For this study, a Cambodia-specific version of MFMod was
+constructed using historical macroeconomic and sectoral data. The model is used
+to simulate how improved hydrometeorological (hydromet) information affects
+economic outcomes through three transmission channels: reduced disaster losses,
+improved agricultural productivity, and enhanced hydropower generation.
+
+\subsubsection{Core model structure}
+Economic output is determined by a combination of aggregate demand and supply capacity. On the supply side, potential output $Y^*_t$ is determined by a standard production function combining capital $K$, labor $L$, and productivity $A$:
+\begin{equation}
+  Y^*_t = A_t\,K_{t-1}^{1-\alpha}\,L_t^{\alpha}
+\end{equation}
+The capital stock evolves according to the standard accumulation equation:
+\begin{equation}
+  K_t = (1 - \delta)\,K_{t-1} + I_t
+\end{equation}
+where $I_t$ represents total investment and $\delta$ is the depreciation rate.
+
+In the short run, actual output $Y_t$ may deviate from potential output due to
+demand fluctuations. Aggregate demand is composed of private consumption,
+investment, government spending, and net exports:
+\begin{equation}
+  Y_t = C_t + I_t + G_t + X_t - M_t
+\end{equation}
+
+Each component of output is estimated using time-series econometric techniques
+based on error-correction models, allowing for different speeds of adjustment
+toward long-run equilibrium relationships. Consumption depends on real
+disposable income and wealth, while investment responds to output expectations,
+capacity utilization, and financing conditions. Exports depend on global demand
+and external competitiveness, whereas imports are driven by gross domestic
+expenditure and relative prices. Government demand is linked to fiscal spending
+decisions, while fiscal revenues and expenditures determine the fiscal balance
+and the evolution of public debt.
+
+Production prices incorporate both cost-push factors, such as changes in factor
+costs, and demand-pull pressures captured by the output gap, i.e. the difference
+between potential and actual output. Final demand prices follow developments in
+domestic production costs as well as movements in global prices.
+
+
+\subsubsection{Modelling the Benefits of Hydrometeorological Systems}
+The economic benefits of hydromet investments are incorporated in MFMod through
+three transmission channels: flood damage reduction, improved agricultural
+productivity, and higher hydropower productivity. Shocks are introduced relative
+to the baseline (Control) scenario to represent the benefits of improved
+hydromet services. Two hydromet service scenarios are considered: Status Quo and
+Improvement, each evaluated under two climate futures: Optimistic and
+Pessimistic.
+
+The benefits of improved hydromet services are modeled as reductions in
+climate-related damages. Capital expenditures associated with hydromet systems
+are introduced as additional public investment financed through government
+borrowing, while operational and maintenance costs are assumed to be borne by
+final users.
+
+Although damage functions are commonly used to estimate the economic impacts of
+climate change \parencite{nordhaus1992optimal,nordhaus1992dice}, this approach
+has been widely criticized for relying on highly aggregated functional forms and
+limited empirical evidence, which can lead to substantial uncertainty and may
+underestimate nonlinear and sector-specific climate impacts
+\parencite{pindyck2013climate,stern2013structure}. Moreover, such approaches
+often obscure important transmission channels and adaptation dynamics across
+sectors \parencite{burke2015global}. Instead, damages in MFMod are introduced as
+a vector of computed impacts derived from biophysical models
+\parencite{abalo2025macroeconomic}. This approach avoids the need to estimate
+aggregate damage functions statistically and allows the model to capture
+distinct impact channels as well as the role of adaptation and resilience
+measures.
+
+The following sections describe how each of the three channels is represented in
+the model.
+
+
+\subsubsection{Modelling Disaster Risk Reduction}
+Empirical evidence suggests that the macroeconomic impacts of disasters often
+exceed what would be expected from capital destruction alone, as disruptions to
+infrastructure, supply chains, and economic activity amplify output losses
+\parencite{von2012unmitigated,bakkensen2018climate}. To capture these broader
+effects, macroeconomic climate models increasingly represent disasters as
+affecting both the stock of capital and its productivity
+\parencite{hallegatte2019losses}. Following this approach, flood impacts in
+MFMod are modeled through damages to productive capital and the dynamics of
+reconstruction.
+
+The modelling of capital losses follows the framework used in recent World Bank
+macroeconomic climate modelling
+\parencite{burns2021climate,hallegatte2024modeling}. The effective capital stock
+is defined as:
+\begin{equation}
+  K=\left(1 -\frac{DS}{\widetilde{K}}\right)^{\frac{1}{1-\alpha}}\widetilde{K}
+\end{equation}
+where $\widetilde{K}$ denotes the productive capital stock prior to damages,
+$DS$ represents the stock of destroyed capital due to flood events, and
+$(1-\alpha)$ is the capital share in production. This formulation assumes that
+destroyed capital has approximately the average productivity of capital, while
+newly installed capital yields marginal productivity. Flood events increase the
+stock of destroyed capital according to:
+\begin{equation}
+  DS_t = DS_{t-1} + RD_t - I_t^R
+\end{equation}
+where $RD_t$ represents residual damages and $I_t^R$ denotes reconstruction
+investment. Although reconstruction typically yields high economic returns,
+reconstruction capacity is limited by institutional and sectoral constraints.
+Reconstruction investment is therefore constrained to a fixed share of total
+investment:
+\begin{equation}
+  I_t^R = \min (DS_t, \phi\,I_t)
+\end{equation}
+where $\phi$ represents the maximum share of total investment that can be directed
+toward reconstruction.
+
+Hydrometeorological investments are introduced as adaptation measures that
+reduce residual flood damages $RD_t$. Improved monitoring and early warning
+systems allow households, firms, and governments to better prepare for flood
+events, thereby reducing effective economic losses. In the model, these
+investments reduce the magnitude of residual damages entering the capital
+destruction process. The resulting changes in the capital stock feed into the
+production function through the effective capital stock $K$, thereby affecting
+potential output and overall economic activity.
+
+\subsubsection{Modelling Sectoral Productivity (Agriculture and Hydropower)}
+
+Given the aggregate structure of MFMod and the absence of explicit production
+functions for individual sectors, sectoral impacts are introduced through
+changes in total factor productivity (TFP). Aggregate productivity $\widetilde{A}_t$ is
+represented as a weighted aggregation of sectoral productivity:
+\begin{equation}
+  \widetilde{A}_t = \int_0^1 \widetilde{A}_t(i)\,di.
+\end{equation}
+This formulation allows sector-specific shocks to be incorporated through
+changes in sectoral productivity. In the context of hydrometeorological
+improvements, the agricultural and hydropower channels are introduced as
+sectoral productivity or cost shocks relative to the climate-specific baseline.
+
+For agriculture, improved weather forecasts influence crop production conditions
+and input decisions. These effects are represented as changes in agricultural
+productivity. Since MFMod explicitly measures capital and labor inputs but not
+land, part of the agricultural productivity residual implicitly captures land
+productivity and weather-related effects. Forecast-driven improvements in
+agricultural conditions therefore enter the model as shocks to agricultural TFP.
+
+For hydropower, improved hydrological information enhances reservoir management
+and electricity generation efficiency, resulting in lower operating costs. In
+MFMod, these efficiency gains are introduced as reductions in electricity
+production costs. The cost savings are applied proportionally to the electricity
+input share in total production costs and final consumption. Through this
+mechanism, improved hydropower operations reduce economy-wide energy costs,
+which in turn affect production costs, relative prices, and aggregate economic
+activity.
+
 
 % \FloatBarrier
 \section{Results}
@@ -1330,7 +1501,7 @@ valuable feedback on the hydropower impact channel approach.
 \subsection*{Author information}
 R.M., B.A.J., M.S., and P.A. designed the study. R.M. and S.G. defined the
 hydropower impact channel. R.M. processed the impact channel data. U.C. conducted 
-the economic simulations. R.M. and B.A.J. wrote the manuscript with contributions 
+the economic simulations. R.M., B.A.J., and U.C. wrote the manuscript with contributions 
 from all authors. All authors discussed the results.
 
 \subsection*{Competing interests}
