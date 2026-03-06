@@ -485,8 +485,8 @@ further to 0.95\% in 2050. Under the pessimistic climate scenario, damages in
 2050 are reduced from 2.97\% to 2.84\% with current forecast skill, and to
 2.78\% with improved forecasts. 
 
-These damages enter the MFMod model as the fraction of the capital stock
-destroyed every year, $\frac{DS}{\widetilde{K}}$ (see \cref{sec:methods_mfmod_drr}).
+These damages enter the MFMod model as the additional damage due to floods every
+year (variable $RD_t$ in \cref{eq:drr_link_equation}, see \cref{sec:methods_mfmod_drr}).
 
 \begin{figure}[htb]
   \centering
@@ -574,9 +574,10 @@ an overall 8.77\% and 5.35\% higher productivity in 2050. With continually
 improved forecast skill, productivity would increase by up to 15.19\% or 11.57\%
 in 2050.
 
-These changes in annual agricultural productivity enter MFMod as sectoral total
-factor productivity (TFP) shocks, as described in
-\cref{sec:methods_mfmod_productivity}.
+These changes in annual agricultural productivity enter the MFMod model as a
+change in total factor productivity, which affects the potential economic output
+(variable $AD_t$ in \cref{eq:agri_link_equation}, see \cref{sec:methods_mfmod_productivity}).
+
 
 \begin{figure}[htb]
   \centering
@@ -699,9 +700,10 @@ the entire simulation period are shown in
 \cref{fig:hydropower_impact_channel_KHM} and
 \cref{tab:hydropower_impact_channel_KHM}. 
  
-These changes in annual electricity generation cost enter MFMod as sectoral total
-factor productivity (TFP) shocks, as described in
-\cref{sec:methods_mfmod_productivity}.
+These changes in annual electricity generation cost enter the MFMod model by
+affecting the disturbance term of the factor cost equation (variable $OPEX_t$ in 
+\cref{eq:hydro_link_equation}, see \cref{sec:methods_mfmod_productivity}).
+
 
 \begin{figure}[h!]
   \centering
@@ -858,12 +860,13 @@ newly installed capital yields marginal productivity. Flood events increase the
 stock of destroyed capital according to:
 \begin{equation}
   DS_t = DS_{t-1} + RD_t - I_t^R
+  \label{eq:drr_link_equation}
 \end{equation}
-where $RD_t$ represents residual damages and $I_t^R$ denotes reconstruction
-investment. Although reconstruction typically yields high economic returns,
-reconstruction capacity is limited by institutional and sectoral constraints.
-Reconstruction investment is therefore constrained to a fixed share of total
-investment:
+where $RD_t$ represents residual damage (derived in \cref{sec:methods_drr}) and
+$I_t^R$ denotes reconstruction investment. Although reconstruction typically
+yields high economic returns, reconstruction capacity is limited by
+institutional and sectoral constraints. Reconstruction investment is therefore
+constrained to a fixed share of total investment:
 \begin{equation}
   I_t^R = \min (DS_t, \phi\,I_t)
 \end{equation}
@@ -884,31 +887,45 @@ potential output and overall economic activity.
 
 Given the aggregate structure of MFMod and the absence of explicit production
 functions for individual sectors, sectoral impacts are introduced through
-changes in total factor productivity (TFP). Aggregate productivity $\widetilde{A}_t$ is
-represented as a weighted aggregation of sectoral productivity:
-\begin{equation}
-  \widetilde{A}_t = \int_0^1 \widetilde{A}_t(i)\,di.
-\end{equation}
-This formulation allows sector-specific shocks to be incorporated through
-changes in sectoral productivity. In the context of hydrometeorological
-improvements, the agricultural and hydropower channels are introduced as
-sectoral productivity or cost shocks relative to the climate-specific baseline.
+changes in total factor productivity (TFP) or through changes in production
+costs. 
 
 For agriculture, improved weather forecasts influence crop production conditions
 and input decisions. These effects are represented as changes in agricultural
-productivity. Since MFMod explicitly measures capital and labor inputs but not
+productivity. To incorporate this channel, the potential output equation is
+modified to allow agricultural productivity shocks to affect aggregate supply: 
+\begin{equation}
+  Y_t^*=(1+AD_t\,\omega^{Y_{AGR}})\,A_t\,K_{t-1}^{1-\alpha}L_t^\alpha
+  \label{eq:agri_link_equation}
+\end{equation}
+where $AD_t$ represents the agricultural productivity shock associated with
+improved hydrometeorological information (derived in
+\cref{sec:methods_agriculture}), and $\omega^{Y_{AGR}}$ denotes the share of
+agriculture in total output, which scales the sector-specific productivity
+change to the aggregate economy.
+
+Since MFMod explicitly measures capital and labor inputs but not
 land, part of the agricultural productivity residual implicitly captures land
 productivity and weather-related effects. Forecast-driven improvements in
 agricultural conditions therefore enter the model as shocks to agricultural TFP.
 
-For hydropower, improved hydrological information enhances reservoir management
-and electricity generation efficiency, resulting in lower operating costs. In
-MFMod, these efficiency gains are introduced as reductions in electricity
-production costs. The cost savings are applied proportionally to the electricity
-input share in total production costs and final consumption. Through this
-mechanism, improved hydropower operations reduce economy-wide energy costs,
-which in turn affect production costs, relative prices, and aggregate economic
-activity.
+For hydropower, improved hydrometeorological information enhances reservoir
+management and electricity generation efficiency, resulting in lower operating
+costs. In MFMod, these efficiency gains are introduced as reductions in
+electricity production costs. In the model implementation, the change in
+operating costs ($\Delta OPEX_t$ as derived in \cref{sec:methods_hydropower})
+enters the disturbance term of the factor cost equation ($e_t^{c'}$), scaled by
+the electricity share in production costs ($\omega^{elec}$), while the
+underlying cost dynamics remain determined endogenously by the model.
+\begin{equation}
+  e_t^{c'}=e_t^c + \omega^{elec}\,\Delta OPEX_t
+  \label{eq:hydro_link_equation}
+\end{equation}
+
+
+Through this mechanism, improved hydropower operations reduce economy-wide
+energy costs, which in turn affect production costs, relative prices, and
+aggregate economic activity.
 
 
 \FloatBarrier
