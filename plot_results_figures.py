@@ -154,12 +154,10 @@ def plot_gdp_differences(excel_path_, outpath_, filename_='results_gdp_differenc
 
 
 if __name__ == "__main__":
-    excel_path = os.path.join(script_dir, '../../results/EWS_MFMod_full.xlsx')
-    outpath = os.path.join(script_dir, 'results')
+    excel_path = os.path.join(script_dir, './results/EWS_MFMod_full.xlsx')
+    outpath = os.path.join(script_dir, 'results/display_items/')
     paper_outpath = os.path.join(script_dir, 'paper')
     os.makedirs(outpath, exist_ok=True)
-    os.makedirs(os.path.join(paper_outpath, 'figures'), exist_ok=True)
-    os.makedirs(os.path.join(paper_outpath, 'tables'), exist_ok=True)
 
     channel_labels = {
         'DRR': 'Disaster Risk Reduction',
@@ -207,10 +205,5 @@ if __name__ == "__main__":
 
     # Generate GDP differences summary table and figure
     plot_gdp_differences(excel_path, outpath)
-
-    # Copy .tex and .pdf files to paper directory
-    for f in os.listdir(outpath):
-        if f.endswith('.tex') or f.endswith('.pdf'):
-            shutil.copy2(os.path.join(outpath, f), os.path.join(paper_outpath, 'tables' if f.endswith('.tex') else 'figures', f))
 
     print(f"Generated all figures and tables")
