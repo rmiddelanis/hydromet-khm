@@ -1,5 +1,7 @@
 import json
 import os
+import shutil
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -13,7 +15,7 @@ from matplotlib.transforms import blended_transform_factory
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
 
-def process_temperature_data(raw_temperatures_data_path_, temperature_outpath_, paper_outpath_):
+def process_temperature_data(raw_temperatures_data_path_, temperature_outpath_):
     df = pd.read_csv(raw_temperatures_data_path_).rename(columns={'Category': 'year'}).set_index('year')
 
     df = df.rename(columns={'Hist. Ref. Period, 1950-2014': 'Historical'})
@@ -58,13 +60,13 @@ def process_temperature_data(raw_temperatures_data_path_, temperature_outpath_, 
 
     plt.tight_layout()
     fig.savefig(os.path.join(temperature_outpath_, 'temperature_projections_KHM.pdf'), dpi=300)
-    fig.savefig(os.path.join(paper_outpath_, 'figures/temperature_projections_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(script_dir, 'results/display_items/temperature_projections_KHM.pdf'), dpi=300)
 
     temperature_change_to_base_year = (df - df.loc[2020])[['Historical', 'Optimistic', 'Pessimistic', 'SSP1-2.6-rolling', 'SSP5-8.5-rolling']]
     temperature_change_to_base_year.drop(columns='Historical').dropna(how='all').to_csv(os.path.join(temperature_outpath_, 'temperature_change_to_2020.csv'))
 
 
-def calculate_drr_impact_channel(drr_outpath_, paper_outpath_, temperature_path_, implementation_year_=2031, implementation_duration_=10):
+def calculate_drr_impact_channel(drr_outpath_, temperature_path_, implementation_year_=2031, implementation_duration_=10):
     current_aal = 0.9290
     optimistic_aal_2050 = 1.0130
     pessimistic_aal_2050 = 2.9740
@@ -84,7 +86,7 @@ def calculate_drr_impact_channel(drr_outpath_, paper_outpath_, temperature_path_
     improvement_future_lead_time = 12
     improvement_future_benefits = potential_ew_benefit * future_ew_coverage * (1 - np.exp(-improvement_future_lead_time / tau))
 
-    print(f"Current EW benefits: {current_ew_benefits * 100:.2f}%, Status quo benefits (2050): {status_quo_future_benefits * 100:.2f}%, Improvement benefits (2050): {improvement_future_benefits * 100:.2f}%")
+    # print(f"Current EW benefits: {current_ew_benefits * 100:.2f}%, Status quo benefits (2050): {status_quo_future_benefits * 100:.2f}%, Improvement benefits (2050): {improvement_future_benefits * 100:.2f}%")
 
     temperature_increases = pd.read_csv(temperature_path_, index_col='year').loc[simulation_range]
 
@@ -115,14 +117,13 @@ def calculate_drr_impact_channel(drr_outpath_, paper_outpath_, temperature_path_
     os.makedirs(drr_outpath_, exist_ok=True)
 
     fig.savefig(os.path.join(drr_outpath_, 'drr_impact_channel_KHM.pdf'), dpi=300)
-    fig.savefig(os.path.join(paper_outpath_, 'figures/drr_impact_channel_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(script_dir, 'results/display_items/drr_impact_channel_KHM.pdf'), dpi=300)
 
     csv_outfile = os.path.join(drr_outpath_, 'drr_impact_channel_KHM.csv')
     with open(csv_outfile, 'w') as f:
         f.write("values denote the percentage of total national capital stock destroyed through floods \n")
         f.write(" \n")
         res.to_csv(f)
-
 
         latex = res.to_latex(
             float_format="%.2f",
@@ -138,12 +139,12 @@ def calculate_drr_impact_channel(drr_outpath_, paper_outpath_, temperature_path_
         latex = latex.replace("\\label{tab", "\\label[suptable]{tab")
         with open(os.path.join(drr_outpath_, "drr_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
-        with open(os.path.join(paper_outpath_, "tables/drr_impact_channel_KHM.tex"), 'w') as f:
+        with open(os.path.join(script_dir, "results/display_items/drr_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
+    shutil.copy(csv_outfile, os.path.join(script_dir, "results/display_items/drr_impact_channel_KHM.csv"))
 
 
-
-def calc_agri_impact_channel(agri_outpath_, paper_outpath_, temperature_increases_path_, implementation_year_=2031, implementation_duration_=10):
+def calc_agri_impact_channel(agri_outpath_, temperature_increases_path_, implementation_year_=2031, implementation_duration_=10):
     temperature_increases = pd.read_csv(temperature_increases_path_, index_col='year')
     temperature_increases = temperature_increases[temperature_increases.index <= 2050]
 
@@ -195,7 +196,7 @@ def calc_agri_impact_channel(agri_outpath_, paper_outpath_, temperature_increase
     os.makedirs(agri_outpath_, exist_ok=True)
 
     fig.savefig(os.path.join(agri_outpath_, 'agri_impact_channel_KHM.pdf'), dpi=300)
-    fig.savefig(os.path.join(paper_outpath_, 'figures/agri_impact_channel_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(script_dir, 'results/display_items/agri_impact_channel_KHM.pdf'), dpi=300)
 
     csv_outfile = os.path.join(agri_outpath_, 'agri_impact_channel_KHM.csv')
     with open(csv_outfile, 'w') as f:
@@ -211,11 +212,12 @@ def calc_agri_impact_channel(agri_outpath_, paper_outpath_, temperature_increase
         latex = latex.replace("\\label{tab", "\\label[suptable]{tab")
         with open(os.path.join(agri_outpath_, "agri_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
-        with open(os.path.join(paper_outpath_, "tables/agri_impact_channel_KHM.tex"), 'w') as f:
+        with open(os.path.join(script_dir, "results/display_items/agri_impact_channel_KHM.tex"), 'w') as f:
             f.write(latex)
+    shutil.copy(csv_outfile, os.path.join(script_dir, "results/display_items/agri_impact_channel_KHM.csv"))
 
 
-def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_input_data_path_, temperature_increases_path_, implementation_year_, implementation_duration_, seasonally=True, weighted=False):
+def prepare_hydropower_channel(hydropower_outpath_, hydropower_input_data_path_, temperature_increases_path_, implementation_year_, implementation_duration_, seasonally=True, weighted=False):
     seasons_mapping = {
         1: 'Post-monsoon',
         2: 'Pre-monsoon',
@@ -231,7 +233,7 @@ def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_i
         12: 'Post-monsoon',
     }
 
-    costs = pd.read_csv(os.path.join(hydropower_input_data_path_, "monthly", "syscost_m.csv"))
+    costs = pd.read_csv(os.path.join(hydropower_input_data_path_, "syscost_m.csv"))
     costs = costs.rename(columns={'Ensemble mean': 'Ensemble Mean'})
     costs['Month'] = costs['Date'].apply(lambda x: x.split('-')[0]).map({'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12})
     costs['Year'] = costs['Date'].apply(lambda x: x.split('-')[1])
@@ -246,10 +248,10 @@ def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_i
     costs = pd.concat([costs[cols].stack().groupby(['Year', 'Month']).min().squeeze().rename(scenario_name) for scenario_name, cols in scenario_col_mapping.items()], axis=1)
     costs = costs.groupby('Year').sum()
     forecast_benefit = (1 - costs[['Status quo', 'Improvement']].div(costs['Control'], axis=0)) * 100
-    print(f"Average cost reduction: {forecast_benefit.mean().loc['Status quo']:.2}% (status quo) / {forecast_benefit.mean().loc['Improvement']:.2}% (improvement)")
+    # print(f"Average cost reduction: {forecast_benefit.mean().loc['Status quo']:.2}% (status quo) / {forecast_benefit.mean().loc['Improvement']:.2}% (improvement)")
     forecast_benefit.columns = [f"cost reduction - {c}" for c in forecast_benefit.columns]
 
-    discharge = pd.read_csv(os.path.join(hydropower_input_data_path_, "monthly", "Q_m_avg.csv"))
+    discharge = pd.read_csv(os.path.join(hydropower_input_data_path_, "Q_m_avg.csv"))
     discharge['Month'] = discharge['Date'].apply(lambda x: x.split('-')[0]).map({'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12})
     discharge['Year'] = discharge['Date'].apply(lambda x: x.split('-')[1])
     discharge = discharge.set_index(['Month', 'Year']).drop(columns=['Date']).squeeze().unstack('Month').dropna()
@@ -323,8 +325,8 @@ def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_i
         subset, err = find_best_subset(discharge[fit_on], target, 1, weights=weights)
         years = list(discharge.index[list(subset)])
         selected_years_avg_cost_red = forecast_benefit.loc[years].mean()
-        print(f"## {climate_scenario} ## selected years: {years}, RMSE: {err}, average forecast benefit: {selected_years_avg_cost_red}")
-        print(f"Target mean: {target}, subset mean: {discharge[fit_on].loc[years].mean().values}")
+        # print(f"## {climate_scenario} ## selected years: {years}, RMSE: {err}, average forecast benefit: {selected_years_avg_cost_red}")
+        # print(f"Target mean: {target}, subset mean: {discharge[fit_on].loc[years].mean().values}")
         best_fit_result[climate_scenario] = {
             'subset': years,
             'RMSE': err,
@@ -375,7 +377,7 @@ def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_i
     axs[-1, -1].axis('off')
     fig.tight_layout()
     fig.savefig(os.path.join(hydropower_outpath_, f'hydropower_cc_year_selection.pdf'), dpi=300)
-    fig.savefig(os.path.join(paper_outpath_, f'figures/hydropower_cc_year_selection.pdf'), dpi=300)
+    fig.savefig(os.path.join(script_dir, f'results/display_items/hydropower_cc_year_selection.pdf'), dpi=300)
 
     temperature_increases = pd.read_csv(temperature_increases_path_, index_col='year')
     current_potential_benefit = forecast_benefit.mean()
@@ -402,7 +404,7 @@ def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_i
     res = res.rename(columns={'Control / Status quo': ' - Control / Status quo'})
     res.columns = pd.MultiIndex.from_tuples([tuple(col.split(' - ')) for col in res.columns], names=['Climate scenario', 'Forecast scenario'])
     fig.savefig(os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.pdf'), dpi=300)
-    fig.savefig(os.path.join(paper_outpath_, 'figures/hydropower_impact_channel_KHM.pdf'), dpi=300)
+    fig.savefig(os.path.join(script_dir, 'results/display_items/hydropower_impact_channel_KHM.pdf'), dpi=300)
 
     csv_outfile = os.path.join(hydropower_outpath_, 'hydropower_impact_channel_KHM.csv')
     with open(csv_outfile, 'w') as f:
@@ -424,11 +426,12 @@ def prepare_hydropower_channel(hydropower_outpath_, paper_outpath_, hydropower_i
     latex = latex.replace("\\label{tab", "\\label[suptable]{tab")
     with open(os.path.join(hydropower_outpath_, "hydropower_impact_channel_KHM.tex"), 'w') as f:
         f.write(latex)
-    with open(os.path.join(paper_outpath_, "tables/hydropower_impact_channel_KHM.tex"), 'w') as f:
+    with open(os.path.join(script_dir, "results/display_items/hydropower_impact_channel_KHM.tex"), 'w') as f:
         f.write(latex)
+    shutil.copy(csv_outfile, os.path.join(script_dir, "results/display_items/hydropower_impact_channel_KHM.csv"))
 
 
-def generate_costs(costs_outpath_, paper_outpath_, opex_status_quo_=500_000., opex_improvement_=1_000_000., capex_improvement_=21_000_000., capex_improvement_duration_=5, capex_improvement_start_=2031):
+def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=1_000_000., capex_improvement_=21_000_000., capex_improvement_duration_=5, capex_improvement_start_=2031):
     res = pd.DataFrame(
         data=0,
         index=simulation_range, columns=pd.MultiIndex.from_product(
@@ -471,7 +474,7 @@ def generate_costs(costs_outpath_, paper_outpath_, opex_status_quo_=500_000., op
     latex_reduced = latex_reduced.replace("\\begin{tabular}", "\\centering\n\\begin{tabular}")
     with open(os.path.join(costs_outpath_, "scenario_costs_KHM.tex"), 'w') as f:
         f.write(latex_reduced)
-    with open(os.path.join(paper_outpath_, "tables/scenario_costs_KHM.tex"), 'w') as f:
+    with open(os.path.join(script_dir, "results/display_items/scenario_costs_KHM.tex"), 'w') as f:
         f.write(latex_reduced)
 
 
@@ -487,22 +490,21 @@ def combine_tables(table_paths, outpath_):
 
 if __name__ == "__main__":
     simulation_range = np.arange(2020, 2051)
-    paper_outpath = os.path.join(script_dir, "paper")
-    os.makedirs(paper_outpath, exist_ok=True)
+    os.makedirs(os.path.join(script_dir, "results/display_items"), exist_ok=True)
 
-    raw_temperatures_data_path = os.path.join(script_dir, "data/raw/Temperature/projected-average-mean-s.csv")
+    raw_temperatures_data_path = os.path.join(script_dir, "data/raw/WB_CCKP/projected-average-mean-s.csv")
     temp_outpath = os.path.join(script_dir, "Data/input_channels/Temperature")
+    os.makedirs(temp_outpath, exist_ok=True)
     process_temperature_data(
         raw_temperatures_data_path_=raw_temperatures_data_path,
         temperature_outpath_=temp_outpath,
-        paper_outpath_=paper_outpath,
     )
     temperature_path = os.path.join(script_dir, temp_outpath, 'temperature_change_to_2020.csv')
 
     costs_outpath = os.path.join(script_dir, "Data/input_channels/Costs")
+    os.makedirs(costs_outpath, exist_ok=True)
     generate_costs(
         costs_outpath_=costs_outpath,
-        paper_outpath_=paper_outpath,
         opex_status_quo_=0.5e6,
         opex_improvement_=1e6,
         capex_improvement_=21e6,
@@ -511,18 +513,18 @@ if __name__ == "__main__":
     )
 
     drr_outpath = os.path.join(script_dir, "Data/input_channels/DRR")
+    os.makedirs(drr_outpath, exist_ok=True)
     calculate_drr_impact_channel(
         drr_outpath_=drr_outpath,
-        paper_outpath_=paper_outpath,
         temperature_path_=temperature_path,
         implementation_year_=2021,
         implementation_duration_=30,
     )
 
     agri_outpath = os.path.join(script_dir, "Data/input_channels/Agriculture")
+    os.makedirs(agri_outpath, exist_ok=True)
     calc_agri_impact_channel(
         agri_outpath_=agri_outpath,
-        paper_outpath_=paper_outpath,
         temperature_increases_path_=temperature_path,
         implementation_year_=2021,
         implementation_duration_=30,
@@ -530,9 +532,9 @@ if __name__ == "__main__":
 
     hydropower_input_data_path = os.path.join(script_dir, "data/raw/Koh_Galelli")
     hydropower_outpath = os.path.join(script_dir, "Data/input_channels/Hydropower")
+    os.makedirs(hydropower_outpath, exist_ok=True)
     prepare_hydropower_channel(
         hydropower_outpath_=hydropower_outpath,
-        paper_outpath_=paper_outpath,
         hydropower_input_data_path_=hydropower_input_data_path,
         temperature_increases_path_=temperature_path,
         implementation_year_=2021,

@@ -154,7 +154,7 @@ def plot_gdp_differences(excel_path_, outpath_, filename_='results_gdp_differenc
 
 
 if __name__ == "__main__":
-    excel_path = os.path.join(script_dir, './results/EWS_MFMod_full.xlsx')
+    excel_path = os.path.join(script_dir, './results/EWS_MFMod.xlsx')
     outpath = os.path.join(script_dir, 'results/display_items/')
     paper_outpath = os.path.join(script_dir, 'paper')
     os.makedirs(outpath, exist_ok=True)
