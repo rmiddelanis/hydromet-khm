@@ -19,14 +19,7 @@ The MFMod model runs in EViews. Pre- and post-processing of the model input and
 output data are done in Python. No specific hardware requirements apply. The full package runs in less than five minutes on a standard computer.
 
 ### 2.1 EViews
-The model runs in Eviews with the following requirements: 
-
-| Software | Version |
-|----------|---------|
-| EViews   | 9 or above      |
-| Microsoft Excel | Any recent version (for chart production) |
-
-No additional packages or libraries are required beyond a standard EViews installation.
+The model runs in Eviews with version 9 or above. No additional packages or libraries are required beyond a standard EViews installation.
 
 ### 2.2 Python 
 
