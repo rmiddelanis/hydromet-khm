@@ -75,17 +75,20 @@ The table below lists raw input data files contained in this reproducibility pac
   /
   ├── README.md                                  # This file
   ├── KHM_shocks_EWS.prg                         # EViews program: extend standard Cambodia MFMod model to include climate extension, runs baseline and 24 shock scenarios
+  ├── prepare_impact_channel_data.py             # Script to generate MFMod inputs from raw data
+  ├── process_model_results.py                   # Script to post-process MFMod outputs
+  ├── environment.yml                            # Conda environment file
   ├── Data/           
   │   ├── raw/                                   # Raw input data files from Koh and Galelli (2024) and World Bank (2025c)
   │   │   ├──Koh_Galelli/         
   │   │   │   ├── Q_m_avg.csv                    # Monthyl discharge data 
   │   │   │   └── syscost_m.csv                  # Simulated electricity generation cost
-  │   │   │──WB_CVCKP/
-  │   │   │   └──projected-average-mean-s.csv    # Projected future temperatures for Cambodia
-* │   ├── input_channels/                        # Input data for individual impact channels (pre-computed)
+  │   │   └──WB_CVCKP/
+  │   │       └──projected-average-mean-s.csv    # Projected future temperatures for Cambodia
+* │   ├── input_channels/...                     # Input data for individual impact channels (pre-computed)
 * │   ├── Cambodia_MFMod_inputs.xlsx             # Combined MFMod inputs (pre-computed)
   │   └── KHMSoln_clean.WF1                      # Cambodia MFMod model solution workfile (baseline)
-  └── outputs/                                   # Output folder 
+  └── results/                                   # Output folder 
 *     ├── display_items/                         # Figures and tables as included in the manuscript (pre-computed) 
 +     └── EWS_MFMod.xlsx                         # Excel file for MFMod outputs (pre-filled with simulation outputs)           
 
