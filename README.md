@@ -58,7 +58,7 @@ The table below lists raw input data files contained in this reproducibility pac
 | `Data/KHMSoln_clean.WF1`             | Cambodia MFMod macroeconomic model solution workfile (baseline) | Constructed by the authors using the World Bank MFMod framework | Included in package |
 | `Data/raw/Koh_Galelli/Q_m_avg.csv`   | Monthly discharge                                               | Koh and Galelli (2024)                                          | Included in package |
 | `Data/raw/Koh_Galelli/syscost_m.csv` | Simulated electricity generation cost                           | Koh and Galelli (2024)                                          | Included in package                    |
-| `Data/raw/data/raw/WB_CCKP/projected-average-mean-s.csv`     | Projected future temperatures for Cambodia                              | World Bank (2025c)                                              | Included in package                    |
+| `Data/raw/WB_CCKP/projected-average-mean-s.csv`     | Projected future temperatures for Cambodia                              | World Bank (2025c)                                              | Included in package                    |
 
 
 
