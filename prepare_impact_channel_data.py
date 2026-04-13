@@ -1,7 +1,6 @@
 import json
 import os
 import shutil
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -479,7 +478,9 @@ def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=
 
 
 def combine_tables(table_paths, outpath_):
-    with pd.ExcelWriter(outpath_, engine='openpyxl') as writer:
+    mode = 'a' if os.path.exists(outpath_) else 'w'
+    kwargs = {'if_sheet_exists': 'replace'} if mode == 'a' else {}
+    with pd.ExcelWriter(outpath_, engine='openpyxl', mode=mode, **kwargs) as writer:
         for sheet_name, (file, num_header_rows) in table_paths.items():
             with open(file, "r") as f:
                 meta_df = pd.DataFrame({'Info:': [f.readlines()[0].strip(), '']}).T

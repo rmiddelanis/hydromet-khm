@@ -2,7 +2,6 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import shutil
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 

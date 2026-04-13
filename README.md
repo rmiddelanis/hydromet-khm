@@ -15,6 +15,8 @@ This reproducibility package contains all code and data required to replicate th
 ---
 
 ## 2. Software Requirements
+The MFMod model runs in EViews. Pre- and post-processing of the model input and 
+output data are done in Python. No specific hardware requirements apply. The full package runs in less than five minutes on a standard computer.
 
 ### 2.1 EViews
 The model runs in Eviews with the following requirements: 
@@ -26,8 +28,6 @@ The model runs in Eviews with the following requirements:
 
 No additional packages or libraries are required beyond a standard EViews installation.
 
-The package was developed and tested on Windows. No specific hardware requirements apply — the full package runs in less than one minute on a standard laptop.
-
 ### 2.2 Python 
 
 The generation of input data and post-processing of model outputs is done in Python. The necessary packages can be installed with 
@@ -35,7 +35,7 @@ The generation of input data and post-processing of model outputs is done in Pyt
 conda env create --file environment.yml -n hydromet-khm
 ```
 
-To activate, run 
+To activate the environment, execute 
 ```
 conda activate hydromet-khm
 ```
@@ -45,11 +45,13 @@ conda activate hydromet-khm
 
 ## 3. Data Availability Statement
 
-**Summary:** All data used in this package are publicly available and are included in the EViews workfile provided.
+**Summary:** All data used in this package are publicly available and are included in this reproducibility package.
 
-The KHM model workfile was constructed by the author using the World Bank MFMod standard setup. Documentation of the MFMod framework is publicly available at:
+The KHM model workfile was constructed by the authors using the World Bank MFMod standard setup. Documentation of the MFMod framework is publicly available at:
 
 > World Bank. *Macro-Fiscal Model (MFMod) Documentation*. Available at: [https://openknowledge.worldbank.org/server/api/core/bitstreams/3ef71fcd-2146-5c61-88af-a2e8453f5486/content](https://openknowledge.worldbank.org/server/api/core/bitstreams/3ef71fcd-2146-5c61-88af-a2e8453f5486/content)
+
+The table below lists raw input data files contained in this reproducibility package.
 
 | File                                 | Description                                                     | Source                                                          | Access              |
 |--------------------------------------|-----------------------------------------------------------------|-----------------------------------------------------------------|---------------------|
@@ -70,21 +72,26 @@ The KHM model workfile was constructed by the author using the World Bank MFMod 
 ## 4. Package Contents
 
 ```
-/
-├── README.md                                  # This file
-├── KHM_shocks_EWS.prg                         # EViews program: extend standard Cambodia MFMod model to include climate extension, runs baseline and 24 shock scenarios
-├── results_template.xlsx                      # Excel file used to compile results and produce paper charts
-├── Data/           
-│   ├── raw/                                   # Raw input data files from Koh and Galelli (2024) and World Bank (2025c)
-│   │   ├──Koh_Galelli/         
-│   │   │   ├── Q_m_avg.csv                    # Monthyl discharge data 
-│   │   │   └── syscost_m.csv                  # Simulated electricity generation cost
-│   │   └──WB_CVCKP/
-│   │   │   └──projected-average-mean-s.csv    # Projected future temperatures for Cambodia
-│   └── KHMSoln_clean.WF1                      # Cambodia MFMod model solution workfile (baseline)
-└── outputs/                                   # Output folder — contains Excel Charts and Table template 
-    └── EWS_MFMod_Template.xlsx                # Charts and Table Excel Template           
-    
+  /
+  ├── README.md                                  # This file
+  ├── KHM_shocks_EWS.prg                         # EViews program: extend standard Cambodia MFMod model to include climate extension, runs baseline and 24 shock scenarios
+  ├── Data/           
+  │   ├── raw/                                   # Raw input data files from Koh and Galelli (2024) and World Bank (2025c)
+  │   │   ├──Koh_Galelli/         
+  │   │   │   ├── Q_m_avg.csv                    # Monthyl discharge data 
+  │   │   │   └── syscost_m.csv                  # Simulated electricity generation cost
+  │   │   │──WB_CVCKP/
+  │   │   │   └──projected-average-mean-s.csv    # Projected future temperatures for Cambodia
+* │   ├── input_channels/                        # Input data for individual impact channels (pre-computed)
+* │   ├── Cambodia_MFMod_inputs.xlsx             # Combined MFMod inputs (pre-computed)
+  │   └── KHMSoln_clean.WF1                      # Cambodia MFMod model solution workfile (baseline)
+  └── outputs/                                   # Output folder 
+*     ├── display_items/                         # Figures and tables as included in the manuscript (pre-computed) 
++     └── EWS_MFMod.xlsx                         # Excel file for MFMod outputs (pre-filled with simulation outputs)           
+
+Files and directories marked with an asterisk * are generated or modified at runtime. 
+Files marked with a plus sign + require manual editing during the replication process as indicated in the instructions below.
+This reproducibility package contains the full pre-computed and pre-edited outputs.
 ```
 
 
@@ -103,7 +110,7 @@ To create all model input data from raw inputs, execute
 python prepare_impact_channel_data.py
 ```
 
-This will create a single model input file in ```./Data/Cambodia_MFMod_inputs.xlsx```. Individual impact channel data and corresponding display items (Figures 2—6 and Supplementary Tables 1—4) are written to subdirectories of ```./Data/input_channels```. Figures and tables are also copied to ```./results/display_items```.
+This will create a single file ```./Data/Cambodia_MFMod_inputs.xlsx``` containing all input data for the MFMod model. Individual impact channel data and corresponding display items (Figures 2—6 and Supplementary Tables 1—4) are written to subdirectories of ```./Data/input_channels```. Data is also additionally in machine-readable ```.csv``` files. Figures and tables are also copied to ```./results/display_items```.
 
 ### Step 3 — Run the shocks program
 
@@ -129,7 +136,7 @@ The program executes the following steps automatically:
 
 ### Step 4 — Transfer results to Excel
 
-Copy the GDP results displayed in the EViews output window (2015–2050, all scenarios) and paste them into the corresponding sheets in `./results/EWS_MFMod.xlsx`. 
+Copy the GDP results displayed in the EViews output window (2015–2050, all scenarios) and paste them into the highlighted cells of sheet _MFModRaw_ in `./results/EWS_MFMod.xlsx` (25 columns for one baseline and 24 scenarios). 
 
 ---
 
