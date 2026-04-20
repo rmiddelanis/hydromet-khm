@@ -478,7 +478,27 @@ def generate_costs(costs_outpath_, opex_status_quo_=500_000., opex_improvement_=
 
 
 def combine_tables(table_paths, outpath_):
+    import openpyxl
+    preserved = {}
+    if os.path.exists(outpath_):
+        wb = openpyxl.load_workbook(outpath_)
+        for sheet_name in wb.sheetnames:
+            if sheet_name not in table_paths:
+                ws = wb[sheet_name]
+                preserved[sheet_name] = [[cell.value for cell in row] for row in ws.iter_rows()]
+
     with pd.ExcelWriter(outpath_, engine='xlsxwriter') as writer:
+        for sheet_name, rows in preserved.items():
+            ws = writer.book.add_worksheet(sheet_name)
+            for r_idx, row in enumerate(rows):
+                for c_idx, value in enumerate(row):
+                    if value is None:
+                        continue
+                    if isinstance(value, str) and value.startswith('='):
+                        ws.write_formula(r_idx, c_idx, value)
+                    else:
+                        ws.write(r_idx, c_idx, value)
+
         for sheet_name, (file, num_header_rows) in table_paths.items():
             with open(file, "r") as f:
                 meta_df = pd.DataFrame({'Info:': [f.readlines()[0].strip(), '']}).T
