@@ -38,27 +38,44 @@ conda activate hydromet-khm
 
 ## 3. Data Availability Statement
 
-**Summary:** All data used in this package are publicly available and are included in this reproducibility package.
+All data used in this package are publicly available and are included in this reproducibility package. The authors confirm that they had legitimate access to all data used in the manuscript and have the right to include this data in the reproducibility package. The following sections provide details on the raw data sets used:
 
-The KHM model workfile was constructed by the authors using the World Bank MFMod standard setup. Documentation of the MFMod framework is publicly available at:
+### Raw data for construction of the KHM model workfile
+
+The KHM model workfile (`Data/KHMSoln_clean.WF1`) was constructed by the authors using the World Bank MFMod standard setup. Documentation of the MFMod framework is publicly available at:
 
 > World Bank. *Macro-Fiscal Model (MFMod) Documentation*. Available at: [https://openknowledge.worldbank.org/server/api/core/bitstreams/3ef71fcd-2146-5c61-88af-a2e8453f5486/content](https://openknowledge.worldbank.org/server/api/core/bitstreams/3ef71fcd-2146-5c61-88af-a2e8453f5486/content)
 
-The table below lists raw input data files contained in this reproducibility package.
+The following datasets were used to construct the Cambodia MFMod model workfile: 
 
-| File                                 | Description                                                     | Source                                                          | Access              |
-|--------------------------------------|-----------------------------------------------------------------|-----------------------------------------------------------------|---------------------|
-| `Data/KHMSoln_clean.WF1`             | Cambodia MFMod macroeconomic model solution workfile (baseline) | Constructed by the authors using the World Bank MFMod framework | Included in package |
-| `Data/raw/Koh_Galelli/Q_m_avg.csv`   | Monthly discharge                                               | Koh and Galelli (2024)                                          | Included in package |
-| `Data/raw/Koh_Galelli/syscost_m.csv` | Simulated electricity generation cost                           | Koh and Galelli (2024)                                          | Included in package                    |
-| `Data/raw/WB_CCKP/projected-average-mean-s.csv`     | Projected future temperatures for Cambodia                              | World Bank (2025c)                                              | Included in package                    |
+1. Dataset 1
+   - Reference: 
+   - files: 
+   - URL: 
+   - Accessed on: 
+   - License:
+2. Dataset 2
+   - Reference: 
+   - files: 
+   - URL: 
+   - Accessed on: 
+   - License:
 
+### Raw data for model input generation
 
+1. Monthly river discharge and simulated electricity generation cost for Cambodia
+   - Reference: Koh, R. & Galelli, S. (2024). Evaluating streamflow forecasts in hydro‐dominated power systems—When and why they matter. _Water Resources Research_, _60_, e2023WR035825. https://doi.org/10.1029/2023WR035825
+   - files: `Q_m_avg.csv` (discharge) and `syscost_m.csv` (generation cost) in `./Data/raw/Koh_Galelli`
+   - URL: https://doi.org/10.1029/2023WR035825
+   - Received on: 2025-11-24
+   - Note: The data was received directly from the authors who granted permission for inclusion in this reproducibility package
+2. Temperature projections for Cambodia 
+   - Reference: World Bank (2025). Climate Change Knowledge Portal—Projected Timeseries Anomaly of Average Mean Surface Air Temperature for Cambodia [Dataset]. 
+   - files: `./Data/raw/WB_CCKP/projected-average-mean-s.csv`
+   - URL: https://climateknowledgeportal.worldbank.org/country/cambodia/climate-data-projections
+   - Accessed on: 2025-10-29
+   - License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-
-**Rights statement:** The authors confirm that they had legitimate access to all data used in the manuscript and have the right to include this data in the reproducibility package.
-
-**Restrictions:** There are no restrictions on data access, publication, or storage.
 
 ---
 
