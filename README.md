@@ -42,24 +42,20 @@ All data used in this package are publicly available and are included in this re
 
 ### Raw data for construction of the KHM model workfile
 
-The KHM model workfile (`Data/KHMSoln_clean.WF1`) was constructed by the authors using the World Bank MFMod standard setup. Documentation of the MFMod framework is publicly available at:
+The Cambodia Macroeconomic and Fiscal Model (MFMod) Dataset (included in the model workfile `Data/KHMSoln_clean.WF1`) was constructed by the authors using the World Bank MFMod standard setup. Documentation of the MFMod framework is publicly available at:
 
 > World Bank. *Macro-Fiscal Model (MFMod) Documentation*. Available at: [https://openknowledge.worldbank.org/server/api/core/bitstreams/3ef71fcd-2146-5c61-88af-a2e8453f5486/content](https://openknowledge.worldbank.org/server/api/core/bitstreams/3ef71fcd-2146-5c61-88af-a2e8453f5486/content)
 
-The following datasets were used to construct the Cambodia MFMod model workfile: 
+The following data was used to construct the Cambodia MFMod model workfile: 
 
-1. Dataset 1
-   - Reference: 
-   - files: 
-   - URL: 
-   - Accessed on: 
-   - License:
-2. Dataset 2
-   - Reference: 
-   - files: 
-   - URL: 
-   - Accessed on: 
-   - License:
+1. Macroeconomic variables in Cambodia MFMod
+   - Reference: KHMNY* (GDP), KHMNE* (expenditure side GDP), KHMNV* (production side GDP), KHMGG* (fiscal), KHMBN* (BOP): Note the last second from last letter: X = price deflator, K = real and N = nominal. The last letter: N = m national local currency and D = m of USD
+   - file:  Data/KHMSoln_clean.WF1
+   - URL: https://www.worldbank.org/en/publication/macro-poverty-outlook/mpo_eap
+   - Accessed: October 2025
+   - License: World Bank Group
+   - Access policy: Users must obtain the data directly from the Data URL for the referenced variables.
+   - Note: Data for Cambodia was manually compiled from the resources available under the data URL. Data was accessed in October 2025. The current data available in the data URL might not match the version of the accessed data.
 
 ### Raw data for model input generation
 
